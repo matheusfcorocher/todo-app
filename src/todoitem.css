@@ -1,0 +1,8 @@
+.todo-item {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    max-width: 30rem;
+    border: 1px solid #c4c4c4;
+    background-color: red;
+}
