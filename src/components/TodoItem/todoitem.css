@@ -1,0 +1,64 @@
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    max-width: 30rem;
+    padding: 0.5rem;
+    box-shadow: #00000026 0px 0px 0px 1px inset;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-height: 2rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.EDITING .checkbox {
+    visibility: hidden;
+}
+
+.title {
+    width: 80%;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.EDITING .title {
+    width: 90%;
+}
+
+.title-input {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    border: none;
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    /* font-weight: 400; */
+}
+
+.COMPLETED .title-input {
+    text-decoration: line-through;
+    color: green;
+}
+
+.delete-button {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    visibility: hidden;
+}
+
+.todo-item:hover .delete-button {
+    visibility: visible;
+}
+
+.delete-icon {
+    filter: invert(27%) sepia(95%) saturate(7484%) hue-rotate(357deg) brightness(104%) contrast(115%);
+}
