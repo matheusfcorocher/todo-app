@@ -11,8 +11,9 @@ interface TodoItemProps {
         title: string,
         state: TodoItemStates
     },
-    onCompletingTodo: () => void;
-    onEditingTodo: () => void;
+    handleUpdateTodoItemTitle: (newTitle: string) => void,
+    handleUpdateTodoItemState: (newState: string) => void,
+    handleDeleteTodoItem: (newState: string) => void,
 }
 
 export const TodoItem = ({
@@ -21,18 +22,13 @@ export const TodoItem = ({
         title,
         state
     },
-    onCompletingTodo,
-    onEditingTodo
+    handleUpdateTodoItemTitle,
+    handleUpdateTodoItemState,
+    handleDeleteTodoItem,
 }: TodoItemProps) => {
-    const [todoItemTitle, setTodoItemTitle] = useState(title);
-    const [todoItemPastState, setTodoItemPastState] = useState(state);
-    const [todoItemState, setTodoItemState] = useState(state);
     return (
-        <li className={`todo-item ${todoItemState}`}>
-            <form onSubmit={(e) => {
-                setTodoItemState(todoItemPastState);
-                e.preventDefault();
-            }}>
+        <li className={`todo-item ${state}`}>
+            <form>
                 <label
                     htmlFor="checked"
                     aria-label={`todoItem-${id}`}
@@ -43,35 +39,29 @@ export const TodoItem = ({
                         name="checked"
                         id={`todoItem-${id}`}
                         className="checkbox-input"
-                        checked={todoItemState === "COMPLETED"}
-                        onClick={() => todoItemState === "COMPLETED" ? setTodoItemState("ACTIVE") : setTodoItemState("COMPLETED")}
+                        checked={state === "COMPLETED"}
+                        onChange={() => handleUpdateTodoItemState}
                     />
                 </label>
                 <label
                     htmlFor="title"
-                    aria-label={todoItemTitle}
+                    aria-label={title}
                     className="title"
                 >
                     <input
                         type="text"
-                        value={todoItemTitle}
+                        value={title}
                         name="title"
                         className={`title-input`}
-                        onChange={(e) => setTodoItemTitle(e.target.value)}
-                        onFocus={() => {
-                            setTodoItemPastState(todoItemState)
-                            setTodoItemState("EDITING")
-                        }
-                        }
-                        onBlur={() => {
-                            setTodoItemState(todoItemPastState == "EDITING" ? "ACTIVE" : todoItemPastState)
-                        }}
+                        onChange={() => handleUpdateTodoItemTitle}
+                        onFocus={() => handleUpdateTodoItemTitle}
+                        onBlur={() => handleUpdateTodoItemTitle}
                     />
                 </label>
-                {todoItemState !== "EDITING" && (
+                {state !== "EDITING" && (
                     <button
                         className="delete-button"
-                        onClick={() => 1}
+                        onClick={() => handleDeleteTodoItem}
                         id={`deleteTodoItem-${id}`}
                         aria-label={`deleteTodoItem-${id}`}
                         key={`deleteTodoItem-${id}`}
