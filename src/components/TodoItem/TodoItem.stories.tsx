@@ -26,15 +26,6 @@ Default.args = {
     }
 };
 
-export const Editing = Template.bind({});
-Editing.args = {
-    task: {
-        id: "2",
-        title: "TASK",
-        state: "EDITING",
-    }
-};
-
 export const Completed = Template.bind({});
 Completed.args = {
     task: {

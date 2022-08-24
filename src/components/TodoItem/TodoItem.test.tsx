@@ -5,16 +5,21 @@ import { TodoItem } from './TodoItem';
 describe("::Components ::TodoItem", () => {
   describe('When TodoItem has ACTIVE state', () => {
     test('renders checkbox unchecked', () => {
-      render(<TodoItem task={{
-        id: "1",
-        title: "TASK",
-        state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
-      screen.debug();
+      render(
+        <TodoItem task={{
+          id: "1",
+          title: "TASK",
+          state: "ACTIVE",
+        }}
+          handleUpdateTodoItemTitle={function (newTitle: string): void {
+            throw new Error('Function not implemented.');
+          }}
+          handleUpdateTodoItemState={function (newState: string): void {
+            throw new Error('Function not implemented.');
+          }}
+          handleDeleteTodoItem={function (newState: string): void {
+            throw new Error('Function not implemented.');
+          }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })
@@ -23,11 +28,16 @@ describe("::Components ::TodoItem", () => {
         id: "1",
         title: "TASK",
         state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
+      }}
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleUpdateTodoItemState={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })
@@ -36,11 +46,16 @@ describe("::Components ::TodoItem", () => {
         id: "1",
         title: "TASK",
         state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
+      }}
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleUpdateTodoItemState={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })
@@ -51,11 +66,16 @@ describe("::Components ::TodoItem", () => {
         id: "1",
         title: "TASK",
         state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
+      }}
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleUpdateTodoItemState={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })
@@ -64,11 +84,16 @@ describe("::Components ::TodoItem", () => {
         id: "1",
         title: "TASK",
         state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
+      }}
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleUpdateTodoItemState={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })
@@ -77,11 +102,16 @@ describe("::Components ::TodoItem", () => {
         id: "1",
         title: "TASK",
         state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
+      }}
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleUpdateTodoItemState={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })
@@ -92,11 +122,16 @@ describe("::Components ::TodoItem", () => {
         id: "1",
         title: "TASK",
         state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
+      }}
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleUpdateTodoItemState={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })
@@ -107,11 +142,16 @@ describe("::Components ::TodoItem", () => {
         id: "1",
         title: "TASK",
         state: "ACTIVE",
-      }} onCompletingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} onEditingTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} />);
+      }}
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleUpdateTodoItemState={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }}
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        }} />);
       const linkElement = screen.getByLabelText(/TASK/i);
       expect(linkElement).toBeInTheDocument();
     })

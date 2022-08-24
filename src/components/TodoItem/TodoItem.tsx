@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import deleteIcon from '../../assets/icons/delete.svg';
 
 import './todoitem.css';
 
-type TodoItemStates = "COMPLETED" | "ACTIVE" | "EDITING";
+export type TodoItemStates = "COMPLETED" | "ACTIVE";
 
 interface TodoItemProps {
     task: {
@@ -26,8 +26,20 @@ export const TodoItem = ({
     handleUpdateTodoItemState,
     handleDeleteTodoItem,
 }: TodoItemProps) => {
+    const ref = useRef() as React.MutableRefObject<HTMLInputElement>;
+    const [hasFocus, setFocus] = useState(false);
+
+    useEffect(() => {
+        if (document.hasFocus() && ref.current.contains(document.activeElement)) {
+            setFocus(true);
+        }
+    }, []);
+
     return (
-        <li className={`todo-item ${state}`}>
+        <li className={`todo-item ${state}`}
+            onMouseEnter={() => setFocus(true)}
+            onMouseLeave={() => setFocus(false)}
+        >
             <form>
                 <label
                     htmlFor="checked"
@@ -53,12 +65,12 @@ export const TodoItem = ({
                         value={title}
                         name="title"
                         className={`title-input`}
+                        ref={ref}
                         onChange={() => handleUpdateTodoItemTitle}
-                        onFocus={() => handleUpdateTodoItemTitle}
-                        onBlur={() => handleUpdateTodoItemTitle}
+                        onFocus={() => setFocus(false)}
                     />
                 </label>
-                {state !== "EDITING" && (
+                {hasFocus && (
                     <button
                         className="delete-button"
                         onClick={() => handleDeleteTodoItem}
