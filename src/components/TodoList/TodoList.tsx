@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { TodoItem, TodoItemStates } from '../TodoItem/TodoItem';
+import { TodoItem } from '../TodoItem/TodoItem';
 import '../../App.css';
 
 type TodoData = {
   id: string;
   title: string;
-  state: TodoItemStates;
+  isCompleted: boolean;
 }
 
 function TodoList() {
@@ -20,13 +20,13 @@ function TodoList() {
       task={{
         id: todo.id,
         title: todo.title,
-        state: todo.state
+        isCompleted: todo.isCompleted
       }} 
       handleUpdateTodoItemTitle={function (newTitle: string): void {
         throw new Error('Function not implemented.');
       }} 
     
-      handleUpdateTodoItemState={function (newState: string): void {
+      handleUpdateTodoItemState={function (newState: boolean): void {
         throw new Error('Function not implemented.');
       }} 
       handleDeleteTodoItem={function (newState: string): void {

@@ -22,7 +22,7 @@ Default.args = {
     task: {
         id: "1",
         title: "TASK",
-        state: "ACTIVE",
+        isCompleted: false,
     }
 };
 
@@ -31,7 +31,7 @@ Completed.args = {
     task: {
         id: "3",
         title: "TASK",
-        state: "COMPLETED",
+        isCompleted: true,
     }
 };
 
@@ -40,6 +40,6 @@ TooLongTitle.args = {
     task: {
         id: "4",
         title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan suscipit turpis vel volutpat. In vitae aliquam ex. Nullam in odio pellentesque, feugiat libero vel, fringilla massa. Duis nec odio in nisl fringilla vestibulum at feugiat lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-        state: "ACTIVE",
+        isCompleted: false,
     }
 };

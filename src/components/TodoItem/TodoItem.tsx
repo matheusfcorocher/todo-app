@@ -3,16 +3,14 @@ import deleteIcon from '../../assets/icons/delete.svg';
 
 import './todoitem.css';
 
-export type TodoItemStates = "COMPLETED" | "ACTIVE";
-
 interface TodoItemProps {
     task: {
         id: string,
         title: string,
-        state: TodoItemStates
+        isCompleted: boolean
     },
     handleUpdateTodoItemTitle: (newTitle: string) => void,
-    handleUpdateTodoItemState: (newState: string) => void,
+    handleUpdateTodoItemState: (newState: boolean) => void,
     handleDeleteTodoItem: (newState: string) => void,
 }
 
@@ -20,7 +18,7 @@ export const TodoItem = ({
     task: {
         id,
         title,
-        state
+        isCompleted
     },
     handleUpdateTodoItemTitle,
     handleUpdateTodoItemState,
@@ -36,7 +34,7 @@ export const TodoItem = ({
     }, []);
 
     return (
-        <li className={`todo-item ${state}`}
+        <li className={`todo-item ${isCompleted}`}
         >
             <form>
                 <label
@@ -49,8 +47,14 @@ export const TodoItem = ({
                         name="checked"
                         id={`todoItem-${id}`}
                         className="checkbox-input"
-                        checked={state === "COMPLETED"}
-                        onChange={() => handleUpdateTodoItemState}
+                        checked={isCompleted}
+                        onChange={() => {
+                            if(isCompleted) {
+                                handleUpdateTodoItemState(false);
+                            } else {
+                                handleUpdateTodoItemState(true);
+                            }
+                        }}
                     />
                 </label>
                 <label
