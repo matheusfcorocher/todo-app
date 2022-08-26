@@ -44,6 +44,7 @@ export const TodoItem = ({
                 >
                     <input
                         type="checkbox"
+                        role={"checkbox"}
                         name="checked"
                         id={`todoItem-${id}`}
                         className="checkbox-input"
