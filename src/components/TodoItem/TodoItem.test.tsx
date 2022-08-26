@@ -71,7 +71,6 @@ describe("::Components ::TodoItem", () => {
       const title = screen.getByRole("textbox");
       expect(title).toBeInTheDocument();
       expect(title).toHaveValue("wash dishes");
-      expect(title).toHave
     })
     test('renders delete button when hover TodoItem', () => {
       const deleteButton = screen.getByRole(/button/i);

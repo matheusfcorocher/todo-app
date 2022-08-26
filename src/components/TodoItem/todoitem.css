@@ -43,7 +43,7 @@ form {
     /* font-weight: 400; */
 }
 
-.COMPLETED .title-input {
+.true .title-input {
     text-decoration: line-through;
     color: green;
 }
