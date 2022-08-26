@@ -37,8 +37,6 @@ export const TodoItem = ({
 
     return (
         <li className={`todo-item ${state}`}
-            onMouseEnter={() => setFocus(true)}
-            onMouseLeave={() => setFocus(false)}
         >
             <form>
                 <label
@@ -67,10 +65,11 @@ export const TodoItem = ({
                         className={`title-input`}
                         ref={ref}
                         onChange={() => handleUpdateTodoItemTitle}
-                        onFocus={() => setFocus(false)}
+                        onFocus={() => setFocus(true)}
+                        onBlur={() => setFocus(false)}
                     />
                 </label>
-                {hasFocus && (
+                {!hasFocus && (
                     <button
                         className="delete-button"
                         onClick={() => handleDeleteTodoItem}
