@@ -34,7 +34,9 @@ export const TodoItem = ({
     }, []);
 
     return (
-        <li className={`todo-item ${isCompleted}`}
+        <li 
+            data-testid={`todoItem-${id}`}
+            className={`todo-item ${isCompleted}`}
         >
             <form>
                 <label
@@ -44,7 +46,7 @@ export const TodoItem = ({
                 >
                     <input
                         type="checkbox"
-                        role={"checkbox"}
+                        role="checkbox"
                         name="checked"
                         id={`todoItem-${id}`}
                         className="checkbox-input"
@@ -65,6 +67,7 @@ export const TodoItem = ({
                 >
                     <input
                         type="text"
+                        role="textbox"
                         value={title}
                         name="title"
                         className={`title-input`}
@@ -79,7 +82,7 @@ export const TodoItem = ({
                         className="delete-button"
                         onClick={() => handleDeleteTodoItem}
                         id={`deleteTodoItem-${id}`}
-                        aria-label={`deleteTodoItem-${id}`}
+                        role="button"
                         key={`deleteTodoItem-${id}`}
                     >
                         <img src={deleteIcon} className="delete-icon" alt="delete" />
