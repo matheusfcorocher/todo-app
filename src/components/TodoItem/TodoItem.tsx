@@ -69,7 +69,6 @@ export const TodoItem = ({
                         type="text"
                         role="textbox"
                         value={title}
-                        name="title"
                         className={`title-input`}
                         ref={ref}
                         onChange={() => handleUpdateTodoItemTitle}

@@ -79,44 +79,52 @@ describe("::Components ::TodoItem", () => {
       expect(deleteButton).toBeVisible();
     })
   });
-  // describe('When TodoItem has EDITING state', () => {
-  //   test('renders title of TodoItem is editing', () => {
-  //     render(<TodoItem task={{
-  //       id: "1",
-  //       title: "TASK",
-  //       state: "ACTIVE",
-  //     }}
-  //       handleUpdateTodoItemTitle={function (newTitle: string): void {
-  //         throw new Error('Function not implemented.');
-  //       }}
-  //       handleUpdateTodoItemState={function (newState: string): void {
-  //         throw new Error('Function not implemented.');
-  //       }}
-  //       handleDeleteTodoItem={function (newState: string): void {
-  //         throw new Error('Function not implemented.');
-  //       }} />);
-  //     const linkElement = screen.getByLabelText(/TASK/i);
-  //     expect(linkElement).toBeInTheDocument();
-  //   })
-  // });
+  describe('When TodoItem has EDITING state', () => {
+    beforeEach(() => {
+      render(
+        <TodoItem task={{
+          id: "1",
+          title: "wash dishes",
+          isCompleted: false,
+        }}
+          handleUpdateTodoItemTitle={function (newTitle: string): void {
+            throw new Error('Function not implemented.');
+          }}
+          handleUpdateTodoItemState={function (newState: boolean): void {
+            throw new Error('Function not implemented.');
+          }}
+          handleDeleteTodoItem={function (newState: string): void {
+            throw new Error('Function not implemented.');
+          }} />);
+    })
+    test('delete button isnt showing', () => {
+      const deleteButton = screen.getByRole("button", { name: "delete" });
+      const input = screen.getByRole("textbox");
+      userEvent.click(input);
+      expect(deleteButton).not.toBeVisible();
+    });
+  });
   // describe('When title of TodoItem is too long', () => {
+  //   beforeEach(() => {
+  //     render(
+  //       <TodoItem task={{
+  //         id: "1",
+  //         title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan suscipit turpis vel volutpat. In vitae aliquam ex. Nullam in odio pellentesque, feugiat libero vel, fringilla massa. Duis nec odio in nisl fringilla vestibulum at feugiat lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+  //         isCompleted: false,
+  //       }}
+  //         handleUpdateTodoItemTitle={function (newTitle: string): void {
+  //           throw new Error('Function not implemented.');
+  //         }}
+  //         handleUpdateTodoItemState={function (newState: boolean): void {
+  //           throw new Error('Function not implemented.');
+  //         }}
+  //         handleDeleteTodoItem={function (newState: string): void {
+  //           throw new Error('Function not implemented.');
+  //         }} />);
+  //   })
   //   test('renders title of TodoItem with ellipsis', () => {
-  //     render(<TodoItem task={{
-  //       id: "1",
-  //       title: "TASK",
-  //       state: "ACTIVE",
-  //     }}
-  //       handleUpdateTodoItemTitle={function (newTitle: string): void {
-  //         throw new Error('Function not implemented.');
-  //       }}
-  //       handleUpdateTodoItemState={function (newState: string): void {
-  //         throw new Error('Function not implemented.');
-  //       }}
-  //       handleDeleteTodoItem={function (newState: string): void {
-  //         throw new Error('Function not implemented.');
-  //       }} />);
-  //     const linkElement = screen.getByLabelText(/TASK/i);
-  //     expect(linkElement).toBeInTheDocument();
+  //     const input = screen.getByRole("textbox");
+  //     expect(input).toHaveStyle("text-overflow: ellipsis");
   //   })
   // });
 })
