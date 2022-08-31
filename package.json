@@ -10,7 +10,6 @@
     "@types/node": "^16.11.43",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
-    "babel-jest": "^29.0.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
@@ -27,7 +26,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "chromatic": "npx chromatic --project-token=08810a9e7968"
   },
   "eslintConfig": {
     "extends": [
@@ -79,8 +79,12 @@
     "@storybook/react": "^6.5.9",
     "@storybook/test-runner": "^0.4.0",
     "@storybook/testing-library": "^0.0.13",
+    "babel-jest": "^29.0.1",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.8.0",
     "prop-types": "^15.8.1",
     "webpack": "^5.73.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "todo-app@0.1.0"
 }
