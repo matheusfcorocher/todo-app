@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
 import '../../App.css';
+import './todolist.css';
 
 type TodoData = {
   id: string;
@@ -36,16 +37,19 @@ function TodoList() {
   );
 
   return (
-    <div className="TodoList">
-      <input 
-        type="text"
-        role="textbox"
-        placeholder='Enter todo name'
-        value={''}
-        name="title"
-        className={`title-input`}
-        onChange={() => handleCreateTodoItem}
-      />
+    <div className={"todo-list"}>
+      <div className={`todo-panel`}>
+        <button>Complete All</button>
+        <input 
+          type="text"
+          role="textbox"
+          placeholder='What needs to be done?'
+          value={''}
+          name="title"
+          className={`title-input`}
+          onChange={() => handleCreateTodoItem}
+        />
+      </div>
       <ul>
         {listToDoItems}
       </ul>
