@@ -1,7 +1,7 @@
 .todo-item {
     display: flex;
     justify-content: space-between;
-    max-width: 30rem;
+    width: auto;
     padding: 0.5rem;
     box-shadow: #00000026 0px 0px 0px 1px inset;
 }

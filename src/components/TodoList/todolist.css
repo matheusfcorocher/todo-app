@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.todo-list {
+.todo-panel {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,12 +21,16 @@ code {
   box-shadow: #00000026 0px 0px 0px 1px inset;
 }
 
-.todo-panel {
+.todo-menu {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+}
+
+.complete-button {
+  margin-right: 1rem;
 }
 
 .title-input {
@@ -39,4 +43,13 @@ code {
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0;
+  width: auto;
 }
