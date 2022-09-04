@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { TodoItem } from '../TodoItem/TodoItem';
-import '../../App.css';
+import { TodoItem } from '../../Molecules/TodoItem/TodoItem';
+import '../../../App.css';
 import './todolist.css';
-import list from '../../assets/icons/list-icon.svg';
-import checkList from '../../assets/icons/check-list-icon.svg';
+import list from '../../../assets/icons/list-icon.svg';
+import checkList from '../../../assets/icons/check-list-icon.svg';
 
 type TodoData = {
   id: string;
@@ -11,11 +11,11 @@ type TodoData = {
   isCompleted: boolean;
 }
 
-interface TodoListProps {
+interface TodoProps {
   todosData?: Array<TodoData>;
 }
 
-function TodoList({ todosData = [] }: TodoListProps) {
+function Todo({ todosData = [] }: TodoProps) {
   const [todos, setTodos] = useState([...todosData]);
 
   const handleCreateTodoItem = (TodoTitle: string) => {
@@ -50,7 +50,11 @@ function TodoList({ todosData = [] }: TodoListProps) {
     <div className={"todo-panel"}>
       <div className={`todo-menu`}>
         <button className={`complete-button`} >
-          <img src={checkList} className="check-icon" alt="check-all-icon" />
+          <img 
+            src={checkList} 
+            className="check-icon" 
+            alt="check-all-icon" 
+          />
           {/* <img src={list} className="uncheck-icon" alt="uncheck-all-icon" /> */}
         </button>
         <input
@@ -70,4 +74,4 @@ function TodoList({ todosData = [] }: TodoListProps) {
   );
 }
 
-export default TodoList;
+export default Todo;

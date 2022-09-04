@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TodoList from './TodoList';
 
 export default {
-  title: 'Example/TodoList',
+  title: 'Molecules/TodoList',
   component: TodoList,
   decorators: [
     (Story) => (

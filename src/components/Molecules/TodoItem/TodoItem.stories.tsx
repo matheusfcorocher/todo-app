@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TodoItem } from './TodoItem';
 
 export default {
-  title: 'Example/TodoItem',
+  title: 'Molecules/TodoItem',
   component: TodoItem,
   decorators: [
     (Story) => (

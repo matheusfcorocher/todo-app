@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import deleteIcon from '../../assets/icons/delete.svg';
+import deleteIcon from '../../../assets/icons/delete.svg';
 
 import './todoitem.css';
 
