@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import '../../../App.css';
+import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
 import './todolist.css';
-import checkList from '../../../assets/icons/check-list-icon.svg';
 
 function TodoMenu() {
     return (
         <div className={`todo-menu`}>
             <button className={`complete-button`} >
-                <img
-                    src={checkList}
-                    className="check-icon"
-                    alt="check-all-icon"
-                />
+                <CheckListIcon />
                 {/* <img src={list} className="uncheck-icon" alt="uncheck-all-icon" /> */}
             </button>
             <input

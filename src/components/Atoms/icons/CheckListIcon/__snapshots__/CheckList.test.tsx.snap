@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Atoms ::CheckListIcon renders icon of CheckListIcon 1`] = `
+<img
+  alt="check-all-icon"
+  class="check-icon"
+  role="image"
+  src="check-list-icon.svg"
+/>
+`;
