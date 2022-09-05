@@ -59,7 +59,3 @@ form {
 .todo-item:hover .delete-button {
     visibility: visible;
 }
-
-.delete-icon {
-    filter: invert(27%) sepia(95%) saturate(7484%) hue-rotate(357deg) brightness(104%) contrast(115%);
-}

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Atoms ::DeleteIcon renders icon of DeleteIcon 1`] = `
+<img
+  alt="delete"
+  class="delete-icon"
+  role="image"
+  src="delete.svg"
+/>
+`;

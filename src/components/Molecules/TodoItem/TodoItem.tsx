@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import deleteIcon from '../../../assets/icons/delete.svg';
+import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
 
 import './todoitem.css';
 
@@ -84,7 +85,7 @@ export const TodoItem = ({
                         role="button"
                         key={`deleteTodoItem-${id}`}
                     >
-                        <img src={deleteIcon} className="delete-icon" alt="delete" />
+                        <DeleteIcon />
                     </button>
                 )}
             </form>
