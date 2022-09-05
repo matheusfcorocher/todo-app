@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Atoms ::ListIcon renders icon of ListIcon 1`] = `
+<img
+  alt="list-icon"
+  class="list-icon"
+  role="image"
+  src="list-icon.svg"
+/>
+`;

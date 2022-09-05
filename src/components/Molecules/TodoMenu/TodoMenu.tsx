@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../../../App.css';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
+import ListIcon from '../../Atoms/icons/ListIcon/ListIcon';
 import './todolist.css';
 
 function TodoMenu() {
@@ -8,7 +9,7 @@ function TodoMenu() {
         <div className={`todo-menu`}>
             <button className={`complete-button`} >
                 <CheckListIcon />
-                {/* <img src={list} className="uncheck-icon" alt="uncheck-all-icon" /> */}
+                {/* <ListIcon /> */}
             </button>
             <input
                 type="text"
