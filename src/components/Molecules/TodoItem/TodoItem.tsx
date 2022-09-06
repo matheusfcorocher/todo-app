@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import deleteIcon from '../../../assets/icons/delete.svg';
+import IconButton from "../../Atoms/IconButton/IconButton";
 import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
 
 import './todoitem.css';
@@ -78,15 +79,11 @@ export const TodoItem = ({
                     />
                 </label>
                 {!hasFocus && (
-                    <button
-                        className="delete-button"
-                        onClick={() => handleDeleteTodoItem}
-                        id={`deleteTodoItem-${id}`}
-                        role="button"
-                        key={`deleteTodoItem-${id}`}
-                    >
+                    <IconButton
+                        className="delete-button" 
+                        handleFunction={() => handleDeleteTodoItem}>
                         <DeleteIcon />
-                    </button>
+                    </IconButton>
                 )}
             </form>
         </li>

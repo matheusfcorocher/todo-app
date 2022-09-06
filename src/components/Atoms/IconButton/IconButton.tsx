@@ -5,15 +5,17 @@ import './icon-button.css';
 interface IconButtonProps {    
     handleFunction: () => void,
     children: React.ReactNode,
+    className?: string,
 }
 
 function IconButton({
     handleFunction,
-    children
+    children,
+    className
 }: IconButtonProps) {
     return (
         <button
-            className="icon-button"
+            className={`icon-button ${className}`}
             onClick={() => handleFunction}
             role="button"
         >
