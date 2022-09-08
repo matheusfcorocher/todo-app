@@ -13,11 +13,6 @@ form {
     max-height: 2rem;
 }
 
-.checkbox {
-    display: flex;
-    align-items: center;
-}
-
 .EDITING .checkbox {
     visibility: hidden;
 }

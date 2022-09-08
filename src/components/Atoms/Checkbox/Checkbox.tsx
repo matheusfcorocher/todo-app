@@ -24,13 +24,7 @@ function Checkbox({
                 name="checked"
                 className="checkbox-input"
                 checked={checked}
-                onChange={() => {
-                    // if (checked) {
-                    //     handleOnChange(false);
-                    // } else {
-                    //     handleOnChange(true);
-                    // }
-                }}
+                onChange={() => handleOnChange()}
             />
         </label>
     );

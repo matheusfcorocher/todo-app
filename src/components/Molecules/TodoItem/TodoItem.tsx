@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import deleteIcon from '../../../assets/icons/delete.svg';
+import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
 import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
 
@@ -41,27 +42,16 @@ export const TodoItem = ({
             className={`todo-item ${isCompleted}`}
         >
             <form>
-                <label
-                    htmlFor="checked"
-                    aria-label={`todoItem-${id}`}
-                    className={`checkbox`}
-                >
-                    <input
-                        type="checkbox"
-                        role="checkbox"
-                        name="checked"
-                        id={`todoItem-${id}`}
-                        className="checkbox-input"
-                        checked={isCompleted}
-                        onChange={() => {
-                            if(isCompleted) {
-                                handleUpdateTodoItemState(false);
-                            } else {
-                                handleUpdateTodoItemState(true);
-                            }
-                        }}
-                    />
-                </label>
+                <Checkbox 
+                    handleOnChange={() => {
+                        if(isCompleted) {
+                            handleUpdateTodoItemState(false);
+                        } else {
+                            handleUpdateTodoItemState(true);
+                        }
+                    }} 
+                    checked={isCompleted}                
+                />
                 <label
                     htmlFor="title"
                     aria-label={title}
