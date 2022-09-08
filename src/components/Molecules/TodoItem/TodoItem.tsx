@@ -3,6 +3,7 @@ import deleteIcon from '../../../assets/icons/delete.svg';
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
 import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
+import TitleInput from "../../Atoms/TitleInput/TitleInput";
 
 import './todoitem.css';
 
@@ -52,22 +53,12 @@ export const TodoItem = ({
                     }} 
                     checked={isCompleted}                
                 />
-                <label
-                    htmlFor="title"
-                    aria-label={title}
-                    className="title"
-                >
-                    <input
-                        type="text"
-                        role="textbox"
-                        value={title}
-                        className={`title-input`}
-                        ref={ref}
-                        onChange={() => handleUpdateTodoItemTitle}
-                        onFocus={() => setFocus(true)}
-                        onBlur={() => setFocus(false)}
-                    />
-                </label>
+                <TitleInput 
+                    handleOnChange={() => handleUpdateTodoItemTitle} 
+                    handleOnFocus={() => setFocus(true)} 
+                    handleOnBlur={() => setFocus(false)} 
+                    title={title}                
+                />
                 {!hasFocus && (
                     <IconButton
                         className="delete-button" 
