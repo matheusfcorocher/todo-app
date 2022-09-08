@@ -17,33 +17,6 @@ form {
     visibility: hidden;
 }
 
-.title {
-    width: 100%;
-    margin: 0 0.5rem 0 0.5rem;
-}
-
-.EDITING .title {
-    width: 90%;
-}
-
-.title-input {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    border: none;
-    text-overflow: ellipsis;
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    /* font-weight: 400; */
-}
-
-.true .title-input {
-    text-decoration: line-through;
-    color: green;
-}
-
 .delete-button {
     visibility: hidden;
 }
