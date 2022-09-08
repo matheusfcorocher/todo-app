@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Atoms ::TitleInput renders TitleInput 1`] = `
+<input
+  class="title-input"
+  role="textbox"
+  type="text"
+  value=""
+/>
+`;
