@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Atoms ::Checkbox renders Checkbox 1`] = `
+<input
+  class="checkbox-input"
+  name="checked"
+  role="checkbox"
+  type="checkbox"
+/>
+`;

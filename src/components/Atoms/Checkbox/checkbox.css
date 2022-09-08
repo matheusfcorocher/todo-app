@@ -1,0 +1,8 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.EDITING .checkbox {
+    visibility: hidden;
+}
