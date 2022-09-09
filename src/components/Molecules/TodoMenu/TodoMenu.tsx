@@ -14,17 +14,17 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted }: TodoMenuProps) {
     return (
         <div className={`todo-menu`}>
             {
-                    isAllTodosCompleted?
+                isAllTodosCompleted ?
                     (<IconButton className="complete-button" handleFunction={function (): void {
                         throw new Error('Function not implemented.');
                     }}>
-                        <ListIcon className="list-icon"/>
+                        <ListIcon className="list-icon" />
                     </IconButton>)
                     :
-                    (<IconButton handleFunction={function (): void {
+                    (<IconButton className="complete-button" handleFunction={function (): void {
                         throw new Error('Function not implemented.');
-                    } }>
-                        <CheckListIcon />
+                    }}>
+                        <CheckListIcon className="checklist-icon" />
                     </IconButton>)
             }
             <input
