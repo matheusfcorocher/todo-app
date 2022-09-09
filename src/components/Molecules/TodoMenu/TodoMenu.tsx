@@ -4,7 +4,11 @@ import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
 import ListIcon from '../../Atoms/icons/ListIcon/ListIcon';
 import './todolist.css';
 
-function TodoMenu() {
+interface TodoMenuProps {
+    handleCreateTodo: () => void;
+}
+
+function TodoMenu({ handleCreateTodo }: TodoMenuProps) {
     return (
         <div className={`todo-menu`}>
             <button className={`complete-button`} >
@@ -18,7 +22,7 @@ function TodoMenu() {
                 value={''}
                 name="title"
                 className={`title-input`}
-                onChange={() => {}}
+                onChange={() => handleCreateTodo()}
             />
         </div>
     );

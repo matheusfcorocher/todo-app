@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
 import '../../../App.css';
 import './todolist.css';
-import list from '../../../assets/icons/list-icon.svg';
-import checkList from '../../../assets/icons/check-list-icon.svg';
 
 type TodoData = {
   id: string;
@@ -16,13 +14,12 @@ interface TodoListProps {
 }
 
 function TodoList({ todosData = [] }: TodoListProps) {
-  const [todos, setTodos] = useState([...todosData]);
 
   const handleCreateTodoItem = (TodoTitle: string) => {
 
   };
 
-  const listToDoItems = todos.map((todo: TodoData) => {
+  const listToDoItems = todosData.map((todo: TodoData) => {
     return (
       <TodoItem
         key={todo.id}
