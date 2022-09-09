@@ -20,8 +20,30 @@ code {
   width: 100%;
 }
 
+.list-icon-container {
+  width: 100px;
+  height: 100px;
+}
+
+.list-icon {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  fill: white;
+  stroke: white !important;
+  stroke-width: 0.1;
+  background: transparent;
+}
+
 .complete-button {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
   margin-right: 1rem;
+  background-color: green;
 }
 
 .title-input {

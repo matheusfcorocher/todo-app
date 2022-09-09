@@ -44,7 +44,7 @@ function TodoList({ todosData = [] }: TodoListProps) {
   );
 
   return (
-    <ul className={"todo-list"}>
+    <ul role="list" className={"todo-list"}>
       {listToDoItems}
     </ul>
   );

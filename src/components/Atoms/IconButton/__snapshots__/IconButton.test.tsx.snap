@@ -2,7 +2,7 @@
 
 exports[`::Components ::Atoms ::IconButton renders IconButton 1`] = `
 <button
-  class="icon-button"
+  class="icon-button undefined"
   role="button"
 />
 `;

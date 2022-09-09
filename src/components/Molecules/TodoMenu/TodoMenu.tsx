@@ -3,7 +3,7 @@ import '../../../App.css';
 import IconButton from '../../Atoms/IconButton/IconButton';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
 import ListIcon from '../../Atoms/icons/ListIcon/ListIcon';
-import './todolist.css';
+import './todo-menu.css';
 
 interface TodoMenuProps {
     handleCreateTodo: () => void;
@@ -15,10 +15,10 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted }: TodoMenuProps) {
         <div className={`todo-menu`}>
             {
                     isAllTodosCompleted?
-                    (<IconButton handleFunction={function (): void {
+                    (<IconButton className="complete-button" handleFunction={function (): void {
                         throw new Error('Function not implemented.');
-                    } }>
-                        <ListIcon />
+                    }}>
+                        <ListIcon className="list-icon"/>
                     </IconButton>)
                     :
                     (<IconButton handleFunction={function (): void {

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Molecules ::TodoList renders TodoList 1`] = `
+<ul
+  class="todo-list"
+  role="list"
+/>
+`;
