@@ -19,3 +19,8 @@ code {
   align-items: center;
   width: 100%;
 }
+
+.todo-count {
+  text-align: left;
+  float: left;
+}
