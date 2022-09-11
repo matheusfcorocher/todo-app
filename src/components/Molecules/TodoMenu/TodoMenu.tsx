@@ -12,7 +12,7 @@ interface TodoMenuProps {
 
 function TodoMenu({ handleCreateTodo, isAllTodosCompleted }: TodoMenuProps) {
     return (
-        <div className={`todo-menu`}>
+        <div role="group" className={`todo-menu`}>
             {
                 isAllTodosCompleted ?
                     (<IconButton className="complete-button" handleFunction={function (): void {
