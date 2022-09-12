@@ -7,17 +7,22 @@ interface TodoFooter {
 }
 
 function TodoFooter({}: TodoFooter) {
+    const handleClick = (event : React.MouseEvent<HTMLButtonElement, MouseEvent>) : void => {
+        document.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
+        event.currentTarget.classList.toggle('active')
+    }
+
     return (
         <div role="group" className={`todo-footer`}>
             <span className={`todo-count`}>
                 <strong>1&nbsp;</strong>
                 item left
             </span>
-            <ul className={`todo-filters`}>
-                <li className={'todo-filter'}>All</li>
-                <li className={'todo-filter'}>Active</li>
-                <li className={'todo-filter'}>Completed</li>
-            </ul>
+            <div className={`todo-filters`}>
+                <button className={'todo-filter'} onClick={handleClick} >All</button>
+                <button className={'todo-filter'} onClick={handleClick} >Active</button>
+                <button className={'todo-filter'} onClick={handleClick} >Completed</button>
+            </div>
         </div>
     );
 }
