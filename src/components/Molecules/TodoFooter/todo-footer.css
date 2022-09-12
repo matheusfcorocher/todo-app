@@ -12,10 +12,10 @@ code {
     monospace;
 }
 
-.todo-menu {
+.todo-footer {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 }
@@ -23,4 +23,20 @@ code {
 .todo-count {
   text-align: left;
   float: left;
+}
+
+.todo-filters {
+  display: flex;
+  list-style: none;
+  padding: 0rem;
+  gap: 2rem;
+}
+
+.todo-filter {
+  padding: 0.2rem;
+}
+
+.todo-filter:active {
+  border-radius: 0.2rem;
+  border: 1px solid;
 }
