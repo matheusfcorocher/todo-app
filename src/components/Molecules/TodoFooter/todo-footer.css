@@ -34,11 +34,12 @@ code {
 
 .todo-filter {
   width: 5rem;
-  padding: 0.4rem;
+  padding: 0.2rem;
   border-radius: 0.2rem;
   text-decoration: none;
   color: #bb3385;
   border: none;
+  text-decoration: none;
 }
 
 .active {
