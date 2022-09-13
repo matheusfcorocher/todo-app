@@ -21,10 +21,10 @@ function Todo({ todosData = [] }: TodoProps) {
     <div className={"todo-panel"}>
       <TodoMenu handleCreateTodo={function (): void {
         throw new Error('Function not implemented.');
-      } } isAllTodosCompleted={false}      
+      }} isAllTodosCompleted={false}
       />
       <TodoList todosData={todosData} />
-      <TodoFooter />
+      {todosData.length !== 0 && <TodoFooter todosQuantity={todosData.length} />}
     </div>
   );
 }

@@ -3,10 +3,10 @@ import '../../../App.css';
 import './todo-footer.css';
 
 interface TodoFooter {
-
+    todosQuantity: number;
 }
 
-function TodoFooter({}: TodoFooter) {
+function TodoFooter({todosQuantity}: TodoFooter) {
     const handleClick = (event : React.MouseEvent<HTMLAnchorElement, MouseEvent>) : void => {
         document.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
         event.currentTarget.classList.toggle('active')
@@ -15,7 +15,7 @@ function TodoFooter({}: TodoFooter) {
     return (
         <div role="group" className={`todo-footer`}>
             <span className={`todo-count`}>
-                <strong>1&nbsp;</strong>
+                <strong>{todosQuantity}&nbsp;</strong>
                 item left
             </span>
             <ul className={`todo-filters`}>
