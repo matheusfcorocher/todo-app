@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { TodoItem } from '../../Molecules/TodoItem/TodoItem';
 import '../../../App.css';
-import './todolist.css';
-import list from '../../../assets/icons/list-icon.svg';
-import checkList from '../../../assets/icons/check-list-icon.svg';
+import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
