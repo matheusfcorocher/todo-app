@@ -18,7 +18,7 @@ interface TodoProps {
 
 function Todo({ todosData = [] }: TodoProps) {
   return (
-    <div className={"todo-panel"}>
+    <div data-testid="todo" role="group" className={"todo-panel"}>
       <TodoMenu handleCreateTodo={function (): void {
         throw new Error('Function not implemented.');
       }} isAllTodosCompleted={false}

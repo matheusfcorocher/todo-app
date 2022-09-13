@@ -1,9 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './Todo';
+import Todo from './Todo';
 
-test('renders TodoList', () => {
-  render(<App />);
-  const linkElement = screen.getByRole("textbox");
-  expect(linkElement).toBeInTheDocument();
-});
+describe("::Components ::Organisms ::Todo", () => {
+  test('renders Todo', () => {
+      render(<Todo />);
+      const todo = screen.getByTestId("todo");
+      expect(todo).toMatchSnapshot();
+  })
+})
