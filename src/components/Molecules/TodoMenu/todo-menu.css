@@ -53,7 +53,7 @@ code {
   display: flex;
   align-items: center;
   margin-right: 1rem;
-  background-color: green;
+  background-color: #ebb062;
 }
 
 .title-input {
@@ -61,7 +61,7 @@ code {
   align-items: center;
   height: 100%;
   width: 100%;
-  padding: 0;
+  padding: 0.5rem;
   border: none;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;

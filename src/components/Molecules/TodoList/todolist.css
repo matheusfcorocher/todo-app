@@ -16,7 +16,6 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  max-width: 30rem;
   padding: 0.5rem;
   box-shadow: #00000026 0px 0px 0px 1px inset;
 }
