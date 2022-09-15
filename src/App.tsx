@@ -6,7 +6,18 @@ import Todo from './components/Organisms/Todo/Todo';
 function App() {
   return (
     <div className="App">
-      <Todo />
+      <Todo todosData={[
+        {
+          id: "1",
+          title: "TASK",
+          isCompleted: false,
+        },
+        {
+          id: "2",
+          title: "TASK 2",
+          isCompleted: true,
+        }
+      ]} />
     </div>
   );
 }

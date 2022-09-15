@@ -2,15 +2,19 @@
     display: flex;
     justify-content: space-between;
     width: auto;
+    max-height: 3rem;
     padding: 0.5rem;
     box-shadow: #00000026 0px 0px 0px 1px inset;
+    background: #826a72;
 }
 
 form {
     display: flex;
+    margin: auto;
+    align-items: center;
     justify-content: flex-start;
     width: 100%;
-    max-height: 2rem;
+    height: auto;
 }
 
 .EDITING .checkbox {
