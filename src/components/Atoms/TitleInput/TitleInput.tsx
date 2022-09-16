@@ -1,42 +1,40 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { forwardRef } from 'react';
 import '../../../App';
 import './title-input.css';
 
 interface TitleInputProps {
-    handleOnChange: () => void,
-    handleOnFocus: () => void,
-    handleOnBlur: () => void,
-    title:  string,
-    ref?:  React.MutableRefObject<HTMLInputElement>,
-    className?: string,
+    props: {
+        handleOnChange: () => void,
+        handleOnFocus: () => void,
+        handleOnBlur: () => void,
+        title:  string,
+        className?: string,
+    },
+    ref?:  React.LegacyRef<HTMLInputElement>,
 }
 
 function TitleInput({
-    handleOnChange,
-    handleOnFocus,
-    handleOnBlur,
-    title,
-    ref,
-    className
+    props,
+    ref
 }: TitleInputProps) {
     return (
         <label
             htmlFor="title"
-            aria-label={title}
+            aria-label={props?.title}
             className="title"
         >
             <input
                 type="text"
                 role="textbox"
-                value={title}
+                value={props.title}
                 className={`title-input`}
                 ref={ref}
-                onChange={() => handleOnChange()}
-                onFocus={() => handleOnFocus()}
-                onBlur={() => handleOnBlur()}
+                onChange={() => props?.handleOnChange()}
+                onFocus={() => props?.handleOnFocus()}
+                onBlur={() => props?.handleOnBlur()}
             />
         </label>
     );
 }
 
-export default TitleInput;
+export default forwardRef(TitleInput);

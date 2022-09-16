@@ -28,7 +28,7 @@ export const TodoItem = ({
     handleUpdateTodoItemState,
     handleDeleteTodoItem,
 }: TodoItemProps) => {
-    const ref = useRef() as React.MutableRefObject<HTMLInputElement>;
+    const ref = useRef<HTMLInputElement>(document.createElement('input'));
     const [hasFocus, setFocus] = useState(false);
 
     useEffect(() => {
@@ -38,31 +38,33 @@ export const TodoItem = ({
     }, []);
 
     return (
-        <li 
+        <li
             data-testid={`todoItem-${id}`}
             className={`todo-item ${isCompleted}`}
         >
             <form>
-                <Checkbox 
+                <Checkbox
                     handleOnChange={() => {
-                        if(isCompleted) {
+                        if (isCompleted) {
                             handleUpdateTodoItemState(false);
                         } else {
                             handleUpdateTodoItemState(true);
                         }
-                    }} 
-                    checked={isCompleted}                
+                    }}
+                    checked={isCompleted}
                 />
-                <TitleInput 
-                    handleOnChange={() => handleUpdateTodoItemTitle} 
-                    handleOnFocus={() => setFocus(true)} 
-                    handleOnBlur={() => setFocus(false)} 
-                    ref={ref}                
-                    title={title}
+                <TitleInput
+                    props={{
+                        title,
+                        handleOnChange: () => handleUpdateTodoItemTitle,
+                        handleOnFocus: () => setFocus(true),
+                        handleOnBlur: () => setFocus(false),
+                    }}
+                    ref={ref}
                 />
                 {!hasFocus && (
                     <IconButton
-                        className="delete-button" 
+                        className="delete-button"
                         handleFunction={() => handleDeleteTodoItem}>
                         <DeleteIcon />
                     </IconButton>
