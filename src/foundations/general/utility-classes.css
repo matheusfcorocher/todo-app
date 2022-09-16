@@ -28,4 +28,6 @@
     clip-path: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-}
+} /* Visually hides the element but a reader only can read
+- accessibility
+*/
