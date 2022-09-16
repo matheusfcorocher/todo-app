@@ -35,7 +35,7 @@ export const TodoItem = ({
         if (document.hasFocus() && ref.current.contains(document.activeElement)) {
             setFocus(true);
         }
-    }, [ref.current]);
+    }, []);
 
     return (
         <li 
@@ -57,7 +57,8 @@ export const TodoItem = ({
                     handleOnChange={() => handleUpdateTodoItemTitle} 
                     handleOnFocus={() => setFocus(true)} 
                     handleOnBlur={() => setFocus(false)} 
-                    title={title}                
+                    ref={ref}                
+                    title={title}
                 />
                 {!hasFocus && (
                     <IconButton
