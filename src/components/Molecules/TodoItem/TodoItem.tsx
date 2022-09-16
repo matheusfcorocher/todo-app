@@ -35,7 +35,7 @@ export const TodoItem = ({
         if (document.hasFocus() && ref.current.contains(document.activeElement)) {
             setFocus(true);
         }
-    }, []);
+    }, [ref.current]);
 
     return (
         <li 
