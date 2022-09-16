@@ -1,6 +1,8 @@
+@import 'foundations/colors/colors.css';
+
 .App {
   text-align: center;
-  background-color: #afd2c9;
+  background-color: var(--primary-color);
   min-height: 100vh;
   padding-top: 5vh;
   display: flex;

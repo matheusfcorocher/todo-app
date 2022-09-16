@@ -11,13 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@import '../../../foundations/colors/colors.css';
 
 .todo-panel {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0.5rem;
-  box-shadow: #00000026 0px 0px 0px 1px inset;
+  box-shadow: var(--dark-color) 0px 0px 0px 1px inset;
 }
 
 .todo-menu {

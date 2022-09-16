@@ -1,11 +1,13 @@
+@import '../../../foundations/colors/colors.css';
+
 .todo-item {
     display: flex;
     justify-content: space-between;
     width: auto;
     max-height: 3rem;
     padding: 0.5rem;
-    box-shadow: #00000026 0px 0px 0px 1px inset;
-    background: #826a72;
+    box-shadow: var(--dark-color) 0px 0px 0px 1px inset;
+    background: var(--secondary-color);
 }
 
 form {
