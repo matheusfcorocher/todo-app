@@ -1,5 +1,6 @@
 @import '../../../foundations/colors/colors.css';
 @import '../../../foundations/shadow/shadows.css';
+@import '../../../foundations/round-corners/round-corners.css';
 
 body {
   margin: 0;
@@ -26,5 +27,5 @@ code {
   gap: 0.5rem;
   box-shadow: var(--box-shadow-sm);
   background: var(--secondary-color);
-  border-radius: 0.2rem;
+  border-radius: var(--round-corner-sm);
 }

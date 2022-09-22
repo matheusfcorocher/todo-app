@@ -1,4 +1,5 @@
 @import '../../../foundations/colors/colors.css';
+@import '../../../foundations/round-corners/round-corners.css';
 
 body {
   margin: 0;
@@ -37,7 +38,7 @@ code {
 .todo-filter {
   width: 5rem;
   padding: 0.2rem;
-  border-radius: 0.2rem;
+  border-radius: var(--round-corner-sm);
   text-decoration: none;
   color: var(--tertiary-color);
   border: none;

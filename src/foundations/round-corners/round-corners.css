@@ -1,0 +1,17 @@
+:root {
+    --round-corner-sm: 0.25rem; 
+    --round-corner-md: 0.5rem; 
+    --round-corner-lg: 0.75rem; 
+}
+
+.round-corner-sm {
+    border-radius: var(--round-corner-sm);
+}
+
+.round-corner-md {
+    border-radius: var(--round-corner-md);
+}
+
+.round-corner-lg {
+    border-radius: var(--round-corner-lg);
+}

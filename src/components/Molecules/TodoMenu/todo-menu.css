@@ -1,4 +1,5 @@
 @import '../../../foundations/colors/colors.css';
+@import '../../../foundations/round-corners/round-corners.css';
 
 body {
   margin: 0;
@@ -63,7 +64,7 @@ code {
   align-items: center;
   height: 100%;
   width: 100%;
-  border-radius: 0.1rem;
+  border-radius: var(--round-corner-sm);
   border: none;
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1rem;
