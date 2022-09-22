@@ -12,13 +12,14 @@ code {
     monospace;
 }
 @import '../../../foundations/colors/colors.css';
+@import '../../../foundations/shadow/shadows.css';
 
 .todo-panel {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 0.5rem;
-  box-shadow: var(--dark-color) 0px 0px 0px 1px inset;
+  box-shadow: var(--box-shadow-sm);
 }
 
 .todo-menu {
