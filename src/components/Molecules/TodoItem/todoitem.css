@@ -27,6 +27,7 @@ form {
 
 .delete-button {
     visibility: hidden;
+    margin-left: var(--spacing-xs);
 }
 
 .todo-item:hover .delete-button {
