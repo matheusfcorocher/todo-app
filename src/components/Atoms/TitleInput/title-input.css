@@ -1,6 +1,9 @@
+@import '../../../foundations/spacing/spacing.css';
+@import '../../../foundations/typography/typograph.css';
+
 .title {
     width: 100%;
-    margin: 0 0.5rem 0 0.5rem;
+    margin: 0 var(--spacing-sm) 0 var(--spacing-sm);
 }
 
 .EDITING .title {
@@ -12,12 +15,11 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    padding: 0.5rem;
+    padding: var(--spacing-sm);
     border: none;
     text-overflow: ellipsis;
-    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    /* font-weight: 400; */
+    font-family: var(--ff-serif);
+    font-size: var(--fs-300);
 }
 
 .true .title-input {

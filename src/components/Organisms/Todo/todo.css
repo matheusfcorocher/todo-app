@@ -1,20 +1,7 @@
 @import '../../../foundations/colors/colors.css';
 @import '../../../foundations/shadow/shadows.css';
 @import '../../../foundations/round-corners/round-corners.css';
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import '../../../foundations/spacing/spacing.css';
 
 .todo-panel {
   display: flex;
@@ -22,9 +9,9 @@ code {
   justify-content: space-between;
   width: calc(100vw - 2rem);
   max-width: 30rem;
-  padding: 0.5rem;
-  margin: 0 1rem 0 1rem;
-  gap: 0.5rem;
+  padding: var(--spacing-sm);
+  margin: 0 var(--spacing-md) 0 var(--spacing-md);
+  gap: var(--spacing-sm);
   box-shadow: var(--box-shadow-sm);
   background: var(--secondary-color);
   border-radius: var(--round-corner-sm);

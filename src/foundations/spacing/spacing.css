@@ -1,8 +1,9 @@
-@import '../colors/colors.css';
-
 :root {
-    --box-shadow-xs: rgba(149, 157, 165, 0.2) 0px 1px 0px 1px;
-    --box-shadow-sm: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    --box-shadow-md: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    --box-shadow-lg: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    --spacing-xs: 0.25rem; /*4px*/
+    --spacing-sm: 0.5rem;  /*8px*/
+    --spacing-md: 1rem; /*16px*/
+    --spacing-lg: 1.5rem; /*24px*/
+    --spacing-xl: 2rem; /*32px*/
+    --spacing-xxl: 3rem; /*48px*/
+    --spacing-xxxl: 4rem; /*64px*/
 }

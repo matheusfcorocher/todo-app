@@ -13,12 +13,14 @@ code {
 }
 @import '../../../foundations/colors/colors.css';
 @import '../../../foundations/shadow/shadows.css';
+@import '../../../foundations/spacing/spacing.css';
+@import '../../../foundations/typography/typography.css';
 
 .todo-panel {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0.5rem;
+  padding: var(--spacing-sm);
   box-shadow: var(--box-shadow-sm);
 }
 
@@ -31,7 +33,7 @@ code {
 }
 
 .complete-button {
-  margin-right: 1rem;
+  margin-right: var(--spacing-md);
 }
 
 .title-input {
@@ -41,16 +43,16 @@ code {
   width: 100%;
   padding: 0;
   border: none;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-300);
+  /* font-weight: 400; */
 }
 
 .todo-list {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 0.5rem;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
   padding: 0;
   width: auto;
 }

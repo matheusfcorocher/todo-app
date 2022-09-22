@@ -1,12 +1,13 @@
 @import '../../../foundations/colors/colors.css';
 @import '../../../foundations/shadow/shadows.css';
+@import '../../../foundations/spacing/spacing.css';
 
 .todo-item {
     display: flex;
     justify-content: space-between;
     width: auto;
     max-height: 3rem;
-    padding: 0.5rem;
+    padding: var(--spacing-sm);
     box-shadow: var(--box-shadow-sm);
     background: var(--secondary-color);
 }

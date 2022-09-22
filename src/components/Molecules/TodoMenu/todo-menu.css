@@ -1,19 +1,7 @@
 @import '../../../foundations/colors/colors.css';
 @import '../../../foundations/round-corners/round-corners.css';
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import '../../../foundations/spacing/spacing.css';
+@import '../../../foundations/typography/typography.css';
 
 .todo-menu {
   display: flex;
@@ -51,11 +39,11 @@ code {
 .complete-button {
   width: 3rem;
   height: 3rem;
-  padding: 0.2rem;
-  border-radius: 0.2rem;
+  padding: var(--spacing-xs);
+  border-radius: var(--spacing-xs);
   display: flex;
   align-items: center;
-  margin-right: 1rem;
+  margin-right: var(--spacing-md);
   background-color: var(--primary-color);
 }
 
@@ -66,15 +54,14 @@ code {
   width: 100%;
   border-radius: var(--round-corner-sm);
   border: none;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
+  font-family: var(--ff-serif);
+  font-size: var(--fs-300);
 }
 
 .title-input[type="text"] {
-  padding: 0.2rem;
+  padding: var(--spacing-xs);
 }
 
 .title-input::placeholder {
-  padding: 0.2rem;
+  padding: var(--spacing-xs);
 }
