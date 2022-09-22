@@ -6,7 +6,7 @@ interface TodoFooter {
     todosQuantity: number;
 }
 
-function TodoFooter({todosQuantity}: TodoFooter) {
+function TodoFooter({todosQuantity = 0}: TodoFooter) {
     const handleClick = (event : React.MouseEvent<HTMLAnchorElement, MouseEvent>) : void => {
         document.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
         event.currentTarget.classList.toggle('active')
@@ -19,7 +19,7 @@ function TodoFooter({todosQuantity}: TodoFooter) {
                 item left
             </span>
             <ul className={`todo-filters`}>
-                <li><a className={'todo-filter'} onClick={handleClick} href="#/">All</a></li>
+                <li><a className={'todo-filter active'} onClick={handleClick} href="#/">All</a></li>
                 <li><a className={'todo-filter'} onClick={handleClick} href="#/active">Active</a></li>
                 <li><a className={'todo-filter'} onClick={handleClick} href="#/completed">Completed</a></li>
             </ul>

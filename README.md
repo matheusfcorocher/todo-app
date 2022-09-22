@@ -16,6 +16,8 @@ References to make app:
 - https://todomvc.com/examples/backbone_require/#/
 - https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality
 - https://create-react-app.dev/docs/getting-started
+- https://www.youtube.com/watch?v=lRaL-8qZ0mM&ab_channel=freeCodeCamp.org
+- https://style.monday.com/?path=/docs/welcome--page
 
 ## Available Scripts
 
