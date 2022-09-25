@@ -5,8 +5,9 @@ import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
+import { handleCreateTodo } from '../../../App';
 
-type TodoData = {
+export type TodoData = {
   id: string;
   title: string;
   isCompleted: boolean;
@@ -14,14 +15,14 @@ type TodoData = {
 
 interface TodoProps {
   todosData?: Array<TodoData>;
+  handleCreateTodo: handleCreateTodo;
 }
 
-function Todo({ todosData = [] }: TodoProps) {
+function Todo({ todosData = [], handleCreateTodo }: TodoProps) {
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
-      <TodoMenu handleCreateTodo={function (): void {
-        throw new Error('Function not implemented.');
-      }} isAllTodosCompleted={false}
+      <TodoMenu handleCreateTodo={handleCreateTodo} 
+      isAllTodosCompleted={false}
       />
       <TodoList todosData={todosData} />
       {todosData.length !== 0 && <TodoFooter todosQuantity={todosData.length} />}

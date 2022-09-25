@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { createImmediatelyInvokedFunctionExpression } from 'typescript';
+import { handleCreateTodo } from '../../../App';
 import '../../../App.css';
 import IconButton from '../../Atoms/IconButton/IconButton';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
@@ -6,11 +8,20 @@ import ListIcon from '../../Atoms/icons/ListIcon/ListIcon';
 import './todo-menu.css';
 
 interface TodoMenuProps {
-    handleCreateTodo: () => void;
+    handleCreateTodo: handleCreateTodo;
     isAllTodosCompleted: boolean;
 }
 
 function TodoMenu({ handleCreateTodo, isAllTodosCompleted }: TodoMenuProps) {
+    const [title, setTitle] = useState<string>("");
+
+    function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
+        if(event.key == "Enter") {
+            handleCreateTodo(title);
+            setTitle("");
+        }
+    }
+    
     return (
         <div role="group" className={`todo-menu`}>
             {
@@ -31,10 +42,11 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted }: TodoMenuProps) {
                 type="text"
                 role="textbox"
                 placeholder='What needs to be done?'
-                value={''}
+                value={title}
                 name="title"
                 className={`title-input`}
-                onChange={() => handleCreateTodo()}
+                onChange={(e) => setTitle(e.target.value)}
+                onKeyDown={(event) => handlePress(event)}
             />
         </div>
     );

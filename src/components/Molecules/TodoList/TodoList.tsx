@@ -14,11 +14,6 @@ interface TodoListProps {
 }
 
 function TodoList({ todosData = [] }: TodoListProps) {
-
-  const handleCreateTodoItem = (TodoTitle: string) => {
-
-  };
-
   const listToDoItems = todosData.map((todo: TodoData) => {
     return (
       <TodoItem

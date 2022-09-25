@@ -1,23 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-import Todo from './components/Organisms/Todo/Todo';
+import Todo, { TodoData } from './components/Organisms/Todo/Todo';
+import { v4 as uuidv4 } from 'uuid';
+
+export type handleCreateTodo = (title: string) => void;
 
 function App() {
+  const [todos, setTodos] = useState<Array<TodoData>>([]);
+
+  function createTodos(title: string) : void {
+    const newTodo : TodoData = {
+      id: uuidv4(),
+      title,
+      isCompleted: false
+    };
+    setTodos([...todos, newTodo])
+  }
+
   return (
     <div className="App">
-      <Todo todosData={[
-        {
-          id: "1",
-          title: "TASK",
-          isCompleted: false,
-        },
-        {
-          id: "2",
-          title: "TASK 2",
-          isCompleted: true,
-        }
-      ]} />
+      <Todo todosData={todos} handleCreateTodo={createTodos}
+      
+      />
     </div>
   );
 }
