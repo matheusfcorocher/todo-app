@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
 import '../../../App.css';
 import './todolist.css';
+import { handleDeleteTodo } from '../../../App';
 
 type TodoData = {
   id: string;
@@ -11,9 +12,10 @@ type TodoData = {
 
 interface TodoListProps {
   todosData?: Array<TodoData>;
+  handleDeleteTodo: handleDeleteTodo;
 }
 
-function TodoList({ todosData = [] }: TodoListProps) {
+function TodoList({ todosData = [], handleDeleteTodo}: TodoListProps) {
   const listToDoItems = todosData.map((todo: TodoData) => {
     return (
       <TodoItem
@@ -30,9 +32,7 @@ function TodoList({ todosData = [] }: TodoListProps) {
         handleUpdateTodoItemState={function (newState: boolean): void {
           throw new Error('Function not implemented.');
         }}
-        handleDeleteTodoItem={function (newState: string): void {
-          throw new Error('Function not implemented.');
-        }}
+        handleDeleteTodoItem={handleDeleteTodo}
       />
     );
   }

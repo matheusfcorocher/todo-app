@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { handleDeleteTodo } from "../../../App";
 import deleteIcon from '../../../assets/icons/delete.svg';
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
@@ -15,7 +16,7 @@ interface TodoItemProps {
     },
     handleUpdateTodoItemTitle: (newTitle: string) => void,
     handleUpdateTodoItemState: (newState: boolean) => void,
-    handleDeleteTodoItem: (newState: string) => void,
+    handleDeleteTodoItem: handleDeleteTodo,
 }
 
 export const TodoItem = ({
@@ -63,7 +64,7 @@ export const TodoItem = ({
                 {!hasFocus && (
                     <IconButton
                         className="delete-button"
-                        handleFunction={() => handleDeleteTodoItem}>
+                        handleFunction={() => handleDeleteTodoItem(id)}>
                         <DeleteIcon />
                     </IconButton>
                 )}

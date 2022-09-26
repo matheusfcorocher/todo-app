@@ -4,19 +4,17 @@ import TitleInput from './TitleInput';
 
 describe("::Components ::Atoms ::TitleInput", () => {
     test('renders TitleInput', () => {
-        render(<TitleInput props={{
-                handleOnChange: function (): void {
-                    throw new Error('Function not implemented.');
-                },
-                handleOnFocus: function (): void {
-                    throw new Error('Function not implemented.');
-                },
-                handleOnBlur: function (): void {
-                    throw new Error('Function not implemented.');
-                },
-                title: '',
-                className: undefined
-            }}/>);
+        render(<TitleInput handleOnChange={function (): void {
+            throw new Error('Function not implemented.');
+        }}
+            handleOnFocus={function (): void {
+                throw new Error('Function not implemented.');
+            }}
+            handleOnBlur={function (): void {
+                throw new Error('Function not implemented.');
+            }}
+            title={''}
+            className={undefined} />);
         const titleInput = screen.getByRole("textbox");
         expect(titleInput).toMatchSnapshot();
     })

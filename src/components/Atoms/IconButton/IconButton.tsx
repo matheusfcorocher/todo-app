@@ -16,7 +16,7 @@ function IconButton({
     return (
         <button
             className={`icon-button ${className}`}
-            onClick={() => handleFunction}
+            onClick={() => handleFunction()}
             role="button"
         >
             {children}
