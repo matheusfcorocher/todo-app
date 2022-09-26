@@ -54,12 +54,10 @@ export const TodoItem = ({
                     checked={isCompleted}
                 />
                 <TitleInput
-                    props={{
-                        title,
-                        handleOnChange: () => handleUpdateTodoItemTitle,
-                        handleOnFocus: () => setFocus(true),
-                        handleOnBlur: () => setFocus(false),
-                    }}
+                    title={title}
+                    handleOnChange={() => handleUpdateTodoItemTitle}
+                    handleOnFocus={() => setFocus(true)}
+                    handleOnBlur={() => setFocus(false)}
                     ref={ref}
                 />
                 {!hasFocus && (

@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
+<div
+  class="todo-footer"
+  role="group"
+>
+  <span
+    class="todo-count"
+  >
+    <strong>
+      0
+       
+    </strong>
+    item left
+  </span>
+  <ul
+    class="todo-filters"
+  >
+    <li>
+      <a
+        class="todo-filter active"
+        href="#/"
+      >
+        All
+      </a>
+    </li>
+    <li>
+      <a
+        class="todo-filter"
+        href="#/active"
+      >
+        Active
+      </a>
+    </li>
+    <li>
+      <a
+        class="todo-filter"
+        href="#/completed"
+      >
+        Completed
+      </a>
+    </li>
+  </ul>
+</div>
+`;
