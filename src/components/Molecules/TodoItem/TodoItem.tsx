@@ -30,7 +30,6 @@ export const TodoItem = ({
 }: TodoItemProps) => {
     const ref = useRef<HTMLInputElement>(document.createElement('input'));
     const [hasFocus, setFocus] = useState(false);
-
     useEffect(() => {
         if (document.hasFocus() && ref.current.contains(document.activeElement)) {
             setFocus(true);

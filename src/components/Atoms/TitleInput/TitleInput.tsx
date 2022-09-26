@@ -17,7 +17,7 @@ const TitleInput = forwardRef<HTMLInputElement, TitleInputProps>(
         const [text, setText] = useState<string>(props.title);  
         function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
             if(event.key == "Enter") {
-                props?.handleOnFocus();
+                event.currentTarget.blur();
             }
         }
 
