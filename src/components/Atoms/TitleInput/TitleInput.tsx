@@ -1,33 +1,51 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 import '../../../App';
+import { handleUpdateTodoTitle } from '../../../App';
 import './title-input.css';
 
 interface TitleInputProps {
-    handleOnChange: () => void,
+    handleOnChange: handleUpdateTodoTitle,
     handleOnFocus: () => void,
     handleOnBlur: () => void,
     title: string,
+    id: string,
     className?: string,
 }
 
 const TitleInput = forwardRef<HTMLInputElement, TitleInputProps>(
-    (props, ref) => (
-        <label
-            htmlFor="title"
-            aria-label={props.title}
-            className="title"
-        >
-            <input
-                type="text"
-                role="textbox"
-                value={props.title}
-                className={`title-input`}
-                ref={ref}
-                onChange={() => props?.handleOnChange()}
-                onFocus={() => props?.handleOnFocus()}
-                onBlur={() => props?.handleOnBlur()}
-            />
-        </label>
-    ));
+    (props, ref) => {
+        const [text, setText] = useState<string>(props.title);  
+        function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
+            if(event.key == "Enter") {
+                props?.handleOnFocus();
+            }
+        }
+
+        return (
+            <label
+                htmlFor="title"
+                aria-label={props.title}
+                className="title"
+            >
+                <input
+                    type="text"
+                    role="textbox"
+                    value={text}
+                    className={`title-input`}
+                    ref={ref}
+                    onChange={(e) => {
+                        setText(e.target.value);
+                        props?.handleOnChange(props?.id, text);
+                    }}
+                    onFocus={() => props?.handleOnFocus()}
+                    onBlur={() => {
+                        props?.handleOnChange(props?.id, text);
+                        props?.handleOnBlur();
+                    }}
+                    onKeyDown={(event) => handlePress(event)}
+                />
+            </label>
+        )
+    });
 
 export default TitleInput;

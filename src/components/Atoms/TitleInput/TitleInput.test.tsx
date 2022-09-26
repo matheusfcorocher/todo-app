@@ -6,15 +6,15 @@ describe("::Components ::Atoms ::TitleInput", () => {
     test('renders TitleInput', () => {
         render(<TitleInput handleOnChange={function (): void {
             throw new Error('Function not implemented.');
-        }}
-            handleOnFocus={function (): void {
-                throw new Error('Function not implemented.');
-            }}
-            handleOnBlur={function (): void {
-                throw new Error('Function not implemented.');
-            }}
-            title={''}
-            className={undefined} />);
+        } }
+        handleOnFocus={function (): void {
+            throw new Error('Function not implemented.');
+        } }
+        handleOnBlur={function (): void {
+            throw new Error('Function not implemented.');
+        } }
+        title={''}
+        className={undefined} id={''} />);
         const titleInput = screen.getByRole("textbox");
         expect(titleInput).toMatchSnapshot();
     })

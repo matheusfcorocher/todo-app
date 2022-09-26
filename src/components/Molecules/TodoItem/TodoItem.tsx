@@ -1,6 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { handleDeleteTodo } from "../../../App";
-import deleteIcon from '../../../assets/icons/delete.svg';
+import { handleDeleteTodo, handleUpdateTodoTitle } from "../../../App";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
 import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
@@ -14,7 +13,7 @@ interface TodoItemProps {
         title: string,
         isCompleted: boolean
     },
-    handleUpdateTodoItemTitle: (newTitle: string) => void,
+    handleUpdateTodoItemTitle: handleUpdateTodoTitle,
     handleUpdateTodoItemState: (newState: boolean) => void,
     handleDeleteTodoItem: handleDeleteTodo,
 }
@@ -55,8 +54,9 @@ export const TodoItem = ({
                     checked={isCompleted}
                 />
                 <TitleInput
+                    id={id}
                     title={title}
-                    handleOnChange={() => handleUpdateTodoItemTitle}
+                    handleOnChange={handleUpdateTodoItemTitle}
                     handleOnFocus={() => setFocus(true)}
                     handleOnBlur={() => setFocus(false)}
                     ref={ref}

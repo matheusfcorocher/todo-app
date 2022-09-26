@@ -8,6 +8,8 @@ describe("::Components ::Organisms ::Todo", () => {
         throw new Error('Function not implemented.');
       } } handleDeleteTodo={function (id: string): void {
         throw new Error('Function not implemented.');
+      } } handleUpdateTodoTitle={function (id: string, title: string): void {
+        throw new Error('Function not implemented.');
       } } />);
       const todo = screen.getByTestId("todo");
       expect(todo).toMatchSnapshot();
