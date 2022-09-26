@@ -43,7 +43,7 @@ export const TodoItem = ({
             data-testid={`todoItem-${id}`}
             className={`todo-item ${isCompleted}`}
         >
-            <form>
+            <form onSubmit={event => event.preventDefault()}>
                 <Checkbox
                     handleOnChange={() => {
                         if (isCompleted) {
