@@ -8,8 +8,8 @@ export type handleCreateTodo = (title: string) => void;
 function App() {
   const [todos, setTodos] = useState<Array<TodoData>>([]);
 
-  function createTodos(title: string) : void {
-    const newTodo : TodoData = {
+  function createTodos(title: string): void {
+    const newTodo: TodoData = {
       id: uuidv4(),
       title,
       isCompleted: false
@@ -19,8 +19,9 @@ function App() {
 
   return (
     <div className="App">
-      <Todo todosData={todos} handleCreateTodo={createTodos}
-      
+      <Todo 
+        todosData={todos} 
+        handleCreateTodo={createTodos}
       />
     </div>
   );
