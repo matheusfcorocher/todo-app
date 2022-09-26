@@ -14,9 +14,10 @@ interface TitleInputProps {
 
 const TitleInput = forwardRef<HTMLInputElement, TitleInputProps>(
     (props, ref) => {
-        const [text, setText] = useState<string>(props.title);  
+        const [text, setText] = useState<string>(props.title);
         function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
             if(event.key == "Enter") {
+                props?.handleOnChange(props?.id, text);
                 event.currentTarget.blur();
             }
         }

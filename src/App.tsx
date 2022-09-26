@@ -24,12 +24,16 @@ function App() {
   }
 
   function updateTodoTitle(id: string, newTitle: string): void {
-    const oldTodo = todos.find((todo) => todo.id === id);
-    if(oldTodo) {
-      const index = todos.findIndex((todo) => todo.id === id);
-      const newTodo : TodoData = {...oldTodo, title: newTitle};
-      const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index+1)];
-      setTodos(newTodos);
+    if(newTitle.length === 0) {
+      deleteTodo(id);
+    } else {
+      const oldTodo = todos.find((todo) => todo.id === id);
+      if(oldTodo) {
+        const index = todos.findIndex((todo) => todo.id === id);
+        const newTodo : TodoData = {...oldTodo, title: newTitle};
+        const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index+1)];
+        setTodos(newTodos);
+      }
     }
   }
 
