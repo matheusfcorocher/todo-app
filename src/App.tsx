@@ -24,26 +24,41 @@ function App() {
   }
 
   function updateTodoTitle(id: string, newTitle: string): void {
-    if(newTitle.length === 0) {
+    if (isTodoTitleBlank(newTitle)) {
       deleteTodo(id);
     } else {
       const oldTodo = todos.find((todo) => todo.id === id);
-      if(oldTodo) {
+      if (oldTodo) {
         const index = todos.findIndex((todo) => todo.id === id);
-        const newTodo : TodoData = {...oldTodo, title: newTitle};
-        const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index+1)];
+        const newTodo: TodoData = { ...oldTodo, title: newTitle };
+        const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index + 1)];
         setTodos(newTodos);
       }
     }
   }
 
+  function isTodoTitleBlank(title: string): boolean {
+    if (title.trim().length === 0) {
+      return true
+    }
+
+    return false;
+  }
+
+  // function deleteTodoWhenIsBlank(id: string, title: string) : void {
+  //   const isBlank = isTodoTitleBlank(title);
+  //   if(isBlank) {
+  //     deleteTodo(id);
+  //   }
+  // } 
+
   return (
     <div className="App">
-      <Todo 
+      <Todo
         todosData={todos}
-        handleCreateTodo={createTodo} 
-        handleDeleteTodo={deleteTodo}      
-        handleUpdateTodoTitle={updateTodoTitle}      
+        handleCreateTodo={createTodo}
+        handleDeleteTodo={deleteTodo}
+        handleUpdateTodoTitle={updateTodoTitle}
       />
     </div>
   );
