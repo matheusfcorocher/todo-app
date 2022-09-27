@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid';
 export type handleCreateTodo = (title: string) => void;
 export type handleDeleteTodo = (id: string) => void;
 export type handleUpdateTodoTitle = (id: string, title: string) => void;
+export type handleUpdateTodoState = (id: string, state: boolean) => void;
 
 function App() {
   const [todos, setTodos] = useState<Array<TodoData>>([]);
@@ -34,6 +35,16 @@ function App() {
         const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index + 1)];
         setTodos(newTodos);
       }
+    }
+  }
+
+  function updateTodoState(id: string, state: boolean): void {
+    const oldTodo = todos.find((todo) => todo.id === id);
+    if (oldTodo) {
+      const index = todos.findIndex((todo) => todo.id === id);
+      const newTodo: TodoData = { ...oldTodo, isCompleted: state};
+      const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index + 1)];
+      setTodos(newTodos);
     }
   }
 
