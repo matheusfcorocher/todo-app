@@ -12,6 +12,10 @@ describe("::Components ::Organisms ::Todo", () => {
         throw new Error('Function not implemented.');
       } } handleUpdateTodoState={function (id: string, state: boolean): void {
         throw new Error('Function not implemented.');
+      } } handleCompleteAllTodoItems={function (): void {
+        throw new Error('Function not implemented.');
+      } } handleIncompleteAllTodoItems={function (): void {
+        throw new Error('Function not implemented.');
       } } />);
       const todo = screen.getByTestId("todo");
       expect(todo).toMatchSnapshot();

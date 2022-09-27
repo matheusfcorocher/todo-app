@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createImmediatelyInvokedFunctionExpression } from 'typescript';
-import { handleCreateTodo } from '../../../App';
+import { handleCompleteTodoItems, handleCreateTodo, handleIncompleteTodoItems } from '../../../App';
 import '../../../App.css';
 import IconButton from '../../Atoms/IconButton/IconButton';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
@@ -9,10 +9,12 @@ import './todo-menu.css';
 
 interface TodoMenuProps {
     handleCreateTodo: handleCreateTodo;
+    handleCompleteAllTodoItems: handleCompleteTodoItems;
+    handleIncompleteAllTodoItems: handleIncompleteTodoItems;
     isAllTodosCompleted: boolean;
 }
 
-function TodoMenu({ handleCreateTodo, isAllTodosCompleted }: TodoMenuProps) {
+function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodoItems, handleIncompleteAllTodoItems}: TodoMenuProps) {
     const [title, setTitle] = useState<string>("");
 
     function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
@@ -26,15 +28,11 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted }: TodoMenuProps) {
         <div role="group" className={`todo-menu`}>
             {
                 isAllTodosCompleted ?
-                    (<IconButton className="complete-button" handleFunction={function (): void {
-                        throw new Error('Function not implemented.');
-                    }}>
+                    (<IconButton className="complete-button" handleFunction={() => handleCompleteAllTodoItems()}>
                         <ListIcon className="list-icon" />
                     </IconButton>)
                     :
-                    (<IconButton className="complete-button" handleFunction={function (): void {
-                        throw new Error('Function not implemented.');
-                    }}>
+                    (<IconButton className="complete-button" handleFunction={() => handleIncompleteAllTodoItems()}>
                         <CheckListIcon className="checklist-icon" />
                     </IconButton>)
             }

@@ -23,12 +23,14 @@ interface TodoProps {
   handleIncompleteAllTodoItems: handleIncompleteTodoItems;
 }
 
-function Todo({ todosData = [], handleCreateTodo, handleDeleteTodo, handleUpdateTodoTitle, handleUpdateTodoState }: TodoProps) {
+function Todo({ todosData = [], handleCreateTodo, handleDeleteTodo, handleUpdateTodoTitle, handleUpdateTodoState, handleCompleteAllTodoItems,  handleIncompleteAllTodoItems}: TodoProps) {
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
       <TodoMenu 
         handleCreateTodo={handleCreateTodo}
-        isAllTodosCompleted={false}
+        isAllTodosCompleted={false} 
+        handleCompleteAllTodoItems={handleCompleteAllTodoItems} 
+        handleIncompleteAllTodoItems={handleIncompleteAllTodoItems}
       />
       <TodoList
         todosData={todosData}
