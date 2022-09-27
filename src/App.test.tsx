@@ -37,7 +37,7 @@ describe("::App", () => {
     })
   })
 
-  describe("When user update a todo", () => {
+  describe("When user update todo title", () => {
     beforeEach(() => {
       render(<App />);
       const input = screen.getByPlaceholderText('What needs to be done?');
@@ -104,5 +104,35 @@ describe("::App", () => {
         expect(inputTodoItem).toHaveValue('test 3');
       })
     });
+  })
+
+  describe("When user update todo state", () => {
+    beforeEach(() => {
+      render(<App />);
+      const input = screen.getByPlaceholderText('What needs to be done?');
+      userEvent.click(input);
+      userEvent.type(input, 'test1{enter}');
+      userEvent.click(input);
+      userEvent.type(input, 'test2{enter}');
+    })
+    describe("it only updates selected todoItem", () => {
+      test('the selected todoItem is updated', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+
+        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkboxTodoItem = within(newTodoItems[0]).getByRole("checkbox");
+        expect(checkboxTodoItem).toBeChecked();
+      })
+      test('others todoItems remain the same', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+
+        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+        expect(oldTodoItems[1]).toBe(newTodoItems[1]);
+      })
+    })
   })
 })
