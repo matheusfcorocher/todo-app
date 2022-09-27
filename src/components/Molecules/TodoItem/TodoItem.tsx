@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { handleDeleteTodo, handleUpdateTodoTitle } from "../../../App";
+import { handleDeleteTodo, handleUpdateTodoState, handleUpdateTodoTitle } from "../../../App";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
 import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
@@ -14,7 +14,7 @@ interface TodoItemProps {
         isCompleted: boolean
     },
     handleUpdateTodoItemTitle: handleUpdateTodoTitle,
-    handleUpdateTodoItemState: (newState: boolean) => void,
+    handleUpdateTodoItemState: handleUpdateTodoState,
     handleDeleteTodoItem: handleDeleteTodo,
 }
 
@@ -45,9 +45,9 @@ export const TodoItem = ({
                 <Checkbox
                     handleOnChange={() => {
                         if (isCompleted) {
-                            handleUpdateTodoItemState(false);
+                            handleUpdateTodoItemState(id, false);
                         } else {
-                            handleUpdateTodoItemState(true);
+                            handleUpdateTodoItemState(id, true);
                         }
                     }}
                     checked={isCompleted}

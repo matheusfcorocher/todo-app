@@ -8,6 +8,8 @@ describe("::Components ::Molecules ::TodoList", () => {
         throw new Error('Function not implemented.');
       } } handleUpdateTodoTitle={function (id: string, title: string): void {
         throw new Error('Function not implemented.');
+      } } handleUpdateTodoState={function (id: string, state: boolean): void {
+        throw new Error('Function not implemented.');
       } } />);
       const todoList = screen.getByRole("list");
       expect(todoList).toMatchSnapshot();

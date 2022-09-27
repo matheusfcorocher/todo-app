@@ -70,6 +70,7 @@ function App() {
         handleCreateTodo={createTodo}
         handleDeleteTodo={deleteTodo}
         handleUpdateTodoTitle={updateTodoTitle}
+        handleUpdateTodoState={updateTodoState}
       />
     </div>
   );

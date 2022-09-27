@@ -17,15 +17,14 @@ describe("::Components ::TodoItem", () => {
           title: "wash dishes",
           isCompleted: false,
         }}
-          handleUpdateTodoItemTitle={function (newTitle: string): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleUpdateTodoItemState={function (newState: boolean): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleDeleteTodoItem={function (newState: string): void {
-            throw new Error('Function not implemented.');
-          }} />);
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        } }
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        } } handleUpdateTodoItemState={function (id: string, state: boolean): void {
+          throw new Error('Function not implemented.');
+        } } />);
     })
     test('renders checkbox unchecked', () => {
       const checkbox = screen.getByRole("checkbox");
@@ -52,15 +51,14 @@ describe("::Components ::TodoItem", () => {
           title: "wash dishes",
           isCompleted: true,
         }}
-          handleUpdateTodoItemTitle={function (newTitle: string): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleUpdateTodoItemState={function (newState: boolean): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleDeleteTodoItem={function (newState: string): void {
-            throw new Error('Function not implemented.');
-          }} />);
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        } }
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        } } handleUpdateTodoItemState={function (id: string, state: boolean): void {
+          throw new Error('Function not implemented.');
+        } } />);
     })
     test('renders checkbox checked', () => {
       const checkbox = screen.getByRole("checkbox");
@@ -87,15 +85,14 @@ describe("::Components ::TodoItem", () => {
           title: "wash dishes",
           isCompleted: false,
         }}
-          handleUpdateTodoItemTitle={function (newTitle: string): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleUpdateTodoItemState={function (newState: boolean): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleDeleteTodoItem={function (newState: string): void {
-            throw new Error('Function not implemented.');
-          }} />);
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        } }
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        } } handleUpdateTodoItemState={function (id: string, state: boolean): void {
+          throw new Error('Function not implemented.');
+        } } />);
     })
     test('delete button isnt showing', () => {
       const deleteButton = screen.getByRole("button", { name: "delete" });
@@ -112,15 +109,14 @@ describe("::Components ::TodoItem", () => {
           title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan suscipit turpis vel volutpat. In vitae aliquam ex. Nullam in odio pellentesque, feugiat libero vel, fringilla massa. Duis nec odio in nisl fringilla vestibulum at feugiat lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
           isCompleted: false,
         }}
-          handleUpdateTodoItemTitle={function (newTitle: string): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleUpdateTodoItemState={function (newState: boolean): void {
-            throw new Error('Function not implemented.');
-          }}
-          handleDeleteTodoItem={function (newState: string): void {
-            throw new Error('Function not implemented.');
-          }} />);
+        handleUpdateTodoItemTitle={function (newTitle: string): void {
+          throw new Error('Function not implemented.');
+        } }
+        handleDeleteTodoItem={function (newState: string): void {
+          throw new Error('Function not implemented.');
+        } } handleUpdateTodoItemState={function (id: string, state: boolean): void {
+          throw new Error('Function not implemented.');
+        } } />);
     })
     test('renders title of TodoItem with ellipsis', () => {
       const input = screen.getByRole("textbox");
