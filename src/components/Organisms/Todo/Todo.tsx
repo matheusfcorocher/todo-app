@@ -23,24 +23,31 @@ interface TodoProps {
   handleIncompleteAllTodoItems: handleIncompleteTodoItems;
 }
 
-function Todo({ todosData = [], handleCreateTodo, handleDeleteTodo, handleUpdateTodoTitle, handleUpdateTodoState, handleCompleteAllTodoItems,  handleIncompleteAllTodoItems}: TodoProps) {
+function Todo({ 
+  todosData = [], 
+  handleCreateTodo, 
+  handleDeleteTodo, 
+  handleUpdateTodoTitle, 
+  handleUpdateTodoState, 
+  handleCompleteAllTodoItems, 
+  handleIncompleteAllTodoItems }: TodoProps) {
   const isCompleted = isAllTodosCompleted(todosData);
-  
-  function isAllTodosCompleted(todosData: Array<TodoData>) : boolean {
+
+  function isAllTodosCompleted(todosData: Array<TodoData>): boolean {
     const isAllTodosCompleted = todosData.find(todo => todo.isCompleted == true);
-    if(isAllTodosCompleted) {
+    if (isAllTodosCompleted) {
       return true;
     }
-    
+
     return false;
   }
 
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
-      <TodoMenu 
+      <TodoMenu
         handleCreateTodo={handleCreateTodo}
-        isAllTodosCompleted={isCompleted} 
-        handleCompleteAllTodoItems={handleCompleteAllTodoItems} 
+        isAllTodosCompleted={isCompleted}
+        handleCompleteAllTodoItems={handleCompleteAllTodoItems}
         handleIncompleteAllTodoItems={handleIncompleteAllTodoItems}
       />
       <TodoList

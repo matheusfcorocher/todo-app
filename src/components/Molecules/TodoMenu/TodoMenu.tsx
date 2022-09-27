@@ -28,11 +28,11 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodo
         <div role="group" className={`todo-menu`}>
             {
                 isAllTodosCompleted ?
-                    (<IconButton className="complete-button" handleFunction={() => handleCompleteAllTodoItems()}>
+                    (<IconButton className="complete-button" handleFunction={() => handleIncompleteAllTodoItems()}>
                         <ListIcon className="list-icon" />
                     </IconButton>)
                     :
-                    (<IconButton className="complete-button" handleFunction={() => handleIncompleteAllTodoItems()}>
+                    (<IconButton className="complete-button" handleFunction={() => handleCompleteAllTodoItems()}>
                         <CheckListIcon className="checklist-icon" />
                     </IconButton>)
             }
