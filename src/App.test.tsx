@@ -64,7 +64,6 @@ describe("::App", () => {
         userEvent.type(input, '{backspace>4}otal{enter}');
 
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
-        const inputTodoItem = within(newTodoItems[0]).getByRole("textbox");
         expect(oldTodoItems[1]).toBe(newTodoItems[1]);
       })
     })
