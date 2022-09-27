@@ -7,6 +7,8 @@ export type handleCreateTodo = (title: string) => void;
 export type handleDeleteTodo = (id: string) => void;
 export type handleUpdateTodoTitle = (id: string, title: string) => void;
 export type handleUpdateTodoState = (id: string, state: boolean) => void;
+export type handleCompleteTodoItems = () => void;
+export type handleIncompleteTodoItems = () => void;
 
 function App() {
   const [todos, setTodos] = useState<Array<TodoData>>([]);
@@ -78,7 +80,9 @@ function App() {
         handleCreateTodo={createTodo}
         handleDeleteTodo={deleteTodo}
         handleUpdateTodoTitle={updateTodoTitle}
-        handleUpdateTodoState={updateTodoState}
+        handleUpdateTodoState={updateTodoState} 
+        handleCompleteAllTodoItems={completeAllTodosItem} 
+        handleIncompleteAllTodoItems={incompleteAllTodosItem}
       />
     </div>
   );

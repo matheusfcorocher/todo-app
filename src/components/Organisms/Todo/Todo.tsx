@@ -5,7 +5,7 @@ import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
-import { handleCreateTodo, handleDeleteTodo, handleUpdateTodoState, handleUpdateTodoTitle } from '../../../App';
+import { handleCompleteTodoItems, handleCreateTodo, handleDeleteTodo, handleIncompleteTodoItems, handleUpdateTodoState, handleUpdateTodoTitle } from '../../../App';
 
 export type TodoData = {
   id: string;
@@ -19,12 +19,15 @@ interface TodoProps {
   handleDeleteTodo: handleDeleteTodo;
   handleUpdateTodoTitle: handleUpdateTodoTitle;
   handleUpdateTodoState: handleUpdateTodoState;
+  handleCompleteAllTodoItems: handleCompleteTodoItems;
+  handleIncompleteAllTodoItems: handleIncompleteTodoItems;
 }
 
 function Todo({ todosData = [], handleCreateTodo, handleDeleteTodo, handleUpdateTodoTitle, handleUpdateTodoState }: TodoProps) {
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
-      <TodoMenu handleCreateTodo={handleCreateTodo}
+      <TodoMenu 
+        handleCreateTodo={handleCreateTodo}
         isAllTodosCompleted={false}
       />
       <TodoList
