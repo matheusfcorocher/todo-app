@@ -63,6 +63,14 @@ function App() {
   //   }
   // } 
 
+  function completeAllTodosItem() : void {
+    todos.map(todo => todo.isCompleted = true);
+  }
+
+  function incompleteAllTodosItem() : void {
+    todos.map(todo => todo.isCompleted = false);
+  }
+
   return (
     <div className="App">
       <Todo
