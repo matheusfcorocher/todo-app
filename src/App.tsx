@@ -44,7 +44,7 @@ function App() {
     const oldTodo = todos.find((todo) => todo.id === id);
     if (oldTodo) {
       const index = todos.findIndex((todo) => todo.id === id);
-      const newTodo: TodoData = { ...oldTodo, isCompleted: state};
+      const newTodo: TodoData = { ...oldTodo, isCompleted: state };
       const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index + 1)];
       setTodos(newTodos);
     }
@@ -65,12 +65,24 @@ function App() {
   //   }
   // } 
 
-  function completeAllTodosItem() : void {
-    todos.map(todo => todo.isCompleted = true);
+  function completeAllTodosItem(): void {
+    const newTodos = todos.map(todo => {
+      return {
+        ...todo,
+        isCompleted: true
+      }
+    });
+    setTodos(newTodos);
   }
 
-  function incompleteAllTodosItem() : void {
-    todos.map(todo => todo.isCompleted = false);
+  function incompleteAllTodosItem(): void {
+    const newTodos = todos.map(todo => {
+      return {
+        ...todo,
+        isCompleted: false
+      }
+    });
+    setTodos(newTodos);
   }
 
   return (
@@ -80,8 +92,8 @@ function App() {
         handleCreateTodo={createTodo}
         handleDeleteTodo={deleteTodo}
         handleUpdateTodoTitle={updateTodoTitle}
-        handleUpdateTodoState={updateTodoState} 
-        handleCompleteAllTodoItems={completeAllTodosItem} 
+        handleUpdateTodoState={updateTodoState}
+        handleCompleteAllTodoItems={completeAllTodosItem}
         handleIncompleteAllTodoItems={incompleteAllTodosItem}
       />
     </div>
