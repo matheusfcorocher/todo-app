@@ -92,5 +92,17 @@ describe("::App", () => {
         expect(inputTodoItem).toHaveValue('test 3');
       })
     });
+    describe("if user presses {enter} of keyboard", () => {
+      test('update still remain', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const input = within(oldTodoItems[0]).getByRole("textbox");
+        userEvent.click(input);
+        userEvent.type(input, '{backspace>4}est 3{enter}');
+
+        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const inputTodoItem = within(newTodoItems[0]).getByRole("textbox");
+        expect(inputTodoItem).toHaveValue('test 3');
+      })
+    });
   })
 })
