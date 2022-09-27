@@ -29,7 +29,7 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodo
             {
                 isAllTodosCompleted ?
                     (<IconButton
-                        title="Check all todos" 
+                        title="Uncheck all todos" 
                         className="complete-button" 
                         handleFunction={() => handleIncompleteAllTodoItems()}
                     >
@@ -37,7 +37,7 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodo
                     </IconButton>)
                     :
                     (<IconButton 
-                        title="Uncheck all todos" 
+                        title="Check all todos" 
                         className="complete-button" 
                         handleFunction={() => handleCompleteAllTodoItems()}>
                         <CheckListIcon className="checklist-icon" />

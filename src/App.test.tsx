@@ -144,24 +144,40 @@ describe("::App", () => {
       userEvent.click(input);
       userEvent.type(input, 'test2{enter}');
     })
-    describe("it only updates selected todoItem", () => {
-      test('the selected todoItem is updated', () => {
-        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
-        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
-        userEvent.click(checkbox);
+    test('all todos are completed', () => {
+      const completeButton = screen.getByTitle("Check all todos")
+      userEvent.click(completeButton);
 
-        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
-        const checkboxTodoItem = within(newTodoItems[0]).getByRole("checkbox");
-        expect(checkboxTodoItem).toBeChecked();
-      })
-      test('others todoItems remain the same', () => {
-        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
-        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
-        userEvent.click(checkbox);
+      const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+      const checkboxTodoItem = within(newTodoItems[0]).getByRole("checkbox");
+      const checkboxTodoItem2 = within(newTodoItems[1]).getByRole("checkbox");
 
-        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
-        expect(oldTodoItems[1]).toBe(newTodoItems[1]);
-      })
+      expect(checkboxTodoItem).toBeChecked();
+      expect(checkboxTodoItem2).toBeChecked();
+    })
+  })
+
+  describe("When user incomplete all todos", () => {
+    beforeEach(() => {
+      render(<App />);
+      const input = screen.getByPlaceholderText('What needs to be done?');
+      userEvent.click(input);
+      userEvent.type(input, 'test1{enter}');
+      userEvent.click(input);
+      userEvent.type(input, 'test2{enter}');
+    })
+    test('all todos are incompleted', () => {
+      const completeButton = screen.getByTitle("Check all todos")
+      userEvent.click(completeButton);
+      const incompleteButton = screen.getByTitle("Uncheck all todos")
+      userEvent.click(incompleteButton);
+
+      const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+      const checkboxTodoItem = within(newTodoItems[0]).getByRole("checkbox");
+      const checkboxTodoItem2 = within(newTodoItems[1]).getByRole("checkbox");
+
+      expect(checkboxTodoItem).not.toBeChecked();
+      expect(checkboxTodoItem2).not.toBeChecked();
     })
   })
 })

@@ -8,6 +8,7 @@ exports[`::Components ::Molecules ::TodoMenu renders TodoMenu 1`] = `
   <button
     class="icon-button complete-button"
     role="button"
+    title="Check all todos"
   >
     <svg
       class="checklist-icon"
