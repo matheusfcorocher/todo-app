@@ -21,3 +21,13 @@ export function addTodo({todos, title} : AddTodoParameters): Todos {
     };
     return [...todos, newTodo];
 }
+
+type DeleteTodoParameters = {
+    todos: Todos,
+    id: string
+};
+
+export function deleteTodo({todos, id} :DeleteTodoParameters): Todos {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    return newTodos;
+}
