@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Todo from './components/Organisms/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
-import { TodoData } from './domain/entities/TodoData';
+import { addTodo, TodoData, Todos } from './domain/entities/TodoData';
 
 export type handleCreateTodo = (title: string) => void;
 export type handleDeleteTodo = (id: string) => void;
@@ -12,14 +12,11 @@ export type handleCompleteTodoItems = () => void;
 export type handleIncompleteTodoItems = () => void;
 
 function App() {
-  const [todos, setTodos] = useState<Array<TodoData>>([]);
+  const [todos, setTodos] = useState<Todos>([]);
+
   function createTodo(title: string): void {
-    const newTodo: TodoData = {
-      id: uuidv4(),
-      title,
-      isCompleted: false
-    };
-    setTodos([...todos, newTodo])
+    const newTodos = addTodo({todos, title});
+    setTodos(newTodos)
   }
 
   function deleteTodo(id: string): void {
