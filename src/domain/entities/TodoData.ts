@@ -56,3 +56,17 @@ export function updateTodoTitle({todos, id, newTitle}: UpdateTodoParameters): To
     return todos;
 }
 
+type CompleteAllTodosParameters = {
+    todos: Todos
+};
+
+export function completeAllTodosItem({todos} : CompleteAllTodosParameters): Todos {
+    const newTodos = todos.map(todo => {
+      return {
+        ...todo,
+        isCompleted: true
+      }
+    });
+    return newTodos;
+  }
+
