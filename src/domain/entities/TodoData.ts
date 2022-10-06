@@ -60,6 +60,23 @@ export function updateTodoTitle({todos, id, newTitle}: UpdateTodoParameters): To
     return todos;
 }
 
+type UpdateTodoStateParameters = {
+    todos: Todos,
+    id: string,
+    state: boolean
+};
+
+export function updateTodoState({todos, id, state} : UpdateTodoStateParameters): Todos {
+    const oldTodo = todos.find((todo) => todo.id === id);
+    if (oldTodo) {
+      const index = todos.findIndex((todo) => todo.id === id);
+      const newTodo: TodoData = { ...oldTodo, isCompleted: state };
+      const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index + 1)];
+      return newTodos;
+    }
+    return todos;
+}
+
 type CompleteAllTodosParameters = {
     todos: Todos
 };
