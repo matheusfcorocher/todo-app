@@ -3,3 +3,5 @@ export type TodoData = {
     title: string;
     isCompleted: boolean;
 }
+
+export type Todos = Array<TodoData>;
