@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Todo from './components/Organisms/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
-import { addTodo, deleteTodo, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
+import { addTodo, completeAllTodosItem, deleteTodo, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -33,7 +33,7 @@ function App() {
     const newTodos = updateTodoState({todos, id, state});
     setTodos(newTodos);
   }
-  
+
   // function deleteTodoWhenIsBlank(id: string, title: string) : void {
   //   const isBlank = isTodoTitleBlank(title);
   //   if(isBlank) {
@@ -42,12 +42,7 @@ function App() {
   // } 
 
   function handleCompleteAllTodosItem(): void {
-    const newTodos = todos.map(todo => {
-      return {
-        ...todo,
-        isCompleted: true
-      }
-    });
+    const newTodos = completeAllTodosItem({todos});
     setTodos(newTodos);
   }
 
