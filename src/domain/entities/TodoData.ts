@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { isStringBlank } from '../../lib/string';
 
 export type TodoData = {
     id: string;
@@ -39,7 +40,7 @@ type UpdateTodoParameters = {
 };
 
 export function updateTodoTitle({todos, id, newTitle}: UpdateTodoParameters): Todos {
-    if (isTodoTitleBlank(newTitle)) {
+    if (isStringBlank(newTitle)) {
       const newTodos = deleteTodo({todos, id});
       return newTodos;
     }
@@ -53,13 +54,5 @@ export function updateTodoTitle({todos, id, newTitle}: UpdateTodoParameters): To
     }
 
     return todos;
-    
 }
 
-function isTodoTitleBlank(title: string): boolean {
-    if (title.trim().length === 0) {
-      return true
-    }
-
-    return false;
-}
