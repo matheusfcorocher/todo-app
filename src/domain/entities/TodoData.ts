@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import { isStringBlank } from '../../lib/string';
 
+//Entity
+
 export type TodoData = {
     id: string;
     title: string;
@@ -8,6 +10,8 @@ export type TodoData = {
 }
 
 export type Todos = Array<TodoData>;
+
+//Functions
 
 type AddTodoParameters = {
     todos: Todos,
@@ -65,6 +69,20 @@ export function completeAllTodosItem({todos} : CompleteAllTodosParameters): Todo
       return {
         ...todo,
         isCompleted: true
+      }
+    });
+    return newTodos;
+}
+
+type IncompleteAllTodosParameters = {
+    todos: Todos
+};
+
+export function incompleteAllTodosItem({todos} : IncompleteAllTodosParameters): Todos {
+    const newTodos = todos.map(todo => {
+      return {
+        ...todo,
+        isCompleted: false
       }
     });
     return newTodos;

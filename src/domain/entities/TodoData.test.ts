@@ -1,4 +1,4 @@
-import { addTodo, completeAllTodosItem, deleteTodo, Todos, updateTodoTitle } from "./TodoData";
+import { addTodo, completeAllTodosItem, deleteTodo, incompleteAllTodosItem, Todos, updateTodoTitle } from "./TodoData";
 
 describe("Domain :: Entity :: Todos", () => {
   describe("#addTodo", () => {
@@ -80,6 +80,38 @@ describe("Domain :: Entity :: Todos", () => {
           id: "blabl2",
           title: "test2",
           isCompleted: true
+        },
+        ];
+
+        expect(newTodos).toEqual(expected);
+      });
+    });
+  });
+  describe("#incompleteAllTodosItem", () => {
+    describe("When pass todos", () => {
+      it("returns all todos with IsCompleted false", () => {
+        const todos: Todos = [{
+          id: "blabla",
+          title: "test",
+          isCompleted: true
+        },
+        {
+          id: "blabl2",
+          title: "test2",
+          isCompleted: false
+        },
+        ];
+        const newTodos = incompleteAllTodosItem({ todos });
+
+        const expected: Todos = [{
+          id: "blabla",
+          title: "test",
+          isCompleted: false
+        },
+        {
+          id: "blabl2",
+          title: "test2",
+          isCompleted: false
         },
         ];
 
