@@ -2,31 +2,31 @@ import React, { useState } from 'react';
 import './App.css';
 import Todo from './components/Organisms/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
-import { addTodo, TodoData, Todos } from './domain/entities/TodoData';
+import { addTodo, deleteTodo, TodoData, Todos } from './domain/entities/TodoData';
 
-export type handleCreateTodo = (title: string) => void;
-export type handleDeleteTodo = (id: string) => void;
-export type handleUpdateTodoTitle = (id: string, title: string) => void;
-export type handleUpdateTodoState = (id: string, state: boolean) => void;
-export type handleCompleteTodoItems = () => void;
-export type handleIncompleteTodoItems = () => void;
+export type HandleCreateTodo = (title: string) => void;
+export type HandleDeleteTodo = (id: string) => void;
+export type HandleUpdateTodoTitle = (id: string, title: string) => void;
+export type HandleUpdateTodoState = (id: string, state: boolean) => void;
+export type HandleCompleteTodoItems = () => void;
+export type HandleIncompleteTodoItems = () => void;
 
 function App() {
   const [todos, setTodos] = useState<Todos>([]);
 
-  function createTodo(title: string): void {
+  function handleAddTodo(title: string): void {
     const newTodos = addTodo({todos, title});
     setTodos(newTodos)
   }
 
-  function deleteTodo(id: string): void {
-    const newTodos = todos.filter((todo) => todo.id !== id);
+  function handleDeleteTodo(id: string): void {
+    const newTodos = deleteTodo({todos, id});
     setTodos(newTodos);
   }
 
-  function updateTodoTitle(id: string, newTitle: string): void {
-    if (isTodoTitleBlank(newTitle)) {
-      deleteTodo(id);
+  function handleUpdateTodoTitle(id: string, newTitle: string): void {
+    if (handleIsTodoTitleBlank(newTitle)) {
+      handleDeleteTodo(id);
     } else {
       const oldTodo = todos.find((todo) => todo.id === id);
       if (oldTodo) {
@@ -38,7 +38,7 @@ function App() {
     }
   }
 
-  function updateTodoState(id: string, state: boolean): void {
+  function handleUpdateTodoState(id: string, state: boolean): void {
     const oldTodo = todos.find((todo) => todo.id === id);
     if (oldTodo) {
       const index = todos.findIndex((todo) => todo.id === id);
@@ -48,7 +48,7 @@ function App() {
     }
   }
 
-  function isTodoTitleBlank(title: string): boolean {
+  function handleIsTodoTitleBlank(title: string): boolean {
     if (title.trim().length === 0) {
       return true
     }
@@ -63,7 +63,7 @@ function App() {
   //   }
   // } 
 
-  function completeAllTodosItem(): void {
+  function handleCompleteAllTodosItem(): void {
     const newTodos = todos.map(todo => {
       return {
         ...todo,
@@ -73,7 +73,7 @@ function App() {
     setTodos(newTodos);
   }
 
-  function incompleteAllTodosItem(): void {
+  function handleIncompleteAllTodosItem(): void {
     const newTodos = todos.map(todo => {
       return {
         ...todo,
@@ -87,12 +87,12 @@ function App() {
     <div className="App">
       <Todo
         todosData={todos}
-        handleCreateTodo={createTodo}
-        handleDeleteTodo={deleteTodo}
-        handleUpdateTodoTitle={updateTodoTitle}
-        handleUpdateTodoState={updateTodoState}
-        handleCompleteAllTodoItems={completeAllTodosItem}
-        handleIncompleteAllTodoItems={incompleteAllTodosItem}
+        handleCreateTodo={handleAddTodo}
+        handleDeleteTodo={handleDeleteTodo}
+        handleUpdateTodoTitle={handleUpdateTodoTitle}
+        handleUpdateTodoState={handleUpdateTodoState}
+        handleCompleteAllTodoItems={handleCompleteAllTodosItem}
+        handleIncompleteAllTodoItems={handleIncompleteAllTodosItem}
       />
     </div>
   );
