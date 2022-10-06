@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import Todo, { TodoData } from './components/Organisms/Todo/Todo';
+import Todo from './components/Organisms/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
+import { TodoData } from './domain/entities/TodoData';
 
 export type handleCreateTodo = (title: string) => void;
 export type handleDeleteTodo = (id: string) => void;

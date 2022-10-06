@@ -6,12 +6,7 @@ import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { handleCompleteTodoItems, handleCreateTodo, handleDeleteTodo, handleIncompleteTodoItems, handleUpdateTodoState, handleUpdateTodoTitle } from '../../../App';
-
-export type TodoData = {
-  id: string;
-  title: string;
-  isCompleted: boolean;
-}
+import { TodoData } from '../../../domain/entities/TodoData';
 
 interface TodoProps {
   todosData?: Array<TodoData>;
