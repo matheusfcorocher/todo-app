@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Todo from './components/Organisms/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
-import { addTodo, deleteTodo, TodoData, Todos, updateTodoTitle } from './domain/entities/TodoData';
+import { addTodo, deleteTodo, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -30,23 +30,10 @@ function App() {
   }
 
   function handleUpdateTodoState(id: string, state: boolean): void {
-    const oldTodo = todos.find((todo) => todo.id === id);
-    if (oldTodo) {
-      const index = todos.findIndex((todo) => todo.id === id);
-      const newTodo: TodoData = { ...oldTodo, isCompleted: state };
-      const newTodos = [...todos.slice(0, index), newTodo, ...todos.slice(index + 1)];
-      setTodos(newTodos);
-    }
+    const newTodos = updateTodoState({todos, id, state});
+    setTodos(newTodos);
   }
-
-  function handleIsTodoTitleBlank(title: string): boolean {
-    if (title.trim().length === 0) {
-      return true
-    }
-
-    return false;
-  }
-
+  
   // function deleteTodoWhenIsBlank(id: string, title: string) : void {
   //   const isBlank = isTodoTitleBlank(title);
   //   if(isBlank) {
