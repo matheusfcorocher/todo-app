@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Todo from './components/Organisms/Todo/Todo';
 import { v4 as uuidv4 } from 'uuid';
-import { addTodo, completeAllTodosItem, deleteTodo, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
+import { addTodo, completeAllTodosItem, deleteTodo, incompleteAllTodosItem, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -47,12 +47,7 @@ function App() {
   }
 
   function handleIncompleteAllTodosItem(): void {
-    const newTodos = todos.map(todo => {
-      return {
-        ...todo,
-        isCompleted: false
-      }
-    });
+    const newTodos = incompleteAllTodosItem({todos});
     setTodos(newTodos);
   }
 
