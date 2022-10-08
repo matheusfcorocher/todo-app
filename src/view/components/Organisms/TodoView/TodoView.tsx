@@ -6,7 +6,7 @@ import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { TodoData } from '../../../../domain/entities/TodoData';
 import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteTodo, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
 
-interface TodoProps {
+interface TodoViewProps {
   todosData?: Array<TodoData>;
   handleCreateTodo: HandleCreateTodo;
   handleDeleteTodo: HandleDeleteTodo;
@@ -16,14 +16,14 @@ interface TodoProps {
   handleIncompleteAllTodoItems: HandleIncompleteTodoItems;
 }
 
-function Todo({ 
+function TodoView({ 
   todosData = [], 
   handleCreateTodo, 
   handleDeleteTodo, 
   handleUpdateTodoTitle, 
   handleUpdateTodoState, 
   handleCompleteAllTodoItems, 
-  handleIncompleteAllTodoItems }: TodoProps) {
+  handleIncompleteAllTodoItems }: TodoViewProps) {
   const isCompleted = isAllTodosCompleted(todosData);
 
   function isAllTodosCompleted(todosData: Array<TodoData>): boolean {
@@ -54,4 +54,4 @@ function Todo({
   );
 }
 
-export default Todo;
+export default TodoView;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Todo from './Todo';
+import Todo from './TodoView';
 
 describe("::Components ::Organisms ::Todo", () => {
   test('renders Todo', () => {
