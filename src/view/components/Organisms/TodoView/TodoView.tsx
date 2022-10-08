@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './todo.css';
-import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
+import './todo-view.css';
+import TodoMenuView from '../../Molecules/TodoMenuView/TodoMenuView';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { TodoData } from '../../../../domain/entities/TodoData';
@@ -37,7 +37,7 @@ function TodoView({
 
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
-      <TodoMenu
+      <TodoMenuView
         handleCreateTodo={handleCreateTodo}
         isAllTodosCompleted={isCompleted}
         handleCompleteAllTodoItems={handleCompleteAllTodoItems}

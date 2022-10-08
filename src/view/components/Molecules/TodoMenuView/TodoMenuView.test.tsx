@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TodoMenu from './TodoMenu';
+import TodoMenuView from './TodoMenuView';
 
 describe("::Components ::Molecules ::TodoMenu", () => {
   test('renders TodoMenu', () => {
-      render(<TodoMenu handleCreateTodo={function (): void {
+      render(<TodoMenuView handleCreateTodo={function (): void {
         throw new Error('Function not implemented.');
       } } isAllTodosCompleted={false} handleCompleteAllTodoItems={function (): void {
         throw new Error('Function not implemented.');

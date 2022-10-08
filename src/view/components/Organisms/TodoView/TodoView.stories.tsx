@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Todo from './TodoView';
+import TodoView from './TodoView';
 
 export default {
-  title: 'Organisms/Todo',
-  component: Todo,
+  title: 'Organisms/TodoView',
+  component: TodoView,
   decorators: [
     (Story) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
@@ -12,9 +12,9 @@ export default {
       </ul>
     ),
   ]
-} as ComponentMeta<typeof Todo>;
+} as ComponentMeta<typeof TodoView>;
 
-const Template: ComponentStory<typeof Todo> = (args) => <Todo {...args} />;
+const Template: ComponentStory<typeof TodoView> = (args) => <TodoView {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
