@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { handleDeleteTodo, handleUpdateTodoState, handleUpdateTodoTitle } from "../../../App";
+import { HandleDeleteTodo, HandleUpdateTodoState, HandleUpdateTodoTitle } from "../../../../App";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
 import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
@@ -13,9 +13,9 @@ interface TodoItemProps {
         title: string,
         isCompleted: boolean
     },
-    handleUpdateTodoItemTitle: handleUpdateTodoTitle,
-    handleUpdateTodoItemState: handleUpdateTodoState,
-    handleDeleteTodoItem: handleDeleteTodo,
+    handleUpdateTodoItemTitle: HandleUpdateTodoTitle,
+    handleUpdateTodoItemState: HandleUpdateTodoState,
+    handleDeleteTodoItem: HandleDeleteTodo,
 }
 
 export const TodoItem = ({

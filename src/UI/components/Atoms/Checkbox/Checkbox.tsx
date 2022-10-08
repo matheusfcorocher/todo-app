@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../../App';
+import '../../../../App';
 import './checkbox.css';
 
 interface CheckboxProps {

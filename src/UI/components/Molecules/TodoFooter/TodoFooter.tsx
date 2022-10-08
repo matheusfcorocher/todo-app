@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../../App.css';
 import './todo-footer.css';
 
 interface TodoFooter {

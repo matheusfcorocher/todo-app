@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../../../App';
+import '../../../../../App';
 import './delete-icon.css';
 import deleteIcon from '../../../../assets/icons/delete.svg';
 

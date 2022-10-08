@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { createImmediatelyInvokedFunctionExpression } from 'typescript';
-import { handleCompleteTodoItems, handleCreateTodo, handleIncompleteTodoItems } from '../../../App';
-import '../../../App.css';
+import { HandleCompleteTodoItems, HandleCreateTodo, HandleIncompleteTodoItems } from '../../../../App';
 import IconButton from '../../Atoms/IconButton/IconButton';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
 import ListIcon from '../../Atoms/icons/ListIcon/ListIcon';
 import './todo-menu.css';
 
 interface TodoMenuProps {
-    handleCreateTodo: handleCreateTodo;
-    handleCompleteAllTodoItems: handleCompleteTodoItems;
-    handleIncompleteAllTodoItems: handleIncompleteTodoItems;
+    handleCreateTodo: HandleCreateTodo;
+    handleCompleteAllTodoItems: HandleCompleteTodoItems;
+    handleIncompleteAllTodoItems: HandleIncompleteTodoItems;
     isAllTodosCompleted: boolean;
 }
 

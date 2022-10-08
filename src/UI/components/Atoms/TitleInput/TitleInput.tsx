@@ -1,10 +1,10 @@
 import React, { forwardRef, useEffect, useState } from 'react';
-import '../../../App';
-import { handleUpdateTodoTitle } from '../../../App';
+import '../../../../App';
+import { HandleUpdateTodoTitle } from '../../../../App';
 import './title-input.css';
 
 interface TitleInputProps {
-    handleOnChange: handleUpdateTodoTitle,
+    handleOnChange: HandleUpdateTodoTitle,
     handleOnFocus: () => void,
     handleOnBlur: () => void,
     title: string,

@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
-import { TodoItem } from '../../Molecules/TodoItem/TodoItem';
-import '../../../App.css';
 import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
-import { handleCompleteTodoItems, handleCreateTodo, handleDeleteTodo, handleIncompleteTodoItems, handleUpdateTodoState, handleUpdateTodoTitle } from '../../../App';
-import { TodoData } from '../../../domain/entities/TodoData';
+import { TodoData } from '../../../../domain/entities/TodoData';
+import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteTodo, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
 
 interface TodoProps {
   todosData?: Array<TodoData>;
-  handleCreateTodo: handleCreateTodo;
-  handleDeleteTodo: handleDeleteTodo;
-  handleUpdateTodoTitle: handleUpdateTodoTitle;
-  handleUpdateTodoState: handleUpdateTodoState;
-  handleCompleteAllTodoItems: handleCompleteTodoItems;
-  handleIncompleteAllTodoItems: handleIncompleteTodoItems;
+  handleCreateTodo: HandleCreateTodo;
+  handleDeleteTodo: HandleDeleteTodo;
+  handleUpdateTodoTitle: HandleUpdateTodoTitle;
+  handleUpdateTodoState: HandleUpdateTodoState;
+  handleCompleteAllTodoItems: HandleCompleteTodoItems;
+  handleIncompleteAllTodoItems: HandleIncompleteTodoItems;
 }
 
 function Todo({ 

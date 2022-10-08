@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
-import '../../../App.css';
 import './todolist.css';
-import { handleDeleteTodo, handleUpdateTodoState, handleUpdateTodoTitle } from '../../../App';
+import { HandleDeleteTodo, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
 
 type TodoData = {
   id: string;
@@ -12,9 +11,9 @@ type TodoData = {
 
 interface TodoListProps {
   todosData?: Array<TodoData>;
-  handleDeleteTodo: handleDeleteTodo;
-  handleUpdateTodoTitle: handleUpdateTodoTitle;
-  handleUpdateTodoState: handleUpdateTodoState;
+  handleDeleteTodo: HandleDeleteTodo;
+  handleUpdateTodoTitle: HandleUpdateTodoTitle;
+  handleUpdateTodoState: HandleUpdateTodoState;
 }
 
 function TodoList({ todosData = [], handleDeleteTodo, handleUpdateTodoTitle, handleUpdateTodoState }: TodoListProps) {
