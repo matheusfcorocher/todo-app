@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import Todo from './UI/components/Organisms/Todo/Todo';
+import Todo from './view/components/Organisms/Todo/Todo';
 import { addTodo, completeAllTodosItem, deleteTodo, incompleteAllTodosItem, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
 
 export type HandleCreateTodo = (title: string) => void;
