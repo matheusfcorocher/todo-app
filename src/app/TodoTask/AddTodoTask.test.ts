@@ -9,6 +9,7 @@ describe("Application :: Use Case :: AddTodoTask", () => {
                 title: "test",
                 isCompleted: false
             }];
+            
             const addTodoTask = makeAddTodoTask();
             const newTodoTasks = addTodoTask({ todoTasks, title: 's' });
 
