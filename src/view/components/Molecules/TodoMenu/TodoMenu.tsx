@@ -3,16 +3,16 @@ import { HandleCompleteTodoItems, HandleCreateTodo, HandleIncompleteTodoItems } 
 import IconButton from '../../Atoms/IconButton/IconButton';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
 import ListIcon from '../../Atoms/icons/ListIcon/ListIcon';
-import './todo-menu-view.css';
+import './todo-menu.css';
 
-interface TodoMenuViewProps {
+interface TodoMenuProps {
     handleCreateTodo: HandleCreateTodo;
     handleCompleteAllTodoItems: HandleCompleteTodoItems;
     handleIncompleteAllTodoItems: HandleIncompleteTodoItems;
     isAllTodosCompleted: boolean;
 }
 
-function TodoMenuView({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodoItems, handleIncompleteAllTodoItems}: TodoMenuViewProps) {
+function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodoItems, handleIncompleteAllTodoItems}: TodoMenuProps) {
     const [title, setTitle] = useState<string>("");
 
     function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
@@ -55,4 +55,4 @@ function TodoMenuView({ handleCreateTodo, isAllTodosCompleted, handleCompleteAll
     );
 }
 
-export default TodoMenuView;
+export default TodoMenu;

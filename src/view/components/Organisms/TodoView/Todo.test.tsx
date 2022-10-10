@@ -1,10 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import TodoView from './TodoView';
+import Todo from './TodoView';
 
-describe("::Components ::Organisms ::TodoView", () => {
+describe("::Components ::Organisms ::Todo", () => {
   test('renders Todo', () => {
-      render(<TodoView handleCreateTodo={function (title: string): void {
+      render(<Todo handleCreateTodo={function (title: string): void {
         throw new Error('Function not implemented.');
       } } handleDeleteTodo={function (id: string): void {
         throw new Error('Function not implemented.');

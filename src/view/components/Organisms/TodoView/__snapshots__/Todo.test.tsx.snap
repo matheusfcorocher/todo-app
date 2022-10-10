@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`::Components ::Organisms ::TodoView renders Todo 1`] = `
+exports[`::Components ::Organisms ::Todo renders Todo 1`] = `
 <div
   class="todo-panel"
   data-testid="todo"

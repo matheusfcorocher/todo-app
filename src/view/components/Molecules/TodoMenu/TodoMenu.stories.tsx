@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import TodoMenuView from './TodoMenuView';
+import TodoMenu from './TodoMenu';
 
 export default {
-  title: 'Molecules/TodoMenuView',
-  component: TodoMenuView,
+  title: 'Molecules/TodoMenu',
+  component: TodoMenu,
   decorators: [
     (Story) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
@@ -12,9 +12,9 @@ export default {
       </ul>
     ),
   ]
-} as ComponentMeta<typeof TodoMenuView>;
+} as ComponentMeta<typeof TodoMenu>;
 
-const Template: ComponentStory<typeof TodoMenuView> = (args) => <TodoMenuView {...args} />;
+const Template: ComponentStory<typeof TodoMenu> = (args) => <TodoMenu {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
