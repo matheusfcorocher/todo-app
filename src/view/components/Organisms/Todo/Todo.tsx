@@ -3,11 +3,11 @@ import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
-import { TodoData } from '../../../../domain/entities/TodoData';
+import { TodoTasks } from '../../../../domain/entities/TodoTask';
 import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteTodo, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
 
 interface TodoProps {
-  todosData?: Array<TodoData>;
+  todoTasks?: TodoTasks;
   handleCreateTodo: HandleCreateTodo;
   handleDeleteTodo: HandleDeleteTodo;
   handleUpdateTodoTitle: HandleUpdateTodoTitle;
@@ -17,17 +17,17 @@ interface TodoProps {
 }
 
 function Todo({ 
-  todosData = [], 
+  todoTasks = [], 
   handleCreateTodo, 
   handleDeleteTodo, 
   handleUpdateTodoTitle, 
   handleUpdateTodoState, 
   handleCompleteAllTodoItems, 
   handleIncompleteAllTodoItems }: TodoProps) {
-  const isCompleted = isAllTodosCompleted(todosData);
+  const isCompleted = isAllTodosCompleted(todoTasks);
 
-  function isAllTodosCompleted(todosData: Array<TodoData>): boolean {
-    const isAllTodosCompleted = todosData.find(todo => todo.isCompleted == true);
+  function isAllTodosCompleted(todoTasks: TodoTasks): boolean {
+    const isAllTodosCompleted = todoTasks.find(todo => todo.isCompleted == true);
     if (isAllTodosCompleted) {
       return true;
     }
@@ -44,12 +44,12 @@ function Todo({
         handleIncompleteAllTodoItems={handleIncompleteAllTodoItems}
       />
       <TodoList
-        todosData={todosData}
+        todoTasks={todoTasks}
         handleDeleteTodo={handleDeleteTodo}
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
       />
-      {todosData.length !== 0 && <TodoFooter todosQuantity={todosData.length} />}
+      {todoTasks.length !== 0 && <TodoFooter todosQuantity={todoTasks.length} />}
     </div>
   );
 }

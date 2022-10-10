@@ -2,22 +2,17 @@ import React, { useState } from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
 import './todolist.css';
 import { HandleDeleteTodo, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
-
-type TodoData = {
-  id: string;
-  title: string;
-  isCompleted: boolean;
-}
+import { TodoTask, TodoTasks } from '../../../../domain/entities/TodoTask';
 
 interface TodoListProps {
-  todosData?: Array<TodoData>;
+  todoTasks?: TodoTasks;
   handleDeleteTodo: HandleDeleteTodo;
   handleUpdateTodoTitle: HandleUpdateTodoTitle;
   handleUpdateTodoState: HandleUpdateTodoState;
 }
 
-function TodoList({ todosData = [], handleDeleteTodo, handleUpdateTodoTitle, handleUpdateTodoState }: TodoListProps) {
-  const listToDoItems = todosData.map((todo: TodoData) => {
+function TodoList({ todoTasks = [], handleDeleteTodo, handleUpdateTodoTitle, handleUpdateTodoState }: TodoListProps) {
+  const listToDoItems = todoTasks.map((todo: TodoTask) => {
     return (
       <TodoItem
         key={todo.id}

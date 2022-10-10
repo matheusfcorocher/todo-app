@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
-import { addTodo, completeAllTodosItem, deleteTodo, incompleteAllTodosItem, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
+import { addTodoTask, completeAllTodoTasksItem, deleteTodoTask, incompleteAllTodoTasksItem, TodoTask, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './domain/entities/TodoTask';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -11,26 +11,26 @@ export type HandleCompleteTodoItems = () => void;
 export type HandleIncompleteTodoItems = () => void;
 
 function App() {
-  const [todos, setTodos] = useState<Todos>([]);
+  const [todoTasks, setTodoTasks] = useState<TodoTasks>([]);
 
   function handleAddTodo(title: string): void {
-    const newTodos = addTodo({todos, title});
-    setTodos(newTodos)
+    const newTodoTasks = addTodoTask({todoTasks, title});
+    setTodoTasks(newTodoTasks)
   }
 
   function handleDeleteTodo(id: string): void {
-    const newTodos = deleteTodo({todos, id});
-    setTodos(newTodos);
+    const newTodoTasks = deleteTodoTask({todoTasks, id});
+    setTodoTasks(newTodoTasks);
   }
 
   function handleUpdateTodoTitle(id: string, newTitle: string): void {
-    const newTodos = updateTodoTitle({todos, id, newTitle});
-    setTodos(newTodos);
+    const newTodoTasks = updateTodoTaskTitle({todoTasks, id, newTitle});
+    setTodoTasks(newTodoTasks);
   }
 
   function handleUpdateTodoState(id: string, state: boolean): void {
-    const newTodos = updateTodoState({todos, id, state});
-    setTodos(newTodos);
+    const newTodoTasks = updateTodoTaskState({todoTasks, id, state});
+    setTodoTasks(newTodoTasks);
   }
 
   // function deleteTodoWhenIsBlank(id: string, title: string) : void {
@@ -40,26 +40,26 @@ function App() {
   //   }
   // } 
 
-  function handleCompleteAllTodosItem(): void {
-    const newTodos = completeAllTodosItem({todos});
-    setTodos(newTodos);
+  function handleCompleteAllTodoTasksItem(): void {
+    const newTodoTasks = completeAllTodoTasksItem({todoTasks});
+    setTodoTasks(newTodoTasks);
   }
 
-  function handleIncompleteAllTodosItem(): void {
-    const newTodos = incompleteAllTodosItem({todos});
-    setTodos(newTodos);
+  function handleIncompleteAllTodoTasksItem(): void {
+    const newTodoTasks = incompleteAllTodoTasksItem({todoTasks});
+    setTodoTasks(newTodoTasks);
   }
 
   return (
     <div className="App">
       <Todo
-        todosData={todos}
+        todoTasks={todoTasks}
         handleCreateTodo={handleAddTodo}
         handleDeleteTodo={handleDeleteTodo}
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
-        handleCompleteAllTodoItems={handleCompleteAllTodosItem}
-        handleIncompleteAllTodoItems={handleIncompleteAllTodosItem}
+        handleCompleteAllTodoItems={handleCompleteAllTodoTasksItem}
+        handleIncompleteAllTodoItems={handleIncompleteAllTodoTasksItem}
       />
     </div>
   );
