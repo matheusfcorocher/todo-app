@@ -13,7 +13,7 @@ export type TodoTasks = Array<TodoTask>;
 
 //Functions
 
-type AddTodoTaskParameters = {
+export type AddTodoTaskParameters = {
     todoTasks: TodoTasks,
     title: string
 };
