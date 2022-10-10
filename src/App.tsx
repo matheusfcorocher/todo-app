@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
+import Todo from './view/components/Organisms/Todo/Todo';
 import { addTodo, completeAllTodosItem, deleteTodo, incompleteAllTodosItem, TodoData, Todos, updateTodoState, updateTodoTitle } from './domain/entities/TodoData';
-import TodoView from './view/components/Organisms/TodoView/TodoView';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      <TodoView
+      <Todo
         todosData={todos}
         handleCreateTodo={handleAddTodo}
         handleDeleteTodo={handleDeleteTodo}
