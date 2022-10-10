@@ -1,4 +1,4 @@
-import { addTodoTask, completeAllTodoTasksItem, deleteTodoTask, incompleteAllTodoTasksItem, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "./TodoTask";
+import { addTodoTask, completeAllTodoTasks, deleteTodoTask, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "./TodoTask";
 
 describe("Domain :: Entity :: TodoTask", () => {
   describe("#addTodoTask", () => {
@@ -81,7 +81,7 @@ describe("Domain :: Entity :: TodoTask", () => {
       });
     });
   });
-  describe("#completeAllTodoTasksItem", () => {
+  describe("#completeAllTodoTasks", () => {
     describe("When pass todoTasks", () => {
       it("returns all todoTasks with IsCompleted true", () => {
         const todoTasks: TodoTasks = [{
@@ -95,7 +95,7 @@ describe("Domain :: Entity :: TodoTask", () => {
           isCompleted: false
         },
         ];
-        const newTodoTasks = completeAllTodoTasksItem({ todoTasks });
+        const newTodoTasks = completeAllTodoTasks({ todoTasks });
 
         const expected: TodoTasks = [{
           id: "blabla",
@@ -113,7 +113,7 @@ describe("Domain :: Entity :: TodoTask", () => {
       });
     });
   });
-  describe("#incompleteAllTodoTasksItem", () => {
+  describe("#incompleteAllTodoTasks", () => {
     describe("When pass todoTasks", () => {
       it("returns all todoTasks with IsCompleted false", () => {
         const todoTasks: TodoTasks = [{
@@ -127,7 +127,7 @@ describe("Domain :: Entity :: TodoTask", () => {
           isCompleted: false
         },
         ];
-        const newTodoTasks = incompleteAllTodoTasksItem({ todoTasks });
+        const newTodoTasks = incompleteAllTodoTasks({ todoTasks });
 
         const expected: TodoTasks = [{
           id: "blabla",

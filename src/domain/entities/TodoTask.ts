@@ -81,7 +81,7 @@ type CompleteAllTodoTasksParameters = {
     todoTasks: TodoTasks
 };
 
-export function completeAllTodoTasksItem({todoTasks} : CompleteAllTodoTasksParameters): TodoTasks {
+export function completeAllTodoTasks({todoTasks} : CompleteAllTodoTasksParameters): TodoTasks {
     const newTodoTasks = todoTasks.map(todo => {
       return {
         ...todo,
@@ -95,7 +95,7 @@ type IncompleteAllTodoTasksParameters = {
     todoTasks: TodoTasks
 };
 
-export function incompleteAllTodoTasksItem({todoTasks} : IncompleteAllTodoTasksParameters): TodoTasks {
+export function incompleteAllTodoTasks({todoTasks} : IncompleteAllTodoTasksParameters): TodoTasks {
     const newTodoTasks = todoTasks.map(todo => {
       return {
         ...todo,

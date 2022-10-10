@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
-import { addTodoTask, completeAllTodoTasksItem, deleteTodoTask, incompleteAllTodoTasksItem, TodoTask, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './domain/entities/TodoTask';
+import { addTodoTask, completeAllTodoTasks, deleteTodoTask, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './domain/entities/TodoTask';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -41,12 +41,12 @@ function App() {
   // } 
 
   function handleCompleteAllTodoTasksItem(): void {
-    const newTodoTasks = completeAllTodoTasksItem({todoTasks});
+    const newTodoTasks = completeAllTodoTasks({todoTasks});
     setTodoTasks(newTodoTasks);
   }
 
-  function handleIncompleteAllTodoTasksItem(): void {
-    const newTodoTasks = incompleteAllTodoTasksItem({todoTasks});
+  function handleIncompleteAllTodoTasks(): void {
+    const newTodoTasks = incompleteAllTodoTasks({todoTasks});
     setTodoTasks(newTodoTasks);
   }
 
@@ -59,7 +59,7 @@ function App() {
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
         handleCompleteAllTodoItems={handleCompleteAllTodoTasksItem}
-        handleIncompleteAllTodoItems={handleIncompleteAllTodoTasksItem}
+        handleIncompleteAllTodoItems={handleIncompleteAllTodoTasks}
       />
     </div>
   );
