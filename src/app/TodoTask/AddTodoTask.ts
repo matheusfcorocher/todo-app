@@ -1,10 +1,8 @@
 import { addTodoTask, AddTodoTaskParameters, TodoTasks } from "../../domain/entities/TodoTask";
+import { TodoTaskRepository } from "../../domain/repositories/TodoTaskRepository";
 
-type MakeAddTodoTaskParameters = {
-    storage: ;
-}
-
-export function makeAddTodoTask({storage} : MakeAddTodoTaskParameters ): typeof addTodoTask {
+export function makeAddTodoTask(todoTaskRepository : TodoTaskRepository): typeof addTodoTask {
+    const storage = todoTaskRepository;
 
     function AddTodoTask({ todoTasks, title }: AddTodoTaskParameters): TodoTasks {
         const newTodosTasks = addTodoTask({ todoTasks, title });

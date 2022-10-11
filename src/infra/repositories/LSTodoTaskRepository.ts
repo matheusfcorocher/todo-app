@@ -1,9 +1,9 @@
 import { TodoTasks } from "../../domain/entities/TodoTask";
-import { LSTodoTaskRepositoryFactory, StoreTodoTaskParameters } from "../../domain/factories/LSTodoTaskRepositoryFactory";
+import { TodoTaskRepository, StoreTodoTaskParameters } from "../../domain/repositories/TodoTaskRepository";
 
 
-const todoTaskRepository : LSTodoTaskRepositoryFactory = {
-    get: function (): TodoTasks {
+const lsTodoTaskRepository : TodoTaskRepository  = {
+    getAllTodoTasks: function (): TodoTasks {
         const todoTasks = localStorage.getItem('todoTasks');
         if (todoTasks) {
             return JSON.parse(todoTasks);
@@ -16,6 +16,6 @@ const todoTaskRepository : LSTodoTaskRepositoryFactory = {
     clear: function (): void {
         localStorage.removeItem("todoTasks");
     }
-};
+}
 
-export { todoTaskRepository };
+export { lsTodoTaskRepository };

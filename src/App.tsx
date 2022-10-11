@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
-import { addTodoTask, completeAllTodoTasks, deleteTodoTask, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './domain/entities/TodoTask';
+import { completeAllTodoTasks, deleteTodoTask, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './domain/entities/TodoTask';
+import { makeAddTodoTask } from './app/TodoTask/AddTodoTask';
+import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -14,6 +16,7 @@ function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>([]);
 
   function handleAddTodo(title: string): void {
+    const addTodoTask = makeAddTodoTask(lsTodoTaskRepository);
     const newTodoTasks = addTodoTask({todoTasks, title});
     setTodoTasks(newTodoTasks)
   }

@@ -20,12 +20,12 @@ export const Default = Template.bind({});
 Default.args = {};
 
 Default.args = {
-  todosData: []
+  todoTasks: []
 };
 
 export const withItems = Template.bind({});
 withItems.args = {
-  todosData: [
+  todoTasks: [
     {
       id: "1",
       title: "TASK",
