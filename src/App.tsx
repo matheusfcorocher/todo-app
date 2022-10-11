@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
-import { completeAllTodoTasks, incompleteAllTodoTasks, TodoTasks } from './domain/entities/TodoTask';
+import { TodoTasks } from './domain/entities/TodoTask';
 import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
 import { makeAddTodoTask } from './app/TodoTask/AddTodoTask/AddTodoTask';
 import { makeDeleteTodoTask } from './app/TodoTask/DeleteTodoTask/DeleteTodoTask';
 import { makeUpdateTodoTaskTitle } from './app/TodoTask/UpdateTodoTaskTitle/UpdateTodoTaskTitle';
 import { makeUpdateTodoTaskState } from './app/TodoTask/UpdateTodoTaskState/UpdateTodoTaskState';
 import { makeCompleteAllTodoTasks } from './app/TodoTask/CompleteAllTodoTasks/CompleteAllTodoTask';
+import { makeIncompleteAllTodoTasks } from './app/TodoTask/IncompleteAllTodoTasks/IncompleteAllTodoTask';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -57,6 +58,7 @@ function App() {
   }
 
   function handleIncompleteAllTodoTasks(): void {
+    const incompleteAllTodoTasks = makeIncompleteAllTodoTasks(lsTodoTaskRepository);
     const newTodoTasks = incompleteAllTodoTasks({todoTasks});
     setTodoTasks(newTodoTasks);
   }

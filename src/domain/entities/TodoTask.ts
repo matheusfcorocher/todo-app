@@ -91,7 +91,7 @@ export function completeAllTodoTasks({todoTasks} : CompleteAllTodoTasksParameter
     return newTodoTasks;
 }
 
-type IncompleteAllTodoTasksParameters = {
+export type IncompleteAllTodoTasksParameters = {
     todoTasks: TodoTasks
 };
 
