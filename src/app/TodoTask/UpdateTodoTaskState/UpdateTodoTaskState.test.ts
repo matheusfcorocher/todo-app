@@ -2,6 +2,10 @@ import { TodoTasks } from "../../../domain/entities/TodoTask";
 import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
 import { makeUpdateTodoTaskState } from "./UpdateTodoTaskState";
 
+afterEach(() => {
+    lsTodoTaskRepository.clear();
+})
+
 describe("Application :: Use Case :: UpdateTodoTaskState", () => {
     describe("When pass a new state for todoTask", () => {
         it("returns todoTask with new state", () => {

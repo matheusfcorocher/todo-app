@@ -2,6 +2,10 @@ import { TodoTasks } from "../../../domain/entities/TodoTask";
 import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
 import { makeUpdateTodoTaskTitle } from "./UpdateTodoTaskTitle";
 
+afterEach(() => {
+    lsTodoTaskRepository.clear();
+})
+
 describe("Application :: Use Case :: UpdateTodoTaskTitle", () => {
     describe("When title of todoTask isn't blank", () => {
         it("returns the new title", () => {

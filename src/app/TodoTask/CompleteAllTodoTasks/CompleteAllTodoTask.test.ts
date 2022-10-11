@@ -2,6 +2,10 @@ import { TodoTasks } from "../../../domain/entities/TodoTask";
 import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
 import { makeCompleteAllTodoTasks } from "./CompleteAllTodoTask";
 
+afterEach(() => {
+    lsTodoTaskRepository.clear();
+})
+
 describe("Application :: Use Case :: CompleteAllTodoTasks", () => {
     describe("When pass todoTasks", () => {
         it("returns all todoTasks with IsCompleted true", () => {

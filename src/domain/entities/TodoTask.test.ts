@@ -1,4 +1,4 @@
-import { addTodoTask, completeAllTodoTasks, deleteTodoTask, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "./TodoTask";
+import { addTodoTask, completeAllTodoTasks, deleteTodoTask, filterTodoTasksByIsCompleted, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "./TodoTask";
 
 describe("Domain :: Entity :: TodoTask", () => {
   describe("#addTodoTask", () => {
@@ -63,7 +63,7 @@ describe("Domain :: Entity :: TodoTask", () => {
           title: "test",
           isCompleted: false
         }];
-        const newTodoTasks = updateTodoTaskState({ todoTasks, id: 'blabla', state: true});
+        const newTodoTasks = updateTodoTaskState({ todoTasks, id: 'blabla', state: true });
 
         expect(newTodoTasks[0].isCompleted).toEqual(true);
       });
@@ -139,6 +139,92 @@ describe("Domain :: Entity :: TodoTask", () => {
           title: "test2",
           isCompleted: false
         },
+        ];
+
+        expect(newTodoTasks).toEqual(expected);
+      });
+    });
+  });
+
+  describe("#filterTodoTasksByIsCompleted", () => {
+    describe("When pass todoTasks with option isCompleted as false", () => {
+      it("returns all todoTasks with IsCompleted false", () => {
+        const todoTasks: TodoTasks = [{
+          id: "blabla",
+          title: "test",
+          isCompleted: true
+        },
+        {
+          id: "blabl2",
+          title: "test2",
+          isCompleted: false
+        },
+        ];
+        const newTodoTasks = filterTodoTasksByIsCompleted({ todoTasks, isCompleted: false });
+
+        const expected: TodoTasks = [
+          {
+            id: "blabl2",
+            title: "test2",
+            isCompleted: false
+          },
+        ];
+
+        expect(newTodoTasks).toEqual(expected);
+      });
+    });
+    describe("When pass todoTasks with option isCompleted as true", () => {
+      it("returns all todoTasks with IsCompleted true", () => {
+        const todoTasks: TodoTasks = [{
+          id: "blabla",
+          title: "test",
+          isCompleted: true
+        },
+        {
+          id: "blabl2",
+          title: "test2",
+          isCompleted: false
+        },
+        ];
+        const newTodoTasks = filterTodoTasksByIsCompleted({ todoTasks, isCompleted: true });
+
+        const expected: TodoTasks = [
+          {
+            id: "blabla",
+            title: "test",
+            isCompleted: true
+          },
+        ];
+
+        expect(newTodoTasks).toEqual(expected);
+      });
+    });
+    describe("When pass todoTasks with no option", () => {
+      it("returns the same todoTasks", () => {
+        const todoTasks: TodoTasks = [{
+          id: "blabla",
+          title: "test",
+          isCompleted: true
+        },
+        {
+          id: "blabl2",
+          title: "test2",
+          isCompleted: false
+        },
+        ];
+        const newTodoTasks = filterTodoTasksByIsCompleted({ todoTasks });
+
+        const expected: TodoTasks = [
+          {
+            id: "blabla",
+            title: "test",
+            isCompleted: true
+          },
+          {
+            id: "blabl2",
+            title: "test2",
+            isCompleted: false
+          },
         ];
 
         expect(newTodoTasks).toEqual(expected);

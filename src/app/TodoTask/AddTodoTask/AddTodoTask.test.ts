@@ -2,6 +2,10 @@ import { TodoTasks } from "../../../domain/entities/TodoTask";
 import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
 import { makeAddTodoTask } from "./AddTodoTask";
 
+afterEach(() => {
+    lsTodoTaskRepository.clear();
+})
+
 describe("Application :: Use Case :: AddTodoTask", () => {
     describe("When todoTasks has TodoTasks", () => {
         it("returns the quantity plus 1 ", () => {
