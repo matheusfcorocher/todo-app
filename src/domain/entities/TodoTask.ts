@@ -27,7 +27,7 @@ export function addTodoTask({todoTasks, title} : AddTodoTaskParameters): TodoTas
     return [...todoTasks, newTodo];
 }
 
-type DeleteTodoTaskParameters = {
+export type DeleteTodoTaskParameters = {
     todoTasks: TodoTasks,
     id: string
 };

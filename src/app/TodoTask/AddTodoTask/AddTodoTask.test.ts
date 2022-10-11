@@ -1,5 +1,5 @@
-import { TodoTasks } from "../../domain/entities/TodoTask";
-import { lsTodoTaskRepository } from "../../infra/repositories/LSTodoTaskRepository";
+import { TodoTasks } from "../../../domain/entities/TodoTask";
+import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
 import { makeAddTodoTask } from "./AddTodoTask";
 
 describe("Application :: Use Case :: AddTodoTask", () => {
