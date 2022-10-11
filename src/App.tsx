@@ -7,6 +7,7 @@ import { makeAddTodoTask } from './app/TodoTask/AddTodoTask/AddTodoTask';
 import { makeDeleteTodoTask } from './app/TodoTask/DeleteTodoTask/DeleteTodoTask';
 import { makeUpdateTodoTaskTitle } from './app/TodoTask/UpdateTodoTaskTitle/UpdateTodoTaskTitle';
 import { makeUpdateTodoTaskState } from './app/TodoTask/UpdateTodoTaskState/UpdateTodoTaskState';
+import { makeCompleteAllTodoTasks } from './app/TodoTask/CompleteAllTodoTasks/CompleteAllTodoTask';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -50,6 +51,7 @@ function App() {
   // } 
 
   function handleCompleteAllTodoTasksItem(): void {
+    const completeAllTodoTasks = makeCompleteAllTodoTasks(lsTodoTaskRepository);
     const newTodoTasks = completeAllTodoTasks({todoTasks});
     setTodoTasks(newTodoTasks);
   }

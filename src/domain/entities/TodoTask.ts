@@ -77,7 +77,7 @@ export function updateTodoTaskState({todoTasks, id, state} : UpdateTodoTaskState
     return todoTasks;
 }
 
-type CompleteAllTodoTasksParameters = {
+export type CompleteAllTodoTasksParameters = {
     todoTasks: TodoTasks
 };
 
