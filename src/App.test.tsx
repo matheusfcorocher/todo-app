@@ -2,10 +2,12 @@ import React from 'react';
 import { cleanup, render, screen, within } from '@testing-library/react';
 import App from './App';
 import userEvent from '@testing-library/user-event';
+import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
 
 describe("::App", () => {
   beforeEach(() => {
     cleanup();
+    lsTodoTaskRepository.clear();
   })
 
   describe("When user type title of todo", () => {

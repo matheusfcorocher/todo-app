@@ -18,7 +18,7 @@ export type HandleCompleteTodoItems = () => void;
 export type HandleIncompleteTodoItems = () => void;
 
 function App() {
-  const [todoTasks, setTodoTasks] = useState<TodoTasks>([]);
+  const [todoTasks, setTodoTasks] = useState<TodoTasks>(lsTodoTaskRepository.getAllTodoTasks());
 
   function handleAddTodo(title: string): void {
     const addTodoTask = makeAddTodoTask(lsTodoTaskRepository);
