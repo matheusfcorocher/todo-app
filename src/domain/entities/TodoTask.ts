@@ -60,7 +60,7 @@ export function updateTodoTaskTitle({todoTasks, id, newTitle}: UpdateTodoTaskTit
     return todoTasks;
 }
 
-type UpdateTodoTaskStateParameters = {
+export type UpdateTodoTaskStateParameters = {
     todoTasks: TodoTasks,
     id: string,
     state: boolean

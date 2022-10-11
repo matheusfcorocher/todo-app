@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
-import { completeAllTodoTasks, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState } from './domain/entities/TodoTask';
+import { completeAllTodoTasks, incompleteAllTodoTasks, TodoTasks } from './domain/entities/TodoTask';
 import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
 import { makeAddTodoTask } from './app/TodoTask/AddTodoTask/AddTodoTask';
 import { makeDeleteTodoTask } from './app/TodoTask/DeleteTodoTask/DeleteTodoTask';
 import { makeUpdateTodoTaskTitle } from './app/TodoTask/UpdateTodoTaskTitle/UpdateTodoTaskTitle';
+import { makeUpdateTodoTaskState } from './app/TodoTask/UpdateTodoTaskState/UpdateTodoTaskState';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -36,6 +37,7 @@ function App() {
   }
 
   function handleUpdateTodoState(id: string, state: boolean): void {
+    const updateTodoTaskState = makeUpdateTodoTaskState(lsTodoTaskRepository);
     const newTodoTasks = updateTodoTaskState({todoTasks, id, state});
     setTodoTasks(newTodoTasks);
   }
