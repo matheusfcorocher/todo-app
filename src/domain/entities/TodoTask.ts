@@ -37,13 +37,13 @@ export function deleteTodoTask({todoTasks, id} :DeleteTodoTaskParameters): TodoT
     return newTodoTasks;
 }
 
-type UpdateTodoTaskParameters = {
+export type UpdateTodoTaskTitleParameters = {
     todoTasks: TodoTasks,
     id: string,
     newTitle: string
 };
 
-export function updateTodoTaskTitle({todoTasks, id, newTitle}: UpdateTodoTaskParameters): TodoTasks {
+export function updateTodoTaskTitle({todoTasks, id, newTitle}: UpdateTodoTaskTitleParameters): TodoTasks {
     if (isStringBlank(newTitle)) {
       const newTodoTasks = deleteTodoTask({todoTasks, id});
       return newTodoTasks;
