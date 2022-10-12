@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`::Components ::Atoms ::Button renders Button 1`] = `
+<button
+  class="icon-button large primary-color"
+  role="button"
+/>
+`;

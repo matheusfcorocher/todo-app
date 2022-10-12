@@ -1,0 +1,46 @@
+@import '../../../foundations/spacing/spacing.css';
+@import '../../../foundations/colors/colors.css';
+@import '../../../foundations/typography/typography.css';
+
+.icon-button {
+    border: 0;
+    font-size: var(--fs-300);
+    font-family: var(--ff-serif);
+}
+
+.large {
+    padding: var(--spacing-md);
+}
+
+.medium {
+    padding: var(--spacing-sm);
+}
+
+.small {
+    padding: var(--spacing-xs);
+}
+
+.primary {
+    background-color: var(--primary-color);
+}
+
+.secondary {
+    background-color: var(--secondary-color);
+}
+
+.tertiary {
+    background-color: var(--tertiary-color);
+}
+
+.white {
+    color: var(--white-color);
+}
+
+.gray {
+    color: var(--gray-color);
+}
+
+.dark {
+    color: var(--dark-color);
+}
+
