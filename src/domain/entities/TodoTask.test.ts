@@ -1,4 +1,4 @@
-import { addTodoTask, completeAllTodoTasks, deleteTodoTask, filterTodoTasksByIsCompleted, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "./TodoTask";
+import { addTodoTask, areThereTodoTasksCompleted, completeAllTodoTasks, deleteTodoTask, filterTodoTasksByIsCompleted, incompleteAllTodoTasks, TodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "./TodoTask";
 
 describe("Domain :: Entity :: TodoTask", () => {
   describe("#addTodoTask", () => {
@@ -229,6 +229,50 @@ describe("Domain :: Entity :: TodoTask", () => {
 
         expect(newTodoTasks).toEqual(expected);
       });
+    });
+  });
+  describe("#areThereTodoTasksCompleted", () => {
+    describe("When pass todoTasks with", () => {
+      describe("at least one is IsCompleted", () => {
+        it("returns true", () => {
+          const todoTasks: TodoTasks = [{
+            id: "blabla",
+            title: "test",
+            isCompleted: true
+          },
+          {
+            id: "blabl2",
+            title: "test2",
+            isCompleted: false
+          },
+          ];
+          const newTodoTasks = areThereTodoTasksCompleted({ todoTasks });
+
+          const expected: boolean = true;
+
+          expect(newTodoTasks).toEqual(expected);
+        });
+      })
+      describe("at none is IsCompleted", () => {
+        it("returns false", () => {
+          const todoTasks: TodoTasks = [{
+            id: "blabla",
+            title: "test",
+            isCompleted: false
+          },
+          {
+            id: "blabl2",
+            title: "test2",
+            isCompleted: false
+          },
+          ];
+          const newTodoTasks = areThereTodoTasksCompleted({ todoTasks });
+
+          const expected: boolean = false;
+
+          expect(newTodoTasks).toEqual(expected);
+        });
+      })
     });
   });
 });

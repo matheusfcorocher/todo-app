@@ -121,3 +121,15 @@ export function filterTodoTasksByIsCompleted({ todoTasks, isCompleted }: filterT
   }
   return todoTasks;
 }
+
+export type areThereTodoTasksCompletedParameters = {
+  todoTasks: TodoTasks
+};
+
+export function areThereTodoTasksCompleted({ todoTasks }: areThereTodoTasksCompletedParameters): boolean {
+  const completedTodoTasks = todoTasks.filter(todo => todo.isCompleted === true);
+  if(completedTodoTasks.length !== 0) {
+    return true
+  }
+  return false;
+}
