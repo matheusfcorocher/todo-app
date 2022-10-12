@@ -4,12 +4,13 @@ import Button from '../../Atoms/Button/Button';
 import './todo-footer.css';
 
 interface TodoFooter {
+    areThereTodoTasksCompleted: boolean;
     todosQuantity: number;
     handleFilter: HandleFilter;
     handleDeleteAllCompletedTodoTasks: HandleDeleteAllCompletedTodoTasks;
 }
 
-function TodoFooter({ todosQuantity = 0, handleFilter, handleDeleteAllCompletedTodoTasks }: TodoFooter) {
+function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, handleFilter, handleDeleteAllCompletedTodoTasks }: TodoFooter) {
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, filter?: boolean): void => {
         document.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
         event.currentTarget.classList.toggle('active')
@@ -27,12 +28,16 @@ function TodoFooter({ todosQuantity = 0, handleFilter, handleDeleteAllCompletedT
                 <li><a className={'todo-filter'} onClick={(e) => handleClick(e, false)} href="#/active">Active</a></li>
                 <li><a className={'todo-filter'} onClick={(e) => handleClick(e, true)} href="#/completed">Completed</a></li>
             </ul>
-            <Button handleFunction={handleDeleteAllCompletedTodoTasks}
-                title={"Clear Completed"}
-                variant={"primary"}
-                size={"medium"}
-                fontColor={"gray"}
-            />
+            {
+                areThereTodoTasksCompleted === true &&
+                <Button
+                    handleFunction={handleDeleteAllCompletedTodoTasks}
+                    title={"Clear Completed"}
+                    variant={"primary"}
+                    size={"medium"}
+                    fontColor={"gray"}
+                />
+            }
         </div>
     );
 }

@@ -8,7 +8,7 @@ describe("::Components ::Molecules ::TodoFooter", () => {
         throw new Error('Function not implemented.');
       } } handleDeleteAllCompletedTodoTasks={function (): void {
         throw new Error('Function not implemented.');
-      } } />);
+      } } areThereTodoTasksCompleted={false} />);
       const todoFooter = screen.getByRole("group");
       expect(todoFooter).toMatchSnapshot();
   })

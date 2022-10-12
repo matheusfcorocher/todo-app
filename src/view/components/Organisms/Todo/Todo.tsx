@@ -3,7 +3,7 @@ import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
-import { filterTodoTasksByIsCompleted, TodoTasks } from '../../../../domain/entities/TodoTask';
+import { areThereTodoTasksCompleted, filterTodoTasksByIsCompleted, TodoTasks } from '../../../../domain/entities/TodoTask';
 import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteAllCompletedTodoTasks, HandleDeleteTodo, HandleFilter, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
 
 interface TodoProps {
@@ -58,10 +58,10 @@ function Todo({
         handleUpdateTodoState={handleUpdateTodoState}
       />
       {todoTasks.length !== 0 && <TodoFooter 
-        todosQuantity={filterTodoTasksByIsCompleted({todoTasks, isCompleted: false}).length} 
-        handleFilter={handleFilter} 
-        handleDeleteAllCompletedTodoTasks={handleDeleteAllCompletedTodoTasks}  
-      />}
+        todosQuantity={filterTodoTasksByIsCompleted({ todoTasks, isCompleted: false }).length}
+        handleFilter={handleFilter}
+        handleDeleteAllCompletedTodoTasks={handleDeleteAllCompletedTodoTasks} 
+        areThereTodoTasksCompleted={areThereTodoTasksCompleted({todoTasks})}      />}
     </div>
   );
 }
