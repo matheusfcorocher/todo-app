@@ -16,9 +16,11 @@ export type HandleUpdateTodoTitle = (id: string, title: string) => void;
 export type HandleUpdateTodoState = (id: string, state: boolean) => void;
 export type HandleCompleteTodoItems = () => void;
 export type HandleIncompleteTodoItems = () => void;
+export type HandleFilter = (isCompleted?: boolean) => void;
 
 function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(lsTodoTaskRepository.getAllTodoTasks());
+  const [filter, setFilter] = useState<boolean | undefined>();
 
   function handleAddTodo(title: string): void {
     const addTodoTask = makeAddTodoTask(lsTodoTaskRepository);
@@ -63,16 +65,22 @@ function App() {
     setTodoTasks(newTodoTasks);
   }
 
+  function handleFilter(isCompleted?: boolean) : void {
+    setFilter(isCompleted);
+  }
+
   return (
     <div className="App">
       <Todo
         todoTasks={todoTasks}
+        filter={filter}
         handleCreateTodo={handleAddTodo}
         handleDeleteTodo={handleDeleteTodo}
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
         handleCompleteAllTodoItems={handleCompleteAllTodoTasksItem}
         handleIncompleteAllTodoItems={handleIncompleteAllTodoTasks}
+        handleFilter={handleFilter}
       />
     </div>
   );

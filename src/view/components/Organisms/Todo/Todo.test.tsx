@@ -16,7 +16,11 @@ describe("::Components ::Organisms ::Todo", () => {
         throw new Error('Function not implemented.');
       } } handleIncompleteAllTodoItems={function (): void {
         throw new Error('Function not implemented.');
-      } } />);
+      } } 
+        handleFilter={function (filter?: boolean): void {
+        throw new Error('Function not implemented.');
+      } }
+      />);
       const todo = screen.getByTestId("todo");
       expect(todo).toMatchSnapshot();
   })
