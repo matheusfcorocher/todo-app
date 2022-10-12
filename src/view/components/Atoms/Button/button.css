@@ -1,11 +1,13 @@
 @import '../../../foundations/spacing/spacing.css';
 @import '../../../foundations/colors/colors.css';
 @import '../../../foundations/typography/typography.css';
+@import '../../../foundations/round-corners/round-corners.css';
 
 .icon-button {
     border: 0;
     font-size: var(--fs-300);
     font-family: var(--ff-serif);
+    border-radius: var(--round-corner-sm);
 }
 
 .large {
