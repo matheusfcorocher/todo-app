@@ -3,7 +3,7 @@ import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
-import { TodoTasks } from '../../../../domain/entities/TodoTask';
+import { filterTodoTasksByIsCompleted, TodoTasks } from '../../../../domain/entities/TodoTask';
 import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteTodo, HandleFilter, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
 
 interface TodoProps {
@@ -55,7 +55,7 @@ function Todo({
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
       />
-      {todoTasks.length !== 0 && <TodoFooter todosQuantity={todoTasks.length} handleFilter={handleFilter} />}
+      {todoTasks.length !== 0 && <TodoFooter todosQuantity={filterTodoTasksByIsCompleted({todoTasks, isCompleted: false}).length} handleFilter={handleFilter} />}
     </div>
   );
 }
