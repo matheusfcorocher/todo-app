@@ -6,6 +6,8 @@ describe("::Components ::Molecules ::TodoFooter", () => {
   test('renders TodoFooter', () => {
       render(<TodoFooter todosQuantity={0} handleFilter={function (isCompleted?: boolean | undefined): void {
         throw new Error('Function not implemented.');
+      } } handleDeleteAllCompletedTodoTasks={function (): void {
+        throw new Error('Function not implemented.');
       } } />);
       const todoFooter = screen.getByRole("group");
       expect(todoFooter).toMatchSnapshot();

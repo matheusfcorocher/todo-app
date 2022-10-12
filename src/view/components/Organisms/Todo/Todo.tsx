@@ -4,7 +4,7 @@ import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { filterTodoTasksByIsCompleted, TodoTasks } from '../../../../domain/entities/TodoTask';
-import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteTodo, HandleFilter, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
+import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteAllCompletedTodoTasks, HandleDeleteTodo, HandleFilter, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
 
 interface TodoProps {
   todoTasks?: TodoTasks;
@@ -16,6 +16,7 @@ interface TodoProps {
   handleCompleteAllTodoItems: HandleCompleteTodoItems;
   handleIncompleteAllTodoItems: HandleIncompleteTodoItems;
   handleFilter: HandleFilter;
+  handleDeleteAllCompletedTodoTasks: HandleDeleteAllCompletedTodoTasks;
 }
 
 function Todo({ 
@@ -27,7 +28,8 @@ function Todo({
   handleUpdateTodoState, 
   handleCompleteAllTodoItems, 
   handleIncompleteAllTodoItems,
-  handleFilter 
+  handleFilter,
+  handleDeleteAllCompletedTodoTasks 
 }: TodoProps) {
   const isCompleted = isAllTodosCompleted(todoTasks);
 
@@ -55,7 +57,11 @@ function Todo({
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
       />
-      {todoTasks.length !== 0 && <TodoFooter todosQuantity={filterTodoTasksByIsCompleted({todoTasks, isCompleted: false}).length} handleFilter={handleFilter} />}
+      {todoTasks.length !== 0 && <TodoFooter 
+        todosQuantity={filterTodoTasksByIsCompleted({todoTasks, isCompleted: false}).length} 
+        handleFilter={handleFilter} 
+        handleDeleteAllCompletedTodoTasks={handleDeleteAllCompletedTodoTasks}  
+      />}
     </div>
   );
 }

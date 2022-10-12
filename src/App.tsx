@@ -9,6 +9,7 @@ import { makeUpdateTodoTaskTitle } from './app/TodoTask/UpdateTodoTaskTitle/Upda
 import { makeUpdateTodoTaskState } from './app/TodoTask/UpdateTodoTaskState/UpdateTodoTaskState';
 import { makeCompleteAllTodoTasks } from './app/TodoTask/CompleteAllTodoTasks/CompleteAllTodoTask';
 import { makeIncompleteAllTodoTasks } from './app/TodoTask/IncompleteAllTodoTasks/IncompleteAllTodoTask';
+import { makeDeleteAllCompletedTodoTasks } from './app/TodoTask/DeleteAllCompletedTodoTasks/DeleteAllCompletedTodoTasks';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -17,6 +18,7 @@ export type HandleUpdateTodoState = (id: string, state: boolean) => void;
 export type HandleCompleteTodoItems = () => void;
 export type HandleIncompleteTodoItems = () => void;
 export type HandleFilter = (isCompleted?: boolean) => void;
+export type HandleDeleteAllCompletedTodoTasks = () => void;
 
 function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(lsTodoTaskRepository.getAllTodoTasks());
@@ -69,6 +71,14 @@ function App() {
     setFilter(isCompleted);
   }
 
+  function handleDeleteAllCompletedTodoTasks(): void {
+    const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(lsTodoTaskRepository);
+    const newTodoTasks = deleteAllCompletedTodoTasks({todoTasks});
+    setTodoTasks(newTodoTasks)
+  }
+
+
+
   return (
     <div className="App">
       <Todo
@@ -81,6 +91,7 @@ function App() {
         handleCompleteAllTodoItems={handleCompleteAllTodoTasksItem}
         handleIncompleteAllTodoItems={handleIncompleteAllTodoTasks}
         handleFilter={handleFilter}
+        handleDeleteAllCompletedTodoTasks={handleDeleteAllCompletedTodoTasks}
       />
     </div>
   );
