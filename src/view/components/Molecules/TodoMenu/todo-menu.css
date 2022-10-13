@@ -20,8 +20,8 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  fill: var(--white-color);
-  stroke: var(--white-color) !important;
+  fill: var(--dark-color);
+  stroke: var(--dark-color) !important;
   stroke-width: 0.1;
   background: transparent;
 }
