@@ -24,9 +24,9 @@ function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, han
                 item left
             </span>
             <ul className={`todo-filters`}>
-                <li><a className={'todo-filter active'} onClick={(e) => handleClick(e, undefined)} href="#/">All</a></li>
-                <li><a className={'todo-filter'} onClick={(e) => handleClick(e, false)} href="#/active">Active</a></li>
-                <li><a className={'todo-filter'} onClick={(e) => handleClick(e, true)} href="#/completed">Completed</a></li>
+                <li><a title={"Filter all todo tasks"} className={'todo-filter active'} onClick={(e) => handleClick(e, undefined)} href="#/">All</a></li>
+                <li><a title={"Filter active todo tasks"} className={'todo-filter'} onClick={(e) => handleClick(e, false)} href="#/active">Active</a></li>
+                <li><a title={"Filter completed todo tasks"} className={'todo-filter'} onClick={(e) => handleClick(e, true)} href="#/completed">Completed</a></li>
             </ul>
             {
                 areThereTodoTasksCompleted === true &&

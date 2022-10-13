@@ -182,4 +182,29 @@ describe("::App", () => {
       expect(checkboxTodoItem2).not.toBeChecked();
     })
   })
+
+  describe("When user is filtering todos", () => {
+    beforeEach(() => {
+      render(<App />);
+      const input = screen.getByPlaceholderText('What needs to be done?');
+      userEvent.click(input);
+      userEvent.type(input, 'test1{enter}');
+      userEvent.click(input);
+      userEvent.type(input, 'test2{enter}');
+    })
+    describe("he clicks in all filter", () => {
+      test('returns all todos', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+  
+        const allFilterButton = screen.getByTitle("Filter all todo tasks")
+        userEvent.click(allFilterButton);
+      
+        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+  
+        expect(newTodoItems.length).toEqual(2);
+      })
+    });
+  })
 })

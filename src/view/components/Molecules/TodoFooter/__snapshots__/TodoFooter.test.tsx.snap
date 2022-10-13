@@ -21,6 +21,7 @@ exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
       <a
         class="todo-filter active"
         href="#/"
+        title="Filter all todo tasks"
       >
         All
       </a>
@@ -29,6 +30,7 @@ exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
       <a
         class="todo-filter"
         href="#/active"
+        title="Filter active todo tasks"
       >
         Active
       </a>
@@ -37,6 +39,7 @@ exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
       <a
         class="todo-filter"
         href="#/completed"
+        title="Filter completed todo tasks"
       >
         Completed
       </a>
