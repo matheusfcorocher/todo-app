@@ -192,7 +192,7 @@ describe("::App", () => {
       userEvent.click(input);
       userEvent.type(input, 'test2{enter}');
     })
-    describe("he clicks in all filter", () => {
+    describe("and he clicks in all filter", () => {
       test('returns all todos', () => {
         const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
         const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
@@ -206,13 +206,27 @@ describe("::App", () => {
         expect(newTodoItems.length).toEqual(2);
       })
     });
-    describe("he clicks in active filter", () => {
-      test('returns active todos', () => {
+    describe("and he clicks in active filter", () => {
+      test('returns only active todos', () => {
         const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
         const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
         userEvent.click(checkbox);
   
         const allFilterButton = screen.getByTitle("Filter active todo tasks")
+        userEvent.click(allFilterButton);
+      
+        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+  
+        expect(newTodoItems.length).toEqual(1);
+      })
+    });
+    describe("and he clicks in completed filter", () => {
+      test('returns only completed todos', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+  
+        const allFilterButton = screen.getByTitle("Filter completed todo tasks")
         userEvent.click(allFilterButton);
       
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
