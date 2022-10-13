@@ -235,4 +235,34 @@ describe("::App", () => {
       })
     });
   })
+  describe("When user is going to clear completed todos", () => {
+    beforeEach(() => {
+      render(<App />);
+      const input = screen.getByPlaceholderText('What needs to be done?');
+      userEvent.click(input);
+      userEvent.type(input, 'test1{enter}');
+      userEvent.click(input);
+      userEvent.type(input, 'test2{enter}');
+    })
+    describe("and he clicks in clear completed button", () => {
+      test('returns only active todos', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+  
+        const clearCompletedButton = screen.getByTitle("Clear Completed todo tasks")
+        userEvent.click(clearCompletedButton);
+      
+        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+  
+        expect(newTodoItems.length).toEqual(1);
+      })
+    });
+    describe("and doesn't have any completed todo tasks", () => {
+      test("screen doesn't show Clear Completed button", () => {  
+        const clearCompletedButton = screen.queryByTitle("Clear Completed todo tasks");  
+        expect(clearCompletedButton).toBeNull();
+      })
+    });
+  })
 })

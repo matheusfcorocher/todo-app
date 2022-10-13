@@ -32,7 +32,7 @@ function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, han
                 areThereTodoTasksCompleted === true &&
                 <Button
                     handleFunction={handleDeleteAllCompletedTodoTasks}
-                    title={"Clear Completed"}
+                    title={"Clear Completed todo tasks"}
                     variant={"primary"}
                     size={"medium"}
                     fontColor={"gray"}
