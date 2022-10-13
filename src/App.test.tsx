@@ -206,5 +206,19 @@ describe("::App", () => {
         expect(newTodoItems.length).toEqual(2);
       })
     });
+    describe("he clicks in active filter", () => {
+      test('returns active todos', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+  
+        const allFilterButton = screen.getByTitle("Filter active todo tasks")
+        userEvent.click(allFilterButton);
+      
+        const newTodoItems = screen.getAllByTestId(/todoItem-/i);
+  
+        expect(newTodoItems.length).toEqual(1);
+      })
+    });
   })
 })
