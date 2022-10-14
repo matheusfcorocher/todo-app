@@ -4,6 +4,7 @@ import Todo from './view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
 import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
 import { addTodoTask, completeAllTodoTasks, deleteAllCompletedTodoTasks, deleteTodoTask, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './view/container';
+import { makeTodoTaskController } from './view/controllers/TodoTaskController';
 
 export type HandleCreateTodo = (title: string) => void;
 export type HandleDeleteTodo = (id: string) => void;
@@ -18,6 +19,7 @@ function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(lsTodoTaskRepository.getAllTodoTasks());
   const [filter, setFilter] = useState<boolean | undefined>();
 
+  // const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})
   function handleAddTodo(title: string): void {
     const newTodoTasks = addTodoTask({todoTasks, title});
     setTodoTasks(newTodoTasks)

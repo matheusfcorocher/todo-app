@@ -1,7 +1,7 @@
-@import '../../../foundations/colors/colors.css';
-@import '../../../foundations/round-corners/round-corners.css';
-@import '../../../foundations/spacing/spacing.css';
-@import '../../../foundations/typography/typography.css';
+@import '../../../styles/colors/colors.css';
+@import '../../../styles/round-corners/round-corners.css';
+@import '../../../styles/spacing/spacing.css';
+@import '../../../styles/typography/typography.css';
 
 .todo-menu {
   display: flex;

@@ -1,5 +1,5 @@
-@import '../../../foundations/spacing/spacing.css';
-@import '../../../foundations/typography/typography.css';
+@import '../../../styles/spacing/spacing.css';
+@import '../../../styles/typography/typography.css';
 
 .title {
     width: 100%;

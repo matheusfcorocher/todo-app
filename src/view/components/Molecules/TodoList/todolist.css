@@ -1,20 +1,7 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-@import '../../../foundations/colors/colors.css';
-@import '../../../foundations/shadow/shadows.css';
-@import '../../../foundations/spacing/spacing.css';
-@import '../../../foundations/typography/typography.css';
+@import '../../../styles/colors/colors.css';
+@import '../../../styles/shadow/shadows.css';
+@import '../../../styles/spacing/spacing.css';
+@import '../../../styles/typography/typography.css';
 
 .todo-panel {
   display: flex;

@@ -1,7 +1,7 @@
-@import '../../../foundations/colors/colors.css';
-@import '../../../foundations/shadow/shadows.css';
-@import '../../../foundations/round-corners/round-corners.css';
-@import '../../../foundations/spacing/spacing.css';
+@import '../../../styles/colors/colors.css';
+@import '../../../styles/shadow/shadows.css';
+@import '../../../styles/round-corners/round-corners.css';
+@import '../../../styles/spacing/spacing.css';
 
 .todo-panel {
   display: flex;
