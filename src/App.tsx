@@ -3,7 +3,7 @@ import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
 import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
-import { addTodoTask, completeAllTodoTasks, deleteAllCompletedTodoTasks, deleteTodoTask, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './view/container';
+import { completeAllTodoTasks, deleteAllCompletedTodoTasks, deleteTodoTask, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './view/container';
 import { makeTodoTaskController } from './view/controllers/TodoTaskController';
 
 export type HandleCreateTodo = (title: string) => void;
@@ -19,11 +19,7 @@ function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(lsTodoTaskRepository.getAllTodoTasks());
   const [filter, setFilter] = useState<boolean | undefined>();
 
-  // const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})
-  function handleAddTodo(title: string): void {
-    const newTodoTasks = addTodoTask({todoTasks, title});
-    setTodoTasks(newTodoTasks)
-  }
+  const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})
 
   function handleDeleteTodo(id: string): void {
     const newTodoTasks = deleteTodoTask({todoTasks, id});
@@ -73,7 +69,7 @@ function App() {
       <Todo
         todoTasks={todoTasks}
         filter={filter}
-        handleCreateTodo={handleAddTodo}
+        handleCreateTodo={todoTaskController.handleAddTodoTask}
         handleDeleteTodo={handleDeleteTodo}
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
