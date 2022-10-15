@@ -3,7 +3,7 @@ import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
 import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
-import { completeAllTodoTasks, deleteAllCompletedTodoTasks, deleteTodoTask, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './view/container';
+import { completeAllTodoTasks, deleteAllCompletedTodoTasks, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './view/container';
 import { makeTodoTaskController } from './view/controllers/TodoTaskController';
 
 export type HandleCreateTodo = (title: string) => void;
@@ -20,11 +20,6 @@ function App() {
   const [filter, setFilter] = useState<boolean | undefined>();
 
   const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})
-
-  function handleDeleteTodo(id: string): void {
-    const newTodoTasks = deleteTodoTask({todoTasks, id});
-    setTodoTasks(newTodoTasks);
-  }
 
   function handleUpdateTodoTitle(id: string, newTitle: string): void {
     const newTodoTasks = updateTodoTaskTitle({todoTasks, id, newTitle});
@@ -70,7 +65,7 @@ function App() {
         todoTasks={todoTasks}
         filter={filter}
         handleCreateTodo={todoTaskController.handleAddTodoTask}
-        handleDeleteTodo={handleDeleteTodo}
+        handleDeleteTodo={todoTaskController.handleDeleteTodoTask}
         handleUpdateTodoTitle={handleUpdateTodoTitle}
         handleUpdateTodoState={handleUpdateTodoState}
         handleCompleteAllTodoItems={handleCompleteAllTodoTasksItem}
