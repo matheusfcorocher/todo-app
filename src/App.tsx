@@ -21,11 +21,6 @@ function App() {
 
   const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})
 
-  function handleUpdateTodoTitle(id: string, newTitle: string): void {
-    const newTodoTasks = updateTodoTaskTitle({todoTasks, id, newTitle});
-    setTodoTasks(newTodoTasks);
-  }
-
   function handleUpdateTodoState(id: string, state: boolean): void {
     const newTodoTasks = updateTodoTaskState({todoTasks, id, state});
     setTodoTasks(newTodoTasks);
@@ -66,7 +61,7 @@ function App() {
         filter={filter}
         handleCreateTodo={todoTaskController.handleAddTodoTask}
         handleDeleteTodo={todoTaskController.handleDeleteTodoTask}
-        handleUpdateTodoTitle={handleUpdateTodoTitle}
+        handleUpdateTodoTitle={todoTaskController.handleUpdateTodoTaskTitle}
         handleUpdateTodoState={handleUpdateTodoState}
         handleCompleteAllTodoItems={handleCompleteAllTodoTasksItem}
         handleIncompleteAllTodoItems={handleIncompleteAllTodoTasks}
