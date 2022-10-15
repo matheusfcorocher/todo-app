@@ -28,11 +28,6 @@ function App() {
   //   }
   // } 
 
-  function handleIncompleteAllTodoTasks(): void {
-    const newTodoTasks = incompleteAllTodoTasks({todoTasks});
-    setTodoTasks(newTodoTasks);
-  }
-
   function handleFilter(isCompleted?: boolean) : void {
     setFilter(isCompleted);
   }
@@ -54,7 +49,7 @@ function App() {
         handleUpdateTodoTitle={todoTaskController.handleUpdateTodoTaskTitle}
         handleUpdateTodoState={todoTaskController.handleUpdateTodoTaskState}
         handleCompleteAllTodoItems={todoTaskController.handleCompleteAllTodoTasks}
-        handleIncompleteAllTodoItems={handleIncompleteAllTodoTasks}
+        handleIncompleteAllTodoItems={todoTaskController.handleIncompleteAllTodoTasks}
         handleFilter={handleFilter}
         handleDeleteAllCompletedTodoTasks={handleDeleteAllCompletedTodoTasks}
       />
