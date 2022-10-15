@@ -21,11 +21,6 @@ function App() {
 
   const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})
 
-  function handleUpdateTodoState(id: string, state: boolean): void {
-    const newTodoTasks = updateTodoTaskState({todoTasks, id, state});
-    setTodoTasks(newTodoTasks);
-  }
-
   // function deleteTodoWhenIsBlank(id: string, title: string) : void {
   //   const isBlank = isTodoTitleBlank(title);
   //   if(isBlank) {
@@ -62,7 +57,7 @@ function App() {
         handleCreateTodo={todoTaskController.handleAddTodoTask}
         handleDeleteTodo={todoTaskController.handleDeleteTodoTask}
         handleUpdateTodoTitle={todoTaskController.handleUpdateTodoTaskTitle}
-        handleUpdateTodoState={handleUpdateTodoState}
+        handleUpdateTodoState={todoTaskController.handleUpdateTodoTaskState}
         handleCompleteAllTodoItems={handleCompleteAllTodoTasksItem}
         handleIncompleteAllTodoItems={handleIncompleteAllTodoTasks}
         handleFilter={handleFilter}
