@@ -1,5 +1,5 @@
 import { TodoTasks } from "../../domain/entities/TodoTask";
-import { addTodoTask, completeAllTodoTasks, deleteTodoTask, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "../container";
+import { addTodoTask, completeAllTodoTasks, deleteAllCompletedTodoTasks, deleteTodoTask, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "../container";
 
 type UpdateTodoTaskFunction = (...args: any[]) => any;
 
@@ -32,6 +32,10 @@ export function makeTodoTaskController({ todoTasks, updateTodoTasks }: TodoTaskC
         },
         handleIncompleteAllTodoTasks(): void {
             const newTodoTasks = incompleteAllTodoTasks({todoTasks});
+            updateTodoTasks(newTodoTasks);
+        },
+        handleDeleteAllCompletedTodoTasks(): void {
+            const newTodoTasks = deleteAllCompletedTodoTasks({todoTasks});
             updateTodoTasks(newTodoTasks);
         }
     }
