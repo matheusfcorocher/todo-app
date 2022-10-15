@@ -32,13 +32,6 @@ function App() {
     setFilter(isCompleted);
   }
 
-  function handleDeleteAllCompletedTodoTasks(): void {
-    const newTodoTasks = deleteAllCompletedTodoTasks({todoTasks});
-    setTodoTasks(newTodoTasks)
-  }
-
-
-
   return (
     <div className="App">
       <Todo
@@ -51,7 +44,7 @@ function App() {
         handleCompleteAllTodoItems={todoTaskController.handleCompleteAllTodoTasks}
         handleIncompleteAllTodoItems={todoTaskController.handleIncompleteAllTodoTasks}
         handleFilter={handleFilter}
-        handleDeleteAllCompletedTodoTasks={handleDeleteAllCompletedTodoTasks}
+        handleDeleteAllCompletedTodoTasks={todoTaskController.handleDeleteAllCompletedTodoTasks}
       />
     </div>
   );
