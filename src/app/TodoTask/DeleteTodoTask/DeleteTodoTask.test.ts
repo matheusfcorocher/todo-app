@@ -1,9 +1,9 @@
 import { TodoTasks } from "../../../domain/entities/TodoTask";
-import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
+import { todoTaskCache } from "../../../infra/cache/TodoTaskCache";
 import { makeDeleteTodoTask } from "./DeleteTodoTask";
 
 afterEach(() => {
-    lsTodoTaskRepository.clear();
+    todoTaskCache.clear();
 })
 
 describe("Application :: Use Case :: DeleteTodoTask", () => {
@@ -15,7 +15,7 @@ describe("Application :: Use Case :: DeleteTodoTask", () => {
                 isCompleted: false
             }];
         
-            const deleteTodoTask = makeDeleteTodoTask(lsTodoTaskRepository);
+            const deleteTodoTask = makeDeleteTodoTask(todoTaskCache);
             const newTodoTasks = deleteTodoTask({ todoTasks, id: 'blabla' });
             expect(newTodoTasks.length).toEqual(0);
         });
@@ -26,13 +26,13 @@ describe("Application :: Use Case :: DeleteTodoTask", () => {
                 isCompleted: false
             }];
         
-            const storageSpy = jest.spyOn(lsTodoTaskRepository, 'store');
+            const storageSpy = jest.spyOn(todoTaskCache, 'store');
             
-            const deleteTodoTask = makeDeleteTodoTask(lsTodoTaskRepository);
+            const deleteTodoTask = makeDeleteTodoTask(todoTaskCache);
             const newTodoTasks = deleteTodoTask({ todoTasks, id: "blabla" });
             
             expect(storageSpy).toHaveBeenCalled();
-            expect(lsTodoTaskRepository.getAllTodoTasks()).toEqual(newTodoTasks);
+            expect(todoTaskCache.getAllTodoTasks()).toEqual(newTodoTasks);
         });
     });
 });

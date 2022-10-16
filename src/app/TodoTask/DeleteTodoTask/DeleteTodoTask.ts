@@ -1,7 +1,7 @@
 import { deleteTodoTask, DeleteTodoTaskParameters, TodoTasks } from "../../../domain/entities/TodoTask";
-import { TodoTaskRepository } from "../../../domain/repositories/TodoTaskRepository";
+import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
-export function makeDeleteTodoTask(todoTaskRepository : TodoTaskRepository): typeof deleteTodoTask {
+export function makeDeleteTodoTask(todoTaskRepository : TodoTaskCacheType): typeof deleteTodoTask {
     const storage = todoTaskRepository;
 
     function DeleteTodoTask({ todoTasks, id }: DeleteTodoTaskParameters): TodoTasks {

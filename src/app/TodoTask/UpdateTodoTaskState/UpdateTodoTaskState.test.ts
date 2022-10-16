@@ -1,9 +1,9 @@
 import { TodoTasks } from "../../../domain/entities/TodoTask";
-import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
+import { todoTaskCache } from "../../../infra/cache/TodoTaskCache";
 import { makeUpdateTodoTaskState } from "./UpdateTodoTaskState";
 
 afterEach(() => {
-    lsTodoTaskRepository.clear();
+    todoTaskCache.clear();
 })
 
 describe("Application :: Use Case :: UpdateTodoTaskState", () => {
@@ -14,7 +14,7 @@ describe("Application :: Use Case :: UpdateTodoTaskState", () => {
                 title: "test",
                 isCompleted: false
             }];
-            const updateTodoTaskState = makeUpdateTodoTaskState(lsTodoTaskRepository);
+            const updateTodoTaskState = makeUpdateTodoTaskState(todoTaskCache);
             const newTodoTasks = updateTodoTaskState({ todoTasks, id: 'blabla', state: true });
 
             expect(newTodoTasks[0].isCompleted).toEqual(true);
@@ -27,7 +27,7 @@ describe("Application :: Use Case :: UpdateTodoTaskState", () => {
                 title: "test",
                 isCompleted: false
             }];
-            const updateTodoTaskState = makeUpdateTodoTaskState(lsTodoTaskRepository);
+            const updateTodoTaskState = makeUpdateTodoTaskState(todoTaskCache);
             const newTodoTasks = updateTodoTaskState({ todoTasks, id: 'blabl2', state: true });
 
             expect(newTodoTasks).toEqual(newTodoTasks);
@@ -39,12 +39,12 @@ describe("Application :: Use Case :: UpdateTodoTaskState", () => {
             title: "test",
             isCompleted: false
         }];
-        const storageSpy = jest.spyOn(lsTodoTaskRepository, 'store');
+        const storageSpy = jest.spyOn(todoTaskCache, 'store');
         
-        const updateTodoTaskState = makeUpdateTodoTaskState(lsTodoTaskRepository);
+        const updateTodoTaskState = makeUpdateTodoTaskState(todoTaskCache);
         const newTodoTasks = updateTodoTaskState({ todoTasks, id: 'blabla', state: true });
         
         expect(storageSpy).toHaveBeenCalled();
-        expect(lsTodoTaskRepository.getAllTodoTasks()).toEqual(newTodoTasks);
+        expect(todoTaskCache.getAllTodoTasks()).toEqual(newTodoTasks);
     });
 });

@@ -1,7 +1,7 @@
 import { TodoTasks, updateTodoTaskState, UpdateTodoTaskStateParameters } from "../../../domain/entities/TodoTask";
-import { TodoTaskRepository } from "../../../domain/repositories/TodoTaskRepository";
+import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
-export function makeUpdateTodoTaskState(todoTaskRepository : TodoTaskRepository): typeof updateTodoTaskState {
+export function makeUpdateTodoTaskState(todoTaskRepository : TodoTaskCacheType): typeof updateTodoTaskState {
     const storage = todoTaskRepository;
 
     function UpdateTodoTaskState({ todoTasks, id, state }: UpdateTodoTaskStateParameters): TodoTasks {

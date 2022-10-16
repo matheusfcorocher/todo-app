@@ -1,7 +1,7 @@
 import { addTodoTask, AddTodoTaskParameters, TodoTasks } from "../../../domain/entities/TodoTask";
-import { TodoTaskRepository } from "../../../domain/repositories/TodoTaskRepository";
+import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
-export function makeAddTodoTask(todoTaskRepository : TodoTaskRepository): typeof addTodoTask {
+export function makeAddTodoTask(todoTaskRepository : TodoTaskCacheType): typeof addTodoTask {
     const storage = todoTaskRepository;
 
     function AddTodoTask({ todoTasks, title }: AddTodoTaskParameters): TodoTasks {

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
-import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
+import { todoTaskCache } from './infra/cache/TodoTaskCache';
 import { makeTodoTaskController } from './view/controllers/TodoTaskController';
 
 export type HandleCreateTodo = (title: string) => void;
@@ -15,7 +15,7 @@ export type HandleFilter = (isCompleted?: boolean) => void;
 export type HandleDeleteAllCompletedTodoTasks = () => void;
 
 function App() {
-  const [todoTasks, setTodoTasks] = useState<TodoTasks>(lsTodoTaskRepository.getAllTodoTasks());
+  const [todoTasks, setTodoTasks] = useState<TodoTasks>(todoTaskCache.getAllTodoTasks());
   const [filter, setFilter] = useState<boolean | undefined>();
 
   const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})

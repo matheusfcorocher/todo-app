@@ -1,7 +1,7 @@
 import { completeAllTodoTasks, CompleteAllTodoTasksParameters, deleteTodoTask, filterTodoTasksByIsCompleted, TodoTasks } from "../../../domain/entities/TodoTask";
-import { TodoTaskRepository } from "../../../domain/repositories/TodoTaskRepository";
+import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
-export function makeDeleteAllCompletedTodoTasks(todoTaskRepository : TodoTaskRepository): typeof completeAllTodoTasks {
+export function makeDeleteAllCompletedTodoTasks(todoTaskRepository : TodoTaskCacheType): typeof completeAllTodoTasks {
     const storage = todoTaskRepository;
 
     function DeleteAllCompletedTodoTasks({ todoTasks }: CompleteAllTodoTasksParameters): TodoTasks {

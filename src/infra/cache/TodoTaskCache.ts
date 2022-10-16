@@ -1,8 +1,8 @@
 import { TodoTasks } from "../../domain/entities/TodoTask";
-import { TodoTaskRepository, StoreTodoTaskParameters } from "../../domain/repositories/TodoTaskRepository";
+import { TodoTaskCacheParameters, TodoTaskCacheType } from "../../domain/repositories/TodoTaskCacheType";
 
 
-const lsTodoTaskRepository : TodoTaskRepository  = {
+const todoTaskCache : TodoTaskCacheType  = {
     getAllTodoTasks: function (): TodoTasks {
         const todoTasks = localStorage.getItem('todoTasks');
         if (todoTasks) {
@@ -10,7 +10,7 @@ const lsTodoTaskRepository : TodoTaskRepository  = {
         }
         return [];
     },
-    store: function ({ todoTasks }: StoreTodoTaskParameters): void {
+    store: function ({ todoTasks }: TodoTaskCacheParameters): void {
         localStorage.setItem('todoTasks', JSON.stringify(todoTasks));
     },
     clear: function (): void {
@@ -18,4 +18,4 @@ const lsTodoTaskRepository : TodoTaskRepository  = {
     }
 }
 
-export { lsTodoTaskRepository };
+export { todoTaskCache };

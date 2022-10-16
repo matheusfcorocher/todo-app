@@ -1,5 +1,5 @@
 import { TodoTasks } from "../../../domain/entities/TodoTask";
-import { lsTodoTaskRepository } from "../../../infra/repositories/LSTodoTaskRepository";
+import { todoTaskCache } from "../../../infra/cache/TodoTaskCache";
 import { makeDeleteAllCompletedTodoTasks } from "./DeleteAllCompletedTodoTasks";
 
 describe("Application :: Use Case :: DeleteAllCompletedTodoTasks", () => {
@@ -16,7 +16,7 @@ describe("Application :: Use Case :: DeleteAllCompletedTodoTasks", () => {
                 isCompleted: false
             }];
 
-            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(lsTodoTaskRepository);
+            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(todoTaskCache);
             const newTodoTasks = deleteAllCompletedTodoTasks({ todoTasks });
             expect(newTodoTasks.length).toEqual(1);
         });
@@ -32,13 +32,13 @@ describe("Application :: Use Case :: DeleteAllCompletedTodoTasks", () => {
                 isCompleted: false
             }];
 
-            const storageSpy = jest.spyOn(lsTodoTaskRepository, 'store');
+            const storageSpy = jest.spyOn(todoTaskCache, 'store');
             
-            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(lsTodoTaskRepository);
+            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(todoTaskCache);
             const newTodoTasks = deleteAllCompletedTodoTasks({ todoTasks });
 
             expect(storageSpy).toHaveBeenCalled();
-            expect(lsTodoTaskRepository.getAllTodoTasks()).toEqual(newTodoTasks);
+            expect(todoTaskCache.getAllTodoTasks()).toEqual(newTodoTasks);
         });
     });
     describe("When todoTasks has only active TodoTasks", () => {
@@ -54,7 +54,7 @@ describe("Application :: Use Case :: DeleteAllCompletedTodoTasks", () => {
                 isCompleted: false
             }];
 
-            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(lsTodoTaskRepository);
+            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(todoTaskCache);
             const newTodoTasks = deleteAllCompletedTodoTasks({ todoTasks });
             expect(newTodoTasks.length).toEqual(2);
         });

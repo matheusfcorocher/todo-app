@@ -1,7 +1,7 @@
 import { TodoTasks, updateTodoTaskTitle, UpdateTodoTaskTitleParameters } from "../../../domain/entities/TodoTask";
-import { TodoTaskRepository } from "../../../domain/repositories/TodoTaskRepository";
+import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
-export function makeUpdateTodoTaskTitle(todoTaskRepository : TodoTaskRepository): typeof updateTodoTaskTitle {
+export function makeUpdateTodoTaskTitle(todoTaskRepository : TodoTaskCacheType): typeof updateTodoTaskTitle {
     const storage = todoTaskRepository;
 
     function UpdateTodoTaskTitle({ todoTasks, id, newTitle }: UpdateTodoTaskTitleParameters): TodoTasks {
