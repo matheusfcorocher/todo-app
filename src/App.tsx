@@ -5,14 +5,7 @@ import { TodoTasks } from './domain/entities/TodoTask';
 import { todoTaskCache } from './infra/cache/TodoTaskCache';
 import { makeTodoTaskController } from './view/controllers/TodoTaskController';
 
-export type HandleCreateTodo = (title: string) => void;
-export type HandleDeleteTodo = (id: string) => void;
-export type HandleUpdateTodoTitle = (id: string, title: string) => void;
-export type HandleUpdateTodoState = (id: string, state: boolean) => void;
-export type HandleCompleteTodoItems = () => void;
-export type HandleIncompleteTodoItems = () => void;
 export type HandleFilter = (isCompleted?: boolean) => void;
-export type HandleDeleteAllCompletedTodoTasks = () => void;
 
 function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(todoTaskCache.getAllTodoTasks());

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TodoItem } from '../TodoItem/TodoItem';
 import './todolist.css';
-import { filterTodoTasksByIsCompleted, TodoTask, TodoTasks } from '../../../../domain/entities/TodoTask';
+import { filterTodoTasksByIsCompleted, TodoTasks } from '../../../../domain/entities/TodoTask';
 import { TodoTaskControllerReturnType } from '../../../controllers/TodoTaskController';
 
 interface TodoListProps {
@@ -11,8 +11,7 @@ interface TodoListProps {
 }
 
 function TodoList({ todoTasks = [], filter = undefined, todoTaskController }: TodoListProps) {
-  const { handleUpdateTodoTaskTitle, handleUpdateTodoTaskState, handleDeleteTodoTask } = todoTaskController;
-  const listToDoItems = filterTodoTasksByIsCompleted({ todoTasks, isCompleted: filter }).map((todo: TodoTask) => {
+  const listToDoItems = filterTodoTasksByIsCompleted({ todoTasks, isCompleted: filter }).map((todo) => {
     return (
       <TodoItem
         key={todo.id}
@@ -21,9 +20,7 @@ function TodoList({ todoTasks = [], filter = undefined, todoTaskController }: To
           title: todo.title,
           isCompleted: todo.isCompleted
         }}
-        handleUpdateTodoItemTitle={handleUpdateTodoTaskTitle}
-        handleUpdateTodoItemState={handleUpdateTodoTaskState}
-        handleDeleteTodoItem={handleDeleteTodoTask}
+        todoTaskController={todoTaskController}
       />
     );
   }

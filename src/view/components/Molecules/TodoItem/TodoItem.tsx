@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
-import { HandleDeleteTodo, HandleUpdateTodoState, HandleUpdateTodoTitle } from "../../../../App";
 import { TodoTask } from "../../../../domain/entities/TodoTask";
+import { TodoTaskControllerReturnType } from "../../../controllers/TodoTaskController";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
 import DeleteIcon from "../../Atoms/icons/DeleteIcon/DeleteIcon";
@@ -10,9 +10,7 @@ import './todoitem.css';
 
 interface TodoItemProps {
     task: TodoTask,
-    handleUpdateTodoItemTitle: HandleUpdateTodoTitle,
-    handleUpdateTodoItemState: HandleUpdateTodoState,
-    handleDeleteTodoItem: HandleDeleteTodo,
+    todoTaskController: TodoTaskControllerReturnType;
 }
 
 export const TodoItem = ({
@@ -21,10 +19,9 @@ export const TodoItem = ({
         title,
         isCompleted
     },
-    handleUpdateTodoItemTitle,
-    handleUpdateTodoItemState,
-    handleDeleteTodoItem,
+    todoTaskController
 }: TodoItemProps) => {
+    const { handleUpdateTodoTaskState, handleUpdateTodoTaskTitle, handleDeleteTodoTask } = todoTaskController
     const ref = useRef<HTMLInputElement>(document.createElement('input'));
     const [hasFocus, setFocus] = useState(false);
     useEffect(() => {
@@ -42,9 +39,9 @@ export const TodoItem = ({
                 <Checkbox
                     handleOnChange={() => {
                         if (isCompleted) {
-                            handleUpdateTodoItemState(id, false);
+                            handleUpdateTodoTaskState(id, false);
                         } else {
-                            handleUpdateTodoItemState(id, true);
+                            handleUpdateTodoTaskState(id, true);
                         }
                     }}
                     checked={isCompleted}
@@ -52,7 +49,7 @@ export const TodoItem = ({
                 <TitleInput
                     id={id}
                     title={title}
-                    handleOnChange={handleUpdateTodoItemTitle}
+                    handleOnChange={handleUpdateTodoTaskTitle}
                     handleOnFocus={() => setFocus(true)}
                     handleOnBlur={() => setFocus(false)}
                     ref={ref}
@@ -60,7 +57,7 @@ export const TodoItem = ({
                 {!hasFocus && (
                     <IconButton
                         className="delete-button"
-                        handleFunction={() => handleDeleteTodoItem(id)}>
+                        handleFunction={() => handleDeleteTodoTask(id)}>
                         <DeleteIcon />
                     </IconButton>
                 )}

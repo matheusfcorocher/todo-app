@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HandleDeleteAllCompletedTodoTasks, HandleFilter } from '../../../../App';
+import { HandleFilter } from '../../../../App';
 import { TodoTaskControllerReturnType } from '../../../controllers/TodoTaskController';
 import Button from '../../Atoms/Button/Button';
 import './todo-footer.css';
