@@ -4,32 +4,21 @@ import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { areThereTodoTasksCompleted, filterTodoTasksByIsCompleted, TodoTasks } from '../../../../domain/entities/TodoTask';
-import { HandleCompleteTodoItems, HandleCreateTodo, HandleDeleteAllCompletedTodoTasks, HandleDeleteTodo, HandleFilter, HandleIncompleteTodoItems, HandleUpdateTodoState, HandleUpdateTodoTitle } from '../../../../App';
+import { HandleFilter } from '../../../../App';
+import { TodoTaskControllerReturnType } from '../../../controllers/TodoTaskController';
 
 interface TodoProps {
   todoTasks?: TodoTasks;
   filter?: boolean;
-  handleCreateTodo: HandleCreateTodo;
-  handleDeleteTodo: HandleDeleteTodo;
-  handleUpdateTodoTitle: HandleUpdateTodoTitle;
-  handleUpdateTodoState: HandleUpdateTodoState;
-  handleCompleteAllTodoItems: HandleCompleteTodoItems;
-  handleIncompleteAllTodoItems: HandleIncompleteTodoItems;
+  todoTaskController: TodoTaskControllerReturnType;
   handleFilter: HandleFilter;
-  handleDeleteAllCompletedTodoTasks: HandleDeleteAllCompletedTodoTasks;
 }
 
 function Todo({ 
   todoTasks = [],
   filter= undefined, 
-  handleCreateTodo, 
-  handleDeleteTodo, 
-  handleUpdateTodoTitle, 
-  handleUpdateTodoState, 
-  handleCompleteAllTodoItems, 
-  handleIncompleteAllTodoItems,
-  handleFilter,
-  handleDeleteAllCompletedTodoTasks 
+  todoTaskController,
+  handleFilter
 }: TodoProps) {
   const isCompleted = isAllTodosCompleted(todoTasks);
 
@@ -45,22 +34,18 @@ function Todo({
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
       <TodoMenu
-        handleCreateTodo={handleCreateTodo}
         isAllTodosCompleted={isCompleted}
-        handleCompleteAllTodoItems={handleCompleteAllTodoItems}
-        handleIncompleteAllTodoItems={handleIncompleteAllTodoItems}
+        todoTaskController={todoTaskController}
       />
       <TodoList
         todoTasks={todoTasks}
         filter={filter}
-        handleDeleteTodo={handleDeleteTodo}
-        handleUpdateTodoTitle={handleUpdateTodoTitle}
-        handleUpdateTodoState={handleUpdateTodoState}
+        todoTaskController={todoTaskController}
       />
       {todoTasks.length !== 0 && <TodoFooter 
         todosQuantity={filterTodoTasksByIsCompleted({ todoTasks, isCompleted: false }).length}
         handleFilter={handleFilter}
-        handleDeleteAllCompletedTodoTasks={handleDeleteAllCompletedTodoTasks} 
+        todoTaskController={todoTaskController}
         areThereTodoTasksCompleted={areThereTodoTasksCompleted({todoTasks})}      />}
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { HandleDeleteAllCompletedTodoTasks, HandleFilter } from '../../../../App';
+import { TodoTaskControllerReturnType } from '../../../controllers/TodoTaskController';
 import Button from '../../Atoms/Button/Button';
 import './todo-footer.css';
 
@@ -7,15 +8,16 @@ interface TodoFooter {
     areThereTodoTasksCompleted: boolean;
     todosQuantity: number;
     handleFilter: HandleFilter;
-    handleDeleteAllCompletedTodoTasks: HandleDeleteAllCompletedTodoTasks;
+    todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, handleFilter, handleDeleteAllCompletedTodoTasks }: TodoFooter) {
+function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, handleFilter, todoTaskController }: TodoFooter) {
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, filter?: boolean): void => {
         document.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
         event.currentTarget.classList.toggle('active')
         handleFilter(filter);
     }
+    const {handleDeleteAllCompletedTodoTasks} = todoTaskController;
 
     return (
         <div role="group" className={`todo-footer`}>

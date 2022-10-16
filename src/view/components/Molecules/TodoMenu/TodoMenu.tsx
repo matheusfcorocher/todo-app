@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { HandleCompleteTodoItems, HandleCreateTodo, HandleIncompleteTodoItems } from '../../../../App';
+import { TodoTaskControllerReturnType } from '../../../controllers/TodoTaskController';
 import IconButton from '../../Atoms/IconButton/IconButton';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
 import ListIcon from '../../Atoms/icons/ListIcon/ListIcon';
 import './todo-menu.css';
 
 interface TodoMenuProps {
-    handleCreateTodo: HandleCreateTodo;
-    handleCompleteAllTodoItems: HandleCompleteTodoItems;
-    handleIncompleteAllTodoItems: HandleIncompleteTodoItems;
+    todoTaskController: TodoTaskControllerReturnType;
     isAllTodosCompleted: boolean;
 }
 
-function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodoItems, handleIncompleteAllTodoItems}: TodoMenuProps) {
+function TodoMenu({ isAllTodosCompleted, todoTaskController}: TodoMenuProps) {
     const [title, setTitle] = useState<string>("");
+    const {handleAddTodoTask, handleIncompleteAllTodoTasks, handleCompleteAllTodoTasks} = todoTaskController;
 
     function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
         if(event.key == "Enter") {
-            handleCreateTodo(title);
+            handleAddTodoTask(title);
             setTitle("");
         }
     }
@@ -29,7 +29,7 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodo
                     (<IconButton
                         title="Uncheck all todos" 
                         className="complete-button" 
-                        handleFunction={() => handleIncompleteAllTodoItems()}
+                        handleFunction={() => handleIncompleteAllTodoTasks()}
                     >
                         <ListIcon className="list-icon" />
                     </IconButton>)
@@ -37,7 +37,7 @@ function TodoMenu({ handleCreateTodo, isAllTodosCompleted, handleCompleteAllTodo
                     (<IconButton 
                         title="Check all todos" 
                         className="complete-button" 
-                        handleFunction={() => handleCompleteAllTodoItems()}>
+                        handleFunction={() => handleCompleteAllTodoTasks()}>
                         <CheckListIcon className="checklist-icon" />
                     </IconButton>)
             }

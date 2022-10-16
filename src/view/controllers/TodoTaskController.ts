@@ -3,12 +3,22 @@ import { addTodoTask, completeAllTodoTasks, deleteAllCompletedTodoTasks, deleteT
 
 type UpdateTodoTaskFunction = (...args: any[]) => any;
 
-type TodoTaskControllerType = {
+export type TodoTaskControllerType = {
     todoTasks: TodoTasks;
     updateTodoTasks: UpdateTodoTaskFunction;
 }
 
-export function makeTodoTaskController({ todoTasks, updateTodoTasks }: TodoTaskControllerType) {
+export type TodoTaskControllerReturnType = {
+    handleAddTodoTask(title: string): void;
+    handleDeleteTodoTask(id: string): void;
+    handleUpdateTodoTaskTitle(id: string, newTitle: string): void;
+    handleUpdateTodoTaskState(id: string, state: boolean): void;
+    handleCompleteAllTodoTasks(): void;
+    handleIncompleteAllTodoTasks(): void;
+    handleDeleteAllCompletedTodoTasks(): void;
+}
+
+export function makeTodoTaskController({ todoTasks, updateTodoTasks }: TodoTaskControllerType) : TodoTaskControllerReturnType {
     return {
         handleAddTodoTask: (title: string): void => {
             const newTodoTasks = addTodoTask({ todoTasks, title });

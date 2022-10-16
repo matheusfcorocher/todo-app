@@ -3,7 +3,6 @@ import './App.css';
 import Todo from './view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
 import { lsTodoTaskRepository } from './infra/repositories/LSTodoTaskRepository';
-import { completeAllTodoTasks, deleteAllCompletedTodoTasks, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from './view/container';
 import { makeTodoTaskController } from './view/controllers/TodoTaskController';
 
 export type HandleCreateTodo = (title: string) => void;
@@ -37,14 +36,8 @@ function App() {
       <Todo
         todoTasks={todoTasks}
         filter={filter}
-        handleCreateTodo={todoTaskController.handleAddTodoTask}
-        handleDeleteTodo={todoTaskController.handleDeleteTodoTask}
-        handleUpdateTodoTitle={todoTaskController.handleUpdateTodoTaskTitle}
-        handleUpdateTodoState={todoTaskController.handleUpdateTodoTaskState}
-        handleCompleteAllTodoItems={todoTaskController.handleCompleteAllTodoTasks}
-        handleIncompleteAllTodoItems={todoTaskController.handleIncompleteAllTodoTasks}
+        todoTaskController={todoTaskController}
         handleFilter={handleFilter}
-        handleDeleteAllCompletedTodoTasks={todoTaskController.handleDeleteAllCompletedTodoTasks}
       />
     </div>
   );
