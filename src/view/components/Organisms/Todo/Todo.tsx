@@ -6,6 +6,7 @@ import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { areThereTodoTasksCompleted, filterTodoTasksByIsCompleted, TodoTasks } from '../../../../domain/entities/TodoTask';
 import { HandleFilter } from '../../../../App';
 import { TodoTaskControllerReturnType } from '../../../controllers/TodoTaskController';
+import { isArrayEmpty } from '../../../../lib/isArrayEmpty/isArrayEmpty';
 
 interface TodoProps {
   todoTasks?: TodoTasks;
@@ -42,7 +43,7 @@ function Todo({
         filter={filter}
         todoTaskController={todoTaskController}
       />
-      {todoTasks.length !== 0 && <TodoFooter 
+      {!isArrayEmpty(todoTasks) && <TodoFooter 
         todosQuantity={filterTodoTasksByIsCompleted({ todoTasks, isCompleted: false }).length}
         handleFilter={handleFilter}
         todoTaskController={todoTaskController}
