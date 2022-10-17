@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { isStringBlank } from '../../lib/string';
+import { isStringBlank } from '../../lib/string/string';
 
 //Entity
 

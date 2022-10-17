@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { HandleCompleteTodoItems, HandleCreateTodo, HandleIncompleteTodoItems } from '../../../../App';
 import { TodoTaskControllerReturnType } from '../../../controllers/TodoTaskController';
 import IconButton from '../../Atoms/IconButton/IconButton';
 import CheckListIcon from '../../Atoms/icons/CheckListIcon/CheckListIcon';
