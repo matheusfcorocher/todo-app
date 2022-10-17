@@ -1,12 +1,10 @@
 import { incompleteAllTodoTasks, IncompleteAllTodoTasksParameters, TodoTasks } from "../../../domain/entities/TodoTask";
 import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
-export function makeIncompleteAllTodoTasks(todoTaskRepository : TodoTaskCacheType): typeof incompleteAllTodoTasks {
-    const storage = todoTaskRepository;
+export function makeIncompleteAllTodoTasks(): typeof incompleteAllTodoTasks {
 
     function IncompleteAllTodoTasks({ todoTasks }: IncompleteAllTodoTasksParameters): TodoTasks {
         const newTodosTasks = incompleteAllTodoTasks({ todoTasks });
-        storage.store({todoTasks: newTodosTasks});
         return newTodosTasks;
     }
 

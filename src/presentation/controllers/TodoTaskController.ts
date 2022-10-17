@@ -29,26 +29,32 @@ export function makeTodoTaskController({ todoTasks, updateTodoTasks, localStorag
         },
         handleDeleteTodoTask(id: string): void {
             const newTodoTasks = deleteTodoTask({todoTasks, id});
+            localStorage.store({todoTasks: newTodoTasks});
             updateTodoTasks(newTodoTasks);
         },
         handleUpdateTodoTaskTitle(id: string, newTitle: string): void {
             const newTodoTasks = updateTodoTaskTitle({todoTasks, id, newTitle});
+            localStorage.store({todoTasks: newTodoTasks});
             updateTodoTasks(newTodoTasks);
         },
         handleUpdateTodoTaskState(id: string, state: boolean): void {
             const newTodoTasks = updateTodoTaskState({todoTasks, id, state});
+            localStorage.store({todoTasks: newTodoTasks});
             updateTodoTasks(newTodoTasks);
         },
-        handleCompleteAllTodoTasks(): void {
+        handleCompleteAllTodoTasks: () : void => {
             const newTodoTasks = completeAllTodoTasks({todoTasks});
+            localStorage.store({todoTasks: newTodoTasks});
             updateTodoTasks(newTodoTasks);
         },
         handleIncompleteAllTodoTasks(): void {
             const newTodoTasks = incompleteAllTodoTasks({todoTasks});
+            localStorage.store({todoTasks: newTodoTasks});
             updateTodoTasks(newTodoTasks);
         },
         handleDeleteAllCompletedTodoTasks(): void {
             const newTodoTasks = deleteAllCompletedTodoTasks({todoTasks});
+            localStorage.store({todoTasks: newTodoTasks});
             updateTodoTasks(newTodoTasks);
         }
     }

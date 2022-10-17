@@ -1,10 +1,5 @@
 import { TodoTasks } from "../../../domain/entities/TodoTask";
-import { todoTaskCache } from "../../../infra/cache/TodoTaskCache";
 import { makeCompleteAllTodoTasks } from "./CompleteAllTodoTask";
-
-afterEach(() => {
-    todoTaskCache.clear();
-})
 
 describe("Application :: Use Case :: CompleteAllTodoTasks", () => {
     describe("When pass todoTasks", () => {
@@ -20,7 +15,7 @@ describe("Application :: Use Case :: CompleteAllTodoTasks", () => {
                 isCompleted: false
             },
             ];
-            const completeAllTodoTasks = makeCompleteAllTodoTasks(todoTaskCache);
+            const completeAllTodoTasks = makeCompleteAllTodoTasks();
             const newTodoTasks = completeAllTodoTasks({ todoTasks });
 
             const expected: TodoTasks = [{
@@ -37,20 +32,5 @@ describe("Application :: Use Case :: CompleteAllTodoTasks", () => {
 
             expect(newTodoTasks).toEqual(expected);
         });
-    });
-    it("localStorage stored todoTasks ", () => {
-        const todoTasks: TodoTasks = [{
-            id: "blabla",
-            title: "test",
-            isCompleted: false
-        }];
-
-        const storageSpy = jest.spyOn(todoTaskCache, 'store');
-
-        const completeAllTodoTasks = makeCompleteAllTodoTasks(todoTaskCache);
-        const newTodoTasks = completeAllTodoTasks({ todoTasks });
-
-        expect(storageSpy).toHaveBeenCalled();
-        expect(todoTaskCache.getAllTodoTasks()).toEqual(newTodoTasks);
     });
 });

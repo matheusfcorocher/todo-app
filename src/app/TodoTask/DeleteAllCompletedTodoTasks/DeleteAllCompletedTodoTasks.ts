@@ -1,8 +1,6 @@
 import { completeAllTodoTasks, CompleteAllTodoTasksParameters, deleteTodoTask, filterTodoTasksByIsCompleted, TodoTasks } from "../../../domain/entities/TodoTask";
-import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
-export function makeDeleteAllCompletedTodoTasks(todoTaskRepository : TodoTaskCacheType): typeof completeAllTodoTasks {
-    const storage = todoTaskRepository;
+export function makeDeleteAllCompletedTodoTasks(): typeof completeAllTodoTasks {
 
     function DeleteAllCompletedTodoTasks({ todoTasks }: CompleteAllTodoTasksParameters): TodoTasks {
         const completedTodoTasks = filterTodoTasksByIsCompleted({todoTasks, isCompleted: true});
@@ -10,8 +8,6 @@ export function makeDeleteAllCompletedTodoTasks(todoTaskRepository : TodoTaskCac
         const remainingTodoTasks = todoTasksIds.reduce((resultTodoTasks, id) => {
             return deleteTodoTask({todoTasks: resultTodoTasks, id});
         }, todoTasks);
-
-        storage.store({todoTasks: remainingTodoTasks});
         
         return remainingTodoTasks;
     }

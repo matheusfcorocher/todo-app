@@ -5,15 +5,14 @@ import { makeDeleteTodoTask } from "../../app/TodoTask/DeleteTodoTask/DeleteTodo
 import { makeIncompleteAllTodoTasks } from "../../app/TodoTask/IncompleteAllTodoTasks/IncompleteAllTodoTask";
 import { makeUpdateTodoTaskState } from "../../app/TodoTask/UpdateTodoTaskState/UpdateTodoTaskState";
 import { makeUpdateTodoTaskTitle } from "../../app/TodoTask/UpdateTodoTaskTitle/UpdateTodoTaskTitle";
-import { todoTaskCache } from "../../infra/cache/TodoTaskCache";
 
 const addTodoTask = makeAddTodoTask();
-const deleteTodoTask = makeDeleteTodoTask(todoTaskCache);
-const updateTodoTaskTitle = makeUpdateTodoTaskTitle(todoTaskCache);
-const updateTodoTaskState = makeUpdateTodoTaskState(todoTaskCache);
-const completeAllTodoTasks = makeCompleteAllTodoTasks(todoTaskCache);
-const incompleteAllTodoTasks = makeIncompleteAllTodoTasks(todoTaskCache);
-const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(todoTaskCache);
+const deleteTodoTask = makeDeleteTodoTask();
+const updateTodoTaskTitle = makeUpdateTodoTaskTitle();
+const updateTodoTaskState = makeUpdateTodoTaskState();
+const completeAllTodoTasks = makeCompleteAllTodoTasks();
+const incompleteAllTodoTasks = makeIncompleteAllTodoTasks();
+const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks();
 
 export { 
     addTodoTask, 

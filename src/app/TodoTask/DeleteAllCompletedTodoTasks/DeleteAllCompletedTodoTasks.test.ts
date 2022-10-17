@@ -1,5 +1,4 @@
 import { TodoTasks } from "../../../domain/entities/TodoTask";
-import { todoTaskCache } from "../../../infra/cache/TodoTaskCache";
 import { makeDeleteAllCompletedTodoTasks } from "./DeleteAllCompletedTodoTasks";
 
 describe("Application :: Use Case :: DeleteAllCompletedTodoTasks", () => {
@@ -16,29 +15,9 @@ describe("Application :: Use Case :: DeleteAllCompletedTodoTasks", () => {
                 isCompleted: false
             }];
 
-            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(todoTaskCache);
+            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks();
             const newTodoTasks = deleteAllCompletedTodoTasks({ todoTasks });
             expect(newTodoTasks.length).toEqual(1);
-        });
-        it("localStorage stored todoTasks ", () => {
-            const todoTasks: TodoTasks = [{
-                id: "blabla",
-                title: "test",
-                isCompleted: true
-            },
-            {
-                id: "blabl2",
-                title: "test2",
-                isCompleted: false
-            }];
-
-            const storageSpy = jest.spyOn(todoTaskCache, 'store');
-            
-            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(todoTaskCache);
-            const newTodoTasks = deleteAllCompletedTodoTasks({ todoTasks });
-
-            expect(storageSpy).toHaveBeenCalled();
-            expect(todoTaskCache.getAllTodoTasks()).toEqual(newTodoTasks);
         });
     });
     describe("When todoTasks has only active TodoTasks", () => {
@@ -54,7 +33,7 @@ describe("Application :: Use Case :: DeleteAllCompletedTodoTasks", () => {
                 isCompleted: false
             }];
 
-            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks(todoTaskCache);
+            const deleteAllCompletedTodoTasks = makeDeleteAllCompletedTodoTasks();
             const newTodoTasks = deleteAllCompletedTodoTasks({ todoTasks });
             expect(newTodoTasks.length).toEqual(2);
         });
