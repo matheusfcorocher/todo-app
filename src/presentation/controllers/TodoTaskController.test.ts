@@ -244,7 +244,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
                 };
                 const todoTaskController = makeTodoTaskController({ todoTasks, updateTodoTasks: setTodoTasks, localStorage: todoTaskCache });
                 todoTaskController.handleIncompleteAllTodoTasks();
-                
+
                 const expected: TodoTasks = [{
                     id: "blabla",
                     title: "test",
@@ -284,6 +284,63 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
                 expect(storageSpy).toHaveBeenCalled();
                 expect(todoTaskCache.getAllTodoTasks()).toEqual(result);
             });
+        });
+    });
+    describe("#handleUpdateTodoTaskState", () => {
+        describe("When pass a new state for todoTask", () => {
+            it("returns todoTask with new state", () => {
+                const todoTasks: TodoTasks = [{
+                    id: "blabla",
+                    title: "test",
+                    isCompleted: false
+                }];
+
+                let result: TodoTasks = [];
+                function setTodoTasks(newTodoTasks: TodoTasks) {
+                    result = [...result, ...newTodoTasks];
+                };
+                const todoTaskController = makeTodoTaskController({ todoTasks, updateTodoTasks: setTodoTasks, localStorage: todoTaskCache });
+                todoTaskController.handleUpdateTodoTaskState('blabla', true);
+
+                expect(result[0].isCompleted).toEqual(true);
+            });
+        });
+        describe("When doesnt find todoTask", () => {
+            it("it returns the same todoTasks", () => {
+                const todoTasks: TodoTasks = [{
+                    id: "blabl2",
+                    title: "test",
+                    isCompleted: false
+                }];
+
+                let result: TodoTasks = [];
+                function setTodoTasks(newTodoTasks: TodoTasks) {
+                    result = [...result, ...newTodoTasks];
+                };
+                const todoTaskController = makeTodoTaskController({ todoTasks, updateTodoTasks: setTodoTasks, localStorage: todoTaskCache });
+                todoTaskController.handleUpdateTodoTaskState('blabla', true);
+
+                expect(result).toEqual(todoTasks);
+            });
+        });
+        it("localStorage stored todoTasks ", () => {
+            const todoTasks: TodoTasks = [{
+                id: "blabla",
+                title: "test",
+                isCompleted: false
+            }];
+
+            const storageSpy = jest.spyOn(todoTaskCache, 'store');
+
+            let result: TodoTasks = [];
+            function setTodoTasks(newTodoTasks: TodoTasks) {
+                result = [...result, ...newTodoTasks];
+            };
+            const todoTaskController = makeTodoTaskController({ todoTasks, updateTodoTasks: setTodoTasks, localStorage: todoTaskCache });
+            todoTaskController.handleUpdateTodoTaskState('blabla', true);
+
+            expect(storageSpy).toHaveBeenCalled();
+            expect(todoTaskCache.getAllTodoTasks()).toEqual(result);
         });
     });
 });
