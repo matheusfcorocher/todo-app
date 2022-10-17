@@ -223,4 +223,67 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
             });
         });
     });
+    describe("#handleIncompleteAllTodoTasks", () => {
+        describe("When pass todoTasks", () => {
+            it("returns all todoTasks with IsCompleted false", () => {
+                const todoTasks: TodoTasks = [{
+                    id: "blabla",
+                    title: "test",
+                    isCompleted: true
+                },
+                {
+                    id: "blabl2",
+                    title: "test2",
+                    isCompleted: false
+                },
+                ];
+
+                let result: TodoTasks = [];
+                function setTodoTasks(newTodoTasks: TodoTasks) {
+                    result = [...result, ...newTodoTasks];
+                };
+                const todoTaskController = makeTodoTaskController({ todoTasks, updateTodoTasks: setTodoTasks, localStorage: todoTaskCache });
+                todoTaskController.handleIncompleteAllTodoTasks();
+                
+                const expected: TodoTasks = [{
+                    id: "blabla",
+                    title: "test",
+                    isCompleted: false
+                },
+                {
+                    id: "blabl2",
+                    title: "test2",
+                    isCompleted: false
+                },
+                ];
+
+                expect(result).toEqual(expected);
+            });
+            it("localStorage stored todoTasks ", () => {
+                const todoTasks: TodoTasks = [{
+                    id: "blabla",
+                    title: "test",
+                    isCompleted: true
+                },
+                {
+                    id: "blabl2",
+                    title: "test2",
+                    isCompleted: false
+                },
+                ];
+
+                const storageSpy = jest.spyOn(todoTaskCache, 'store');
+
+                let result: TodoTasks = [];
+                function setTodoTasks(newTodoTasks: TodoTasks) {
+                    result = [...result, ...newTodoTasks];
+                };
+                const todoTaskController = makeTodoTaskController({ todoTasks, updateTodoTasks: setTodoTasks, localStorage: todoTaskCache });
+                todoTaskController.handleIncompleteAllTodoTasks();
+
+                expect(storageSpy).toHaveBeenCalled();
+                expect(todoTaskCache.getAllTodoTasks()).toEqual(result);
+            });
+        });
+    });
 });
