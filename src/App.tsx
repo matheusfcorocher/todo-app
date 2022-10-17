@@ -11,7 +11,7 @@ function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(todoTaskCache.getAllTodoTasks());
   const [filter, setFilter] = useState<boolean | undefined>();
 
-  const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks})
+  const todoTaskController = makeTodoTaskController({todoTasks, updateTodoTasks: setTodoTasks, localStorage: todoTaskCache})
 
   // function deleteTodoWhenIsBlank(id: string, title: string) : void {
   //   const isBlank = isTodoTitleBlank(title);

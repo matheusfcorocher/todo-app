@@ -1,4 +1,5 @@
 import { TodoTasks } from "../../domain/entities/TodoTask";
+import { TodoTaskCacheType } from "../../domain/repositories/TodoTaskCacheType";
 import { addTodoTask, completeAllTodoTasks, deleteAllCompletedTodoTasks, deleteTodoTask, incompleteAllTodoTasks, updateTodoTaskState, updateTodoTaskTitle } from "./container";
 
 type UpdateTodoTaskFunction = (...args: any[]) => any;
@@ -6,6 +7,7 @@ type UpdateTodoTaskFunction = (...args: any[]) => any;
 export type TodoTaskControllerType = {
     todoTasks: TodoTasks;
     updateTodoTasks: UpdateTodoTaskFunction;
+    localStorage: TodoTaskCacheType;
 }
 
 export type TodoTaskControllerReturnType = {
@@ -18,10 +20,11 @@ export type TodoTaskControllerReturnType = {
     handleDeleteAllCompletedTodoTasks(): void;
 }
 
-export function makeTodoTaskController({ todoTasks, updateTodoTasks }: TodoTaskControllerType) : TodoTaskControllerReturnType {
+export function makeTodoTaskController({ todoTasks, updateTodoTasks, localStorage }: TodoTaskControllerType) : TodoTaskControllerReturnType {
     return {
         handleAddTodoTask: (title: string): void => {
             const newTodoTasks = addTodoTask({ todoTasks, title });
+            localStorage.store({todoTasks: newTodoTasks});
             updateTodoTasks(newTodoTasks);
         },
         handleDeleteTodoTask(id: string): void {

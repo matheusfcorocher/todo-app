@@ -7,7 +7,7 @@ import { makeUpdateTodoTaskState } from "../../app/TodoTask/UpdateTodoTaskState/
 import { makeUpdateTodoTaskTitle } from "../../app/TodoTask/UpdateTodoTaskTitle/UpdateTodoTaskTitle";
 import { todoTaskCache } from "../../infra/cache/TodoTaskCache";
 
-const addTodoTask = makeAddTodoTask(todoTaskCache);
+const addTodoTask = makeAddTodoTask();
 const deleteTodoTask = makeDeleteTodoTask(todoTaskCache);
 const updateTodoTaskTitle = makeUpdateTodoTaskTitle(todoTaskCache);
 const updateTodoTaskState = makeUpdateTodoTaskState(todoTaskCache);
