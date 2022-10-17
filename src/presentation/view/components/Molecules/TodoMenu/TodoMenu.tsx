@@ -7,10 +7,10 @@ import './todo-menu.css';
 
 interface TodoMenuProps {
     todoTaskController: TodoTaskControllerReturnType;
-    isAllTodosCompleted: boolean;
+    isThereAnyTodoTaskCompleted: boolean;
 }
 
-function TodoMenu({ isAllTodosCompleted, todoTaskController}: TodoMenuProps) {
+function TodoMenu({ isThereAnyTodoTaskCompleted, todoTaskController}: TodoMenuProps) {
     const [title, setTitle] = useState<string>("");
     const {handleAddTodoTask, handleIncompleteAllTodoTasks, handleCompleteAllTodoTasks} = todoTaskController;
 
@@ -24,7 +24,7 @@ function TodoMenu({ isAllTodosCompleted, todoTaskController}: TodoMenuProps) {
     return (
         <div role="group" className={`todo-menu`}>
             {
-                isAllTodosCompleted ?
+                isThereAnyTodoTaskCompleted ?
                     (<IconButton
                         title="Uncheck all todos" 
                         className="complete-button" 

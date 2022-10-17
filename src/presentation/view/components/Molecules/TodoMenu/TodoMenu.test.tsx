@@ -26,7 +26,7 @@ describe("::Components ::Molecules ::TodoMenu", () => {
         handleDeleteAllCompletedTodoTasks: function (): void {
           throw new Error('Function not implemented.');
         }
-      }} isAllTodosCompleted={false}/>);
+      }} isThereAnyTodoTaskCompleted={false}/>);
       const todoMenu = screen.getByRole("group");
       expect(todoMenu).toMatchSnapshot();
   })

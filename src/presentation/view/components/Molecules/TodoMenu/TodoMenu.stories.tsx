@@ -18,10 +18,10 @@ const Template: ComponentStory<typeof TodoMenu> = (args) => <TodoMenu {...args} 
 
 export const Default = Template.bind({});
 Default.args = {
-  isAllTodosCompleted: false
+  isThereAnyTodoTaskCompleted: false
 };
 
 export const IncompleteAllTodos = Template.bind({});
 Default.args = {
-  isAllTodosCompleted: true
+  isThereAnyTodoTaskCompleted: true
 };

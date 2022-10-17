@@ -112,24 +112,12 @@ export type filterTodoTasksByIsCompletedParameters = {
 
 export function filterTodoTasksByIsCompleted({ todoTasks, isCompleted }: filterTodoTasksByIsCompletedParameters): TodoTasks {
   if (isCompleted === true) {
-    const completedTodoTasks = todoTasks.filter(todo => todo.isCompleted === true);
-    return completedTodoTasks;
+      const completedTodoTasks = todoTasks.filter(todo => todo.isCompleted === true);
+      return completedTodoTasks;
   }
   if (isCompleted === false) {
-    const incompletedTodoTasks = todoTasks.filter(todo => todo.isCompleted === false);
-    return incompletedTodoTasks;
+      const incompletedTodoTasks = todoTasks.filter(todo => todo.isCompleted === false);
+      return incompletedTodoTasks;
   }
   return todoTasks;
-}
-
-export type areThereTodoTasksCompletedParameters = {
-  todoTasks: TodoTasks
 };
-
-export function areThereTodoTasksCompleted({ todoTasks }: areThereTodoTasksCompletedParameters): boolean {
-  const completedTodoTasks = todoTasks.filter(todo => todo.isCompleted === true);
-  if(completedTodoTasks.length !== 0) {
-    return true
-  }
-  return false;
-}

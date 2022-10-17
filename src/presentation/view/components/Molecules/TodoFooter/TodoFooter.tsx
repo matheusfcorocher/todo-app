@@ -5,13 +5,13 @@ import Button from '../../Atoms/Button/Button';
 import './todo-footer.css';
 
 interface TodoFooter {
-    areThereTodoTasksCompleted: boolean;
-    todosQuantity: number;
+    isThereAnyTodoTaskCompleted: boolean;
+    activeTodoTasksQuantity: number;
     handleFilter: HandleFilter;
     todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, handleFilter, todoTaskController }: TodoFooter) {
+function TodoFooter({ activeTodoTasksQuantity = 0, isThereAnyTodoTaskCompleted = false, handleFilter, todoTaskController }: TodoFooter) {
     const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, filter?: boolean): void => {
         document.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
         event.currentTarget.classList.toggle('active')
@@ -22,7 +22,7 @@ function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, han
     return (
         <div role="group" className={`todo-footer`}>
             <span className={`todo-count`}>
-                <strong>{todosQuantity}&nbsp;</strong>
+                <strong>{activeTodoTasksQuantity}&nbsp;</strong>
                 item left
             </span>
             <ul className={`todo-filters`}>
@@ -31,7 +31,7 @@ function TodoFooter({ todosQuantity = 0, areThereTodoTasksCompleted = false, han
                 <li><a title={"Filter completed todo tasks"} className={'todo-filter'} onClick={(e) => handleClick(e, true)} href="#/completed">Completed</a></li>
             </ul>
             {
-                areThereTodoTasksCompleted === true &&
+                isThereAnyTodoTaskCompleted === true &&
                 <Button
                     handleFunction={handleDeleteAllCompletedTodoTasks}
                     title={"Clear Completed todo tasks"}

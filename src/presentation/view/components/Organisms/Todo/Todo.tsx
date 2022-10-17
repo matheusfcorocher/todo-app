@@ -3,7 +3,7 @@ import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
-import { areThereTodoTasksCompleted, filterTodoTasksByIsCompleted, TodoTasks } from '../../../../../domain/entities/TodoTask';
+import { TodoTasks } from '../../../../../domain/entities/TodoTask';
 import { TodoTaskControllerReturnType } from '../../../../controllers/TodoTaskController';
 import { HandleFilter } from '../../../../../App';
 import { todoTaskViewModel } from '../../../../models/TodoTaskViewModel';
@@ -15,18 +15,18 @@ interface TodoProps {
   handleFilter: HandleFilter;
 }
 
-function Todo({ 
+function Todo({
   todoTasks = [],
-  filter= undefined, 
+  filter = undefined,
   todoTaskController,
   handleFilter
 }: TodoProps) {
-  const {isTodoTasksNotEmpty, isAllTodoTasksCompleted} = todoTaskViewModel;
+  const { isTodoTasksNotEmpty, returnOnlyActiveTodoTasks, isThereAnyTodoTaskCompleted } = todoTaskViewModel;
 
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
       <TodoMenu
-        isAllTodosCompleted={isAllTodoTasksCompleted(todoTasks)}
+        isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)}
         todoTaskController={todoTaskController}
       />
       <TodoList
@@ -34,11 +34,11 @@ function Todo({
         filter={filter}
         todoTaskController={todoTaskController}
       />
-      {isTodoTasksNotEmpty(todoTasks) && <TodoFooter 
-        todosQuantity={filterTodoTasksByIsCompleted({ todoTasks, isCompleted: false }).length}
+      {isTodoTasksNotEmpty(todoTasks) && <TodoFooter
+        activeTodoTasksQuantity={returnOnlyActiveTodoTasks(todoTasks).length}
         handleFilter={handleFilter}
         todoTaskController={todoTaskController}
-        areThereTodoTasksCompleted={areThereTodoTasksCompleted({todoTasks})}      />}
+        isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)} />}
     </div>
   );
 }
