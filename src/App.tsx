@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
-import Todo from './view/components/Organisms/Todo/Todo';
+import Todo from './presentation/view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
 import { todoTaskCache } from './infra/cache/TodoTaskCache';
-import { makeTodoTaskController } from './view/controllers/TodoTaskController';
+import { makeTodoTaskController } from './presentation/controllers/TodoTaskController';
 
 export type HandleFilter = (isCompleted?: boolean) => void;
 
