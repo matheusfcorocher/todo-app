@@ -197,13 +197,20 @@ describe("::App", () => {
         const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
         const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
         userEvent.click(checkbox);
-  
+
         const allFilterButton = screen.getByTitle("Filter all todo tasks")
         userEvent.click(allFilterButton);
-      
+
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
-  
         expect(newTodoItems.length).toEqual(2);
+      })
+      test('returns correct url hash', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+
+        const allFilterButton = screen.getByTitle("Filter all todo tasks")
+        expect(allFilterButton).toHaveAttribute('href', '#/');
       })
     });
     describe("and he clicks in active filter", () => {
@@ -211,13 +218,21 @@ describe("::App", () => {
         const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
         const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
         userEvent.click(checkbox);
-  
-        const allFilterButton = screen.getByTitle("Filter active todo tasks")
-        userEvent.click(allFilterButton);
-      
+
+        const activeFilterButton = screen.getByTitle("Filter active todo tasks")
+        userEvent.click(activeFilterButton);
+
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
-  
+
         expect(newTodoItems.length).toEqual(1);
+      })
+      test('returns correct url hash', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+
+        const activeFilterButton = screen.getByTitle("Filter active todo tasks")
+        expect(activeFilterButton).toHaveAttribute('href', '#/active');
       })
     });
     describe("and he clicks in completed filter", () => {
@@ -225,13 +240,21 @@ describe("::App", () => {
         const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
         const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
         userEvent.click(checkbox);
-  
-        const allFilterButton = screen.getByTitle("Filter completed todo tasks")
-        userEvent.click(allFilterButton);
-      
+
+        const completedFilterButton = screen.getByTitle("Filter completed todo tasks")
+        userEvent.click(completedFilterButton);
+
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
-  
+
         expect(newTodoItems.length).toEqual(1);
+      })
+      test('returns correct url hash', () => {
+        const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
+        const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
+        userEvent.click(checkbox);
+
+        const completedFilterButton = screen.getByTitle("Filter completed todo tasks")
+        expect(completedFilterButton).toHaveAttribute('href', '#/completed');
       })
     });
   })
@@ -249,18 +272,18 @@ describe("::App", () => {
         const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
         const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
         userEvent.click(checkbox);
-  
+
         const clearCompletedButton = screen.getByTitle("Clear Completed todo tasks")
         userEvent.click(clearCompletedButton);
-      
+
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
-  
+
         expect(newTodoItems.length).toEqual(1);
       })
     });
     describe("and doesn't have any completed todo tasks", () => {
-      test("screen doesn't show Clear Completed button", () => {  
-        const clearCompletedButton = screen.queryByTitle("Clear Completed todo tasks");  
+      test("screen doesn't show Clear Completed button", () => {
+        const clearCompletedButton = screen.queryByTitle("Clear Completed todo tasks");
         expect(clearCompletedButton).toBeNull();
       })
     });
