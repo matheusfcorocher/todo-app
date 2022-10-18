@@ -4,8 +4,8 @@ import Todo from './presentation/view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
 import { todoTaskCache } from './infra/cache/TodoTaskCache';
 import { makeTodoTaskController } from './presentation/controllers/TodoTaskController';
-import { useUrlHash } from './presentation/view/hooks/useUrlHash';
 import { filterViewModel } from './presentation/models/FilterViewModel';
+import { useUrlHash } from 'use-url-hash';
 
 export type HandleFilter = (isCompleted?: boolean) => void;
 
@@ -19,7 +19,7 @@ function App() {
     }
   );
 
-  const hash = useUrlHash()
+  const hash = useUrlHash();
   const [filter, setFilter] = useState<boolean | undefined>(
     filterViewModel.getFilterByUrlHash(hash)
   );
@@ -30,14 +30,7 @@ function App() {
   function handleFilter(isCompleted?: boolean): void {
     setFilter(isCompleted);
   }
-
-  // function deleteTodoWhenIsBlank(id: string, title: string) : void {
-  //   const isBlank = isTodoTitleBlank(title);
-  //   if(isBlank) {
-  //     deleteTodo(id);
-  //   }
-  // } 
-
+  
   return (
     <div className="App">
       <Todo
