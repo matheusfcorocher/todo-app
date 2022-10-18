@@ -16,7 +16,7 @@ const todoTaskViewModel = {
     returnOnlyActiveTodoTasks: (todoTasks: TodoTasks): TodoTasks => {
         const activeTodoTasks = filterTodoTasksByIsCompleted({ todoTasks, isCompleted: false });
         return activeTodoTasks;
-    },
+    }
 };
 
 export { todoTaskViewModel };

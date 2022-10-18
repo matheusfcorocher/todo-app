@@ -7,18 +7,18 @@ import './todo-footer.css';
 interface TodoFooter {
     isThereAnyTodoTaskCompleted: boolean;
     activeTodoTasksQuantity: number;
+    filter?: boolean;
     handleFilter: HandleFilter;
     todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoFooter({ activeTodoTasksQuantity = 0, isThereAnyTodoTaskCompleted = false, handleFilter, todoTaskController }: TodoFooter) {
-    const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, filter?: boolean): void => {
-        document.querySelectorAll('.active').forEach(e => e.classList.remove('active'));
-        event.currentTarget.classList.toggle('active')
-        handleFilter(filter);
-    }
+function TodoFooter({ activeTodoTasksQuantity = 0, isThereAnyTodoTaskCompleted = false, handleFilter, todoTaskController, filter }: TodoFooter) {  
     const {handleDeleteAllCompletedTodoTasks} = todoTaskController;
 
+    const handleClick = (filter?: boolean): void => {
+        handleFilter(filter);
+    }
+  
     return (
         <div role="group" className={`todo-footer`}>
             <span className={`todo-count`}>
@@ -26,9 +26,9 @@ function TodoFooter({ activeTodoTasksQuantity = 0, isThereAnyTodoTaskCompleted =
                 item left
             </span>
             <ul className={`todo-filters`}>
-                <li><a title={"Filter all todo tasks"} className={'todo-filter active'} onClick={(e) => handleClick(e, undefined)} href="#/">All</a></li>
-                <li><a title={"Filter active todo tasks"} className={'todo-filter'} onClick={(e) => handleClick(e, false)} href="#/active">Active</a></li>
-                <li><a title={"Filter completed todo tasks"} className={'todo-filter'} onClick={(e) => handleClick(e, true)} href="#/completed">Completed</a></li>
+                <li><a title={"Filter all todo tasks"} className={`todo-filter ${filter == undefined ? "active" : ""}`} onClick={(e) => handleClick(undefined)} href="#/">All</a></li>
+                <li><a title={"Filter active todo tasks"} className={`todo-filter ${filter == false ? "active" : ""}`} onClick={(e) => handleClick(false)} href="#/active">Active</a></li>
+                <li><a title={"Filter completed todo tasks"} className={`todo-filter ${filter == true ? "active" : ""}`} onClick={(e) => handleClick(true)} href="#/completed">Completed</a></li>
             </ul>
             {
                 isThereAnyTodoTaskCompleted === true &&

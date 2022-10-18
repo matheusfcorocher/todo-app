@@ -37,6 +37,7 @@ function Todo({
       {isTodoTasksNotEmpty(todoTasks) && <TodoFooter
         activeTodoTasksQuantity={returnOnlyActiveTodoTasks(todoTasks).length}
         handleFilter={handleFilter}
+        filter={filter}
         todoTaskController={todoTaskController}
         isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)} />}
     </div>
