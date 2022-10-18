@@ -69,12 +69,13 @@ describe("::App", () => {
         expect(oldTodoItems[1]).toBe(newTodoItems[1]);
       })
     })
-    describe("if user delete all letters", () => {
+    describe("if user delete all letters and exits focus of input", () => {
       test('it removes todo', () => {
         const oldTodoItems = screen.getAllByTestId(/todoItem-/i);
         const input = within(oldTodoItems[0]).getByRole("textbox");
         userEvent.click(input)
         userEvent.type(input, '{backspace>5}');
+        userEvent.click(screen.getAllByRole("group")[0]);
 
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
         expect(newTodoItems.length).toBe(1);
@@ -183,7 +184,7 @@ describe("::App", () => {
     })
   })
 
-  describe("When user is filtering todos", () => {
+  describe("When user wants to filter todos", () => {
     beforeEach(() => {
       render(<App />);
       const input = screen.getByPlaceholderText('What needs to be done?');

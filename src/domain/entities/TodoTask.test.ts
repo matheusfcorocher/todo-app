@@ -42,18 +42,6 @@ describe("Domain :: Entity :: TodoTask", () => {
         expect(newTodoTasks[0].title).toEqual("yes");
       });
     });
-    describe("When title of todoTask is blank", () => {
-      it("it removes todoTask", () => {
-        const todoTasks: TodoTasks = [{
-          id: "blabla",
-          title: "test",
-          isCompleted: false
-        }];
-        const newTodoTasks = updateTodoTaskTitle({ todoTasks, id: 'blabla', newTitle: "" });
-
-        expect(newTodoTasks.length).toEqual(0);
-      });
-    });
   });
   describe("#updateTodoTaskState", () => {
     describe("When pass a new state for todoTask", () => {

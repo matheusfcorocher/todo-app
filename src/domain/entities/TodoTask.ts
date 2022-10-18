@@ -44,11 +44,6 @@ export type UpdateTodoTaskTitleParameters = {
 };
 
 export function updateTodoTaskTitle({ todoTasks, id, newTitle }: UpdateTodoTaskTitleParameters): TodoTasks {
-  if (isStringBlank(newTitle)) {
-    const newTodoTasks = deleteTodoTask({ todoTasks, id });
-    return newTodoTasks;
-  }
-
   const oldTodo = todoTasks.find((todo) => todo.id === id);
   if (oldTodo) {
     const index = todoTasks.findIndex((todo) => todo.id === id);

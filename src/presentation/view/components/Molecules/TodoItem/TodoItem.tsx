@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { TodoTask } from "../../../../../domain/entities/TodoTask";
+import { isStringBlank } from "../../../../../lib/string/string";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";
 import Checkbox from "../../Atoms/Checkbox/Checkbox";
 import IconButton from "../../Atoms/IconButton/IconButton";
@@ -29,7 +30,7 @@ export const TodoItem = ({
             setFocus(true);
         }
     }, []);
-
+    
     return (
         <li
             data-testid={`todoItem-${id}`}
@@ -51,7 +52,12 @@ export const TodoItem = ({
                     title={title}
                     handleOnChange={handleUpdateTodoTaskTitle}
                     handleOnFocus={() => setFocus(true)}
-                    handleOnBlur={() => setFocus(false)}
+                    handleOnBlur={() => {
+                        if (isStringBlank(title)) {
+                            handleDeleteTodoTask(id)
+                        }
+                        setFocus(false)
+                    }}
                     ref={ref}
                 />
                 {!hasFocus && (
