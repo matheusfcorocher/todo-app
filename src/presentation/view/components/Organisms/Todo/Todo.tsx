@@ -29,17 +29,22 @@ function Todo({
         isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)}
         todoTaskController={todoTaskController}
       />
-      <TodoList
-        todoTasks={todoTasks}
-        filter={filter}
-        todoTaskController={todoTaskController}
-      />
-      {isTodoTasksNotEmpty(todoTasks) && <TodoFooter
-        activeTodoTasksQuantity={returnOnlyActiveTodoTasks(todoTasks).length}
-        handleFilter={handleFilter}
-        filter={filter}
-        todoTaskController={todoTaskController}
-        isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)} />}
+      {isTodoTasksNotEmpty(todoTasks) &&
+        <>
+          <TodoList
+            todoTasks={todoTasks}
+            filter={filter}
+            todoTaskController={todoTaskController}
+          />
+          <TodoFooter
+            activeTodoTasksQuantity={returnOnlyActiveTodoTasks(todoTasks).length}
+            handleFilter={handleFilter}
+            filter={filter}
+            todoTaskController={todoTaskController}
+            isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)} />
+
+        </>
+      }
     </div>
   );
 }
