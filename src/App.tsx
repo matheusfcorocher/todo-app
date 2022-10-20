@@ -8,6 +8,7 @@ import { makeTodoTaskController } from './presentation/controllers/TodoTaskContr
 import { filterViewModel } from './presentation/models/FilterViewModel';
 import { useUrlHash } from 'use-url-hash';
 import { makeIsCompletedFilterController } from './presentation/controllers/IsCompletedFilterController';
+import { useIsCompletedFilter } from './presentation/hooks/useIsCompletedFilter';
 
 export type HandleFilter = (isCompleted?: boolean) => void;
 
@@ -23,12 +24,7 @@ function App() {
   );
 
   const hash = useUrlHash();
-  const [filter, setFilter] = useState<boolean | undefined>(
-    filterViewModel.getFilterByUrlHash(hash)
-  );
-  useEffect(() => {
-    setFilter(filterViewModel.getFilterByUrlHash(hash));
-  }, [hash]);
+  const {filter, setFilter} = useIsCompletedFilter({hash, isCompletedFilterViewModel: filterViewModel});
 
   const isCompletedFilterController = makeIsCompletedFilterController(
     {
