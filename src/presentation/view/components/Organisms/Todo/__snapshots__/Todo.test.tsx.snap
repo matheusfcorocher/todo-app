@@ -41,9 +41,5 @@ exports[`::Components ::Organisms ::Todo renders Todo 1`] = `
       value=""
     />
   </div>
-  <ul
-    class="todo-list"
-    role="list"
-  />
 </div>
 `;

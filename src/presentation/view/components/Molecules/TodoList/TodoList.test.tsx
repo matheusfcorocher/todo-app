@@ -9,6 +9,15 @@ describe("::Components ::Molecules ::TodoList", () => {
         getTodoTasks(): TodoTasks {
           return [];
         },
+        isThereAnyTodoTaskCompleted(): boolean{
+          return true;
+        },
+        isTodoTasksNotEmpty(): boolean {
+          return true;
+        },
+        returnOnlyActiveTodoTasks(): TodoTasks {
+          return [];
+        },
         handleAddTodoTask: function (title: string): void {
           throw new Error('Function not implemented.');
         },

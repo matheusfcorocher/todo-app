@@ -21,6 +21,15 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
+          isThereAnyTodoTaskCompleted(): boolean{
+            return true;
+          },
+          isTodoTasksNotEmpty(): boolean {
+            return true;
+          },
+          returnOnlyActiveTodoTasks(): TodoTasks {
+            return [];
+          },
           handleAddTodoTask: function (title: string): void {
             throw new Error('Function not implemented.');
           },
@@ -70,6 +79,15 @@ describe("::Components ::TodoItem", () => {
           isCompleted: true,
         }} todoTaskController={{
           getTodoTasks(): TodoTasks {
+            return [];
+          },
+          isThereAnyTodoTaskCompleted(): boolean{
+            return true;
+          },
+          isTodoTasksNotEmpty(): boolean {
+            return true;
+          },
+          returnOnlyActiveTodoTasks(): TodoTasks {
             return [];
           },
           handleAddTodoTask: function (title: string): void {
@@ -123,6 +141,15 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
+          isThereAnyTodoTaskCompleted(): boolean{
+            return true;
+          },
+          isTodoTasksNotEmpty(): boolean {
+            return true;
+          },
+          returnOnlyActiveTodoTasks(): TodoTasks {
+            return [];
+          },
           handleAddTodoTask: function (title: string): void {
             throw new Error('Function not implemented.');
           },
@@ -162,6 +189,15 @@ describe("::Components ::TodoItem", () => {
           isCompleted: false,
         }} todoTaskController={{
           getTodoTasks(): TodoTasks {
+            return [];
+          },
+          isThereAnyTodoTaskCompleted(): boolean{
+            return true;
+          },
+          isTodoTasksNotEmpty(): boolean {
+            return true;
+          },
+          returnOnlyActiveTodoTasks(): TodoTasks {
             return [];
           },
           handleAddTodoTask: function (title: string): void {
