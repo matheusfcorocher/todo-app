@@ -7,12 +7,11 @@ import './todo-menu.css';
 
 interface TodoMenuProps {
     todoTaskController: TodoTaskControllerReturnType;
-    isThereAnyTodoTaskCompleted: boolean;
 }
 
-function TodoMenu({ isThereAnyTodoTaskCompleted, todoTaskController }: TodoMenuProps) {
+function TodoMenu({ todoTaskController }: TodoMenuProps) {
     const [title, setTitle] = useState<string>("");
-    const { handleAddTodoTask, handleIncompleteAllTodoTasks, handleCompleteAllTodoTasks } = todoTaskController;
+    const { handleAddTodoTask, handleIncompleteAllTodoTasks, handleCompleteAllTodoTasks, getIsThereAnyTodoTaskCompleted } = todoTaskController;
     function handlePress(event: React.KeyboardEvent<HTMLInputElement>) {
         if (event.key == "Enter") {
             handleAddTodoTask(title);
@@ -23,7 +22,7 @@ function TodoMenu({ isThereAnyTodoTaskCompleted, todoTaskController }: TodoMenuP
     return (
         <div role="group" className={`todo-menu`}>
             {
-                isThereAnyTodoTaskCompleted ?
+                getIsThereAnyTodoTaskCompleted() ?
                     (<IconButton
                         title="Uncheck all todos"
                         className="complete-button"

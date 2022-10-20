@@ -13,21 +13,21 @@ exports[`::Components ::Organisms ::Todo renders Todo 1`] = `
     <button
       class="icon-button complete-button"
       role="button"
-      title="Check all todos"
+      title="Uncheck all todos"
     >
       <svg
-        class="checklist-icon"
+        class="list-icon"
         preserveAspectRatio="none"
         role="image"
         viewBox="0 0 64 64"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M54 64a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-9.764l-2.447-4.895A2 2 0 0 0 40 0H24a2 2 0 0 0-1.789 1.105L19.764 6H10a2 2 0 0 0-2 2v54a2 2 0 0 0 2 2h44zM25.236 4h13.527l4 8H21.236l4-8zM12 10h5.764l-1.553 3.105A2.001 2.001 0 0 0 18 16h28.02a2 2 0 0 0 1.653-3.126L46.236 10H52v50H12V10z"
+          d="m44.236 6-2.447-4.895A2.002 2.002 0 0 0 40 0H24c-.757 0-1.45.428-1.789 1.105L19.764 6H10a2 2 0 0 0-2 2v54a2 2 0 0 0 2 2h44a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-9.764zm-19-2h13.528l4 8H21.236l4-8zM52 60H12V10h5.764l-1.553 3.105A1.999 1.999 0 0 0 18 16h28.02a2 2 0 0 0 1.653-3.126L46.236 10H52v50z"
           fill=""
         />
         <path
-          d="M38.586 28.586 30 37.171l-4.586-4.585a2 2 0 1 0-2.828 2.828l6 6c.391.391.902.586 1.414.586s1.023-.195 1.414-.586l10-10a2 2 0 1 0-2.828-2.828z"
+          d="M46 22H28a2 2 0 0 0 0 4h18a2 2 0 0 0 0-4zM46 32H28a2 2 0 0 0 0 4h18a2 2 0 0 0 0-4zM46 42H28a2 2 0 0 0 0 4h18a2 2 0 0 0 0-4zM46 52H28a2 2 0 0 0 0 4h18a2 2 0 0 0 0-4zM20 22h-2a2 2 0 0 0 0 4h2a2 2 0 0 0 0-4zM20 32h-2a2 2 0 0 0 0 4h2a2 2 0 0 0 0-4zM20 42h-2a2 2 0 0 0 0 4h2a2 2 0 0 0 0-4zM20 52h-2a2 2 0 0 0 0 4h2a2 2 0 0 0 0-4z"
           fill=""
         />
       </svg>
@@ -40,6 +40,62 @@ exports[`::Components ::Organisms ::Todo renders Todo 1`] = `
       type="text"
       value=""
     />
+  </div>
+  <ul
+    class="todo-list"
+    role="list"
+  />
+  <div
+    class="todo-footer"
+    role="group"
+  >
+    <span
+      class="todo-count"
+    >
+      <strong>
+        0
+         
+      </strong>
+      item left
+    </span>
+    <ul
+      class="todo-filters"
+    >
+      <li>
+        <a
+          class="todo-filter active"
+          href="#/"
+          title="Filter all todo tasks"
+        >
+          All
+        </a>
+      </li>
+      <li>
+        <a
+          class="todo-filter "
+          href="#/active"
+          title="Filter active todo tasks"
+        >
+          Active
+        </a>
+      </li>
+      <li>
+        <a
+          class="todo-filter "
+          href="#/completed"
+          title="Filter completed todo tasks"
+        >
+          Completed
+        </a>
+      </li>
+    </ul>
+    <button
+      class="icon-button medium primary gray"
+      role="button"
+      title="Clear Completed todo tasks"
+    >
+      Clear Completed todo tasks
+    </button>
   </div>
 </div>
 `;

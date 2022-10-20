@@ -5,15 +5,13 @@ import Button from '../../Atoms/Button/Button';
 import './todo-footer.css';
 
 interface TodoFooter {
-    isThereAnyTodoTaskCompleted: boolean;
-    activeTodoTasksQuantity: number;
     filter?: boolean;
     handleFilter: HandleFilter;
     todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoFooter({ activeTodoTasksQuantity = 0, isThereAnyTodoTaskCompleted = false, handleFilter, todoTaskController, filter }: TodoFooter) {  
-    const {handleDeleteAllCompletedTodoTasks} = todoTaskController;
+function TodoFooter({ handleFilter, todoTaskController, filter }: TodoFooter) {  
+    const {handleDeleteAllCompletedTodoTasks, getOnlyActiveTodoTasks, getIsThereAnyTodoTaskCompleted} = todoTaskController;
 
     const handleClick = (filter?: boolean): void => {
         handleFilter(filter);
@@ -22,7 +20,7 @@ function TodoFooter({ activeTodoTasksQuantity = 0, isThereAnyTodoTaskCompleted =
     return (
         <div role="group" className={`todo-footer`}>
             <span className={`todo-count`}>
-                <strong>{activeTodoTasksQuantity}&nbsp;</strong>
+                <strong>{getOnlyActiveTodoTasks().length}&nbsp;</strong>
                 item left
             </span>
             <ul className={`todo-filters`}>
@@ -31,7 +29,7 @@ function TodoFooter({ activeTodoTasksQuantity = 0, isThereAnyTodoTaskCompleted =
                 <li><a title={"Filter completed todo tasks"} className={`todo-filter ${filter == true ? "active" : ""}`} onClick={(e) => handleClick(true)} href="#/completed">Completed</a></li>
             </ul>
             {
-                isThereAnyTodoTaskCompleted === true &&
+                getIsThereAnyTodoTaskCompleted() === true &&
                 <Button
                     handleFunction={handleDeleteAllCompletedTodoTasks}
                     title={"Clear Completed todo tasks"}

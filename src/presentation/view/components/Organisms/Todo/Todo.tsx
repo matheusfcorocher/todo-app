@@ -5,7 +5,6 @@ import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { TodoTaskControllerReturnType } from '../../../../controllers/TodoTaskController';
 import { HandleFilter } from '../../../../../App';
-import { todoTasksViewModel } from '../../../../models/TodoTaskViewModel';
 
 interface TodoProps {
   filter?: boolean;
@@ -18,29 +17,24 @@ function Todo({
   todoTaskController,
   handleFilter
 }: TodoProps) {
-  const { isTodoTasksNotEmpty, returnOnlyActiveTodoTasks, isThereAnyTodoTaskCompleted } = todoTasksViewModel;
-  const { getTodoTasks } = todoTaskController;
-  const todoTasks = getTodoTasks();
+  const { getIsTodoTasksNotEmpty } = todoTaskController;
 
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
       <TodoMenu
-        isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)}
         todoTaskController={todoTaskController}
       />
-      {isTodoTasksNotEmpty(todoTasks) &&
+      {getIsTodoTasksNotEmpty() &&
         <>
           <TodoList
             filter={filter}
             todoTaskController={todoTaskController}
           />
           <TodoFooter
-            activeTodoTasksQuantity={returnOnlyActiveTodoTasks(todoTasks).length}
+            todoTaskController={todoTaskController}
             handleFilter={handleFilter}
             filter={filter}
-            todoTaskController={todoTaskController}
-            isThereAnyTodoTaskCompleted={isThereAnyTodoTaskCompleted(todoTasks)} />
-
+            />
         </>
       }
     </div>

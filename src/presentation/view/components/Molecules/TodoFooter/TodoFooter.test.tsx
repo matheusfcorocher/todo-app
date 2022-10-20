@@ -5,7 +5,7 @@ import { TodoTasks } from '../../../../../domain/entities/TodoTask';
 
 describe("::Components ::Molecules ::TodoFooter", () => {
   test('renders TodoFooter', () => {
-      render(<TodoFooter isThereAnyTodoTaskCompleted={false} activeTodoTasksQuantity={0} handleFilter={function (isCompleted?: boolean | undefined): void {
+      render(<TodoFooter handleFilter={function (isCompleted?: boolean | undefined): void {
         throw new Error('Function not implemented.');
       } } todoTaskController={{
         getTodoTasks(): TodoTasks {
