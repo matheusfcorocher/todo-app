@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   filterTodoTasksByIsCompleted,
-  TodoTasks,
 } from "../../../../../domain/entities/TodoTask";
 import { IsCompletedFilterControllerReturnType } from "../../../../controllers/IsCompletedFilterController";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";

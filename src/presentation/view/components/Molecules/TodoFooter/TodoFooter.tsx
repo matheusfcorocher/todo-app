@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HandleFilter } from "../../../../../App";
 import { IsCompletedFilterControllerReturnType } from "../../../../controllers/IsCompletedFilterController";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";
 import Button from "../../Atoms/Button/Button";

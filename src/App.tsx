@@ -10,8 +10,6 @@ import { useUrlHash } from 'use-url-hash';
 import { makeIsCompletedFilterController } from './presentation/controllers/IsCompletedFilterController';
 import { useIsCompletedFilter } from './presentation/hooks/useIsCompletedFilter';
 
-export type HandleFilter = (isCompleted?: boolean) => void;
-
 function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(todoTaskCache.getAllTodoTasks());
   const todoTaskController = makeTodoTaskController(
