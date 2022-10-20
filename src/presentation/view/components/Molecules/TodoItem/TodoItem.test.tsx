@@ -21,13 +21,13 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
-          isThereAnyTodoTaskCompleted(): boolean{
+          getIsThereAnyTodoTaskCompleted(): boolean{
             return true;
           },
-          isTodoTasksNotEmpty(): boolean {
+          getIsTodoTasksNotEmpty(): boolean {
             return true;
           },
-          returnOnlyActiveTodoTasks(): TodoTasks {
+          getOnlyActiveTodoTasks(): TodoTasks {
             return [];
           },
           handleAddTodoTask: function (title: string): void {
@@ -81,13 +81,13 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
-          isThereAnyTodoTaskCompleted(): boolean{
+          getIsThereAnyTodoTaskCompleted(): boolean{
             return true;
           },
-          isTodoTasksNotEmpty(): boolean {
+          getIsTodoTasksNotEmpty(): boolean {
             return true;
           },
-          returnOnlyActiveTodoTasks(): TodoTasks {
+          getOnlyActiveTodoTasks(): TodoTasks {
             return [];
           },
           handleAddTodoTask: function (title: string): void {
@@ -141,13 +141,13 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
-          isThereAnyTodoTaskCompleted(): boolean{
+          getIsThereAnyTodoTaskCompleted(): boolean{
             return true;
           },
-          isTodoTasksNotEmpty(): boolean {
+          getIsTodoTasksNotEmpty(): boolean {
             return true;
           },
-          returnOnlyActiveTodoTasks(): TodoTasks {
+          getOnlyActiveTodoTasks(): TodoTasks {
             return [];
           },
           handleAddTodoTask: function (title: string): void {
@@ -191,13 +191,13 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
-          isThereAnyTodoTaskCompleted(): boolean{
+          getIsThereAnyTodoTaskCompleted(): boolean{
             return true;
           },
-          isTodoTasksNotEmpty(): boolean {
+          getIsTodoTasksNotEmpty(): boolean {
             return true;
           },
-          returnOnlyActiveTodoTasks(): TodoTasks {
+          getOnlyActiveTodoTasks(): TodoTasks {
             return [];
           },
           handleAddTodoTask: function (title: string): void {

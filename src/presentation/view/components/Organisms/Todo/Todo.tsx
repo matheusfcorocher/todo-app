@@ -3,10 +3,9 @@ import './todo.css';
 import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
-import { TodoTasks } from '../../../../../domain/entities/TodoTask';
 import { TodoTaskControllerReturnType } from '../../../../controllers/TodoTaskController';
 import { HandleFilter } from '../../../../../App';
-import { todoTaskViewModel } from '../../../../models/TodoTaskViewModel';
+import { todoTasksViewModel } from '../../../../models/TodoTaskViewModel';
 
 interface TodoProps {
   filter?: boolean;
@@ -19,7 +18,7 @@ function Todo({
   todoTaskController,
   handleFilter
 }: TodoProps) {
-  const { isTodoTasksNotEmpty, returnOnlyActiveTodoTasks, isThereAnyTodoTaskCompleted } = todoTaskViewModel;
+  const { isTodoTasksNotEmpty, returnOnlyActiveTodoTasks, isThereAnyTodoTaskCompleted } = todoTasksViewModel;
   const { getTodoTasks } = todoTaskController;
   const todoTasks = getTodoTasks();
 

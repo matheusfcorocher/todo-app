@@ -1,7 +1,13 @@
 import { filterTodoTasksByIsCompleted, TodoTasks } from "../../domain/entities/TodoTask";
 import { isArrayEmpty } from "../../lib/isArrayEmpty/isArrayEmpty";
 
-const todoTaskViewModel = {
+export type TodoTasksViewModelType = {
+    isThereAnyTodoTaskCompleted(todoTasks: TodoTasks): boolean;
+    isTodoTasksNotEmpty(todoTasks: TodoTasks): boolean;
+    returnOnlyActiveTodoTasks(todoTasks: TodoTasks): TodoTasks;
+  };
+
+const todoTasksViewModel = {
     isThereAnyTodoTaskCompleted: (todoTasks: TodoTasks): boolean => {
         const isAllTodosCompleted = todoTasks.find(todo => todo.isCompleted == true);
         if (isAllTodosCompleted) {
@@ -19,4 +25,4 @@ const todoTaskViewModel = {
     }
 };
 
-export { todoTaskViewModel };
+export { todoTasksViewModel };

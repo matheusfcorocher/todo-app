@@ -1,5 +1,5 @@
 import { TodoTasks } from "../../domain/entities/TodoTask";
-import { todoTaskViewModel } from "./TodoTaskViewModel";
+import { todoTasksViewModel } from "./TodoTaskViewModel";
 
 describe("Presentation :: Models :: TodoTaskViewModel", () => {
     describe("#isThereAnyTodoTaskCompleted", () => {
@@ -17,7 +17,7 @@ describe("Presentation :: Models :: TodoTaskViewModel", () => {
                         isCompleted: false
                     },
                     ];
-                    const { isThereAnyTodoTaskCompleted } = todoTaskViewModel;
+                    const { isThereAnyTodoTaskCompleted } = todoTasksViewModel;
                     const newTodoTasks = isThereAnyTodoTaskCompleted(todoTasks);
 
                     const expected: boolean = true;
@@ -38,7 +38,7 @@ describe("Presentation :: Models :: TodoTaskViewModel", () => {
                         isCompleted: false
                     },
                     ];
-                    const { isThereAnyTodoTaskCompleted } = todoTaskViewModel;
+                    const { isThereAnyTodoTaskCompleted } = todoTasksViewModel;
                     const newTodoTasks = isThereAnyTodoTaskCompleted(todoTasks);
 
                     const expected: boolean = false;
@@ -53,7 +53,7 @@ describe("Presentation :: Models :: TodoTaskViewModel", () => {
             describe("0 todos tasks", () => {
                 it("returns false", () => {
                     const todoTasks: TodoTasks = [];
-                    const { isTodoTasksNotEmpty } = todoTaskViewModel;
+                    const { isTodoTasksNotEmpty } = todoTasksViewModel;
                     const answer = isTodoTasksNotEmpty(todoTasks);
 
                     const expected: boolean = false;
@@ -74,7 +74,7 @@ describe("Presentation :: Models :: TodoTaskViewModel", () => {
                         isCompleted: false
                     },
                     ];
-                    const { isTodoTasksNotEmpty } = todoTaskViewModel;
+                    const { isTodoTasksNotEmpty } = todoTasksViewModel;
                     const answer = isTodoTasksNotEmpty(todoTasks);
 
                     const expected: boolean = true;
@@ -99,7 +99,7 @@ describe("Presentation :: Models :: TodoTaskViewModel", () => {
                         isCompleted: false
                     },
                     ];
-                    const { returnOnlyActiveTodoTasks } = todoTaskViewModel;
+                    const { returnOnlyActiveTodoTasks } = todoTasksViewModel;
                     const newTodoTasks = returnOnlyActiveTodoTasks(todoTasks);
 
                     const expected: TodoTasks = [{

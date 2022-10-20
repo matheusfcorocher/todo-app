@@ -3,6 +3,7 @@ import './App.css';
 import Todo from './presentation/view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';
 import { todoTaskCache } from './infra/cache/TodoTaskCache';
+import { todoTasksViewModel } from "./presentation/models/TodoTaskViewModel";
 import { makeTodoTaskController } from './presentation/controllers/TodoTaskController';
 import { filterViewModel } from './presentation/models/FilterViewModel';
 import { useUrlHash } from 'use-url-hash';
@@ -15,7 +16,8 @@ function App() {
     {
       todoTasks,
       updateTodoTasks: setTodoTasks,
-      localStorage: todoTaskCache
+      localStorage: todoTaskCache,
+      todoTasksViewModel
     }
   );
 
@@ -30,7 +32,7 @@ function App() {
   function handleFilter(isCompleted?: boolean): void {
     setFilter(isCompleted);
   }
-  
+
   return (
     <div className="App">
       <Todo
