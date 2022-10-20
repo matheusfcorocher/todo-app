@@ -10,32 +10,31 @@ interface TodoMenuProps {
     isThereAnyTodoTaskCompleted: boolean;
 }
 
-function TodoMenu({ isThereAnyTodoTaskCompleted, todoTaskController}: TodoMenuProps) {
+function TodoMenu({ isThereAnyTodoTaskCompleted, todoTaskController }: TodoMenuProps) {
     const [title, setTitle] = useState<string>("");
-    const {handleAddTodoTask, handleIncompleteAllTodoTasks, handleCompleteAllTodoTasks} = todoTaskController;
-
-    function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
-        if(event.key == "Enter") {
+    const { handleAddTodoTask, handleIncompleteAllTodoTasks, handleCompleteAllTodoTasks } = todoTaskController;
+    function handlePress(event: React.KeyboardEvent<HTMLInputElement>) {
+        if (event.key == "Enter") {
             handleAddTodoTask(title);
             setTitle("");
         }
     }
-    
+
     return (
         <div role="group" className={`todo-menu`}>
             {
                 isThereAnyTodoTaskCompleted ?
                     (<IconButton
-                        title="Uncheck all todos" 
-                        className="complete-button" 
+                        title="Uncheck all todos"
+                        className="complete-button"
                         handleFunction={() => handleIncompleteAllTodoTasks()}
                     >
                         <ListIcon className="list-icon" />
                     </IconButton>)
                     :
-                    (<IconButton 
-                        title="Check all todos" 
-                        className="complete-button" 
+                    (<IconButton
+                        title="Check all todos"
+                        className="complete-button"
                         handleFunction={() => handleCompleteAllTodoTasks()}>
                         <CheckListIcon className="checklist-icon" />
                     </IconButton>)

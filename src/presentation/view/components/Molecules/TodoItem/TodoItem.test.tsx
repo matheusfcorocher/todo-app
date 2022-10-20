@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { render, screen, cleanup } from '@testing-library/react';
 import { TodoItem } from './TodoItem';
 import userEvent from '@testing-library/user-event';
+import { TodoTasks } from '../../../../../domain/entities/TodoTask';
 
 describe("::Components ::TodoItem", () => {
 
@@ -17,6 +18,9 @@ describe("::Components ::TodoItem", () => {
           title: "wash dishes",
           isCompleted: false,
         }} todoTaskController={{
+          getTodoTasks(): TodoTasks {
+            return [];
+          },
           handleAddTodoTask: function (title: string): void {
             throw new Error('Function not implemented.');
           },
@@ -65,6 +69,9 @@ describe("::Components ::TodoItem", () => {
           title: "wash dishes",
           isCompleted: true,
         }} todoTaskController={{
+          getTodoTasks(): TodoTasks {
+            return [];
+          },
           handleAddTodoTask: function (title: string): void {
             throw new Error('Function not implemented.');
           },
@@ -113,6 +120,9 @@ describe("::Components ::TodoItem", () => {
           title: "wash dishes",
           isCompleted: false,
         }} todoTaskController={{
+          getTodoTasks(): TodoTasks {
+            return [];
+          },
           handleAddTodoTask: function (title: string): void {
             throw new Error('Function not implemented.');
           },
@@ -151,6 +161,9 @@ describe("::Components ::TodoItem", () => {
           title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan suscipit turpis vel volutpat. In vitae aliquam ex. Nullam in odio pellentesque, feugiat libero vel, fringilla massa. Duis nec odio in nisl fringilla vestibulum at feugiat lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
           isCompleted: false,
         }} todoTaskController={{
+          getTodoTasks(): TodoTasks {
+            return [];
+          },
           handleAddTodoTask: function (title: string): void {
             throw new Error('Function not implemented.');
           },

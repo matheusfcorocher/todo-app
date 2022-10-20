@@ -20,21 +20,8 @@ export const Default = Template.bind({});
 Default.args = {};
 
 Default.args = {
-  todoTasks: []
 };
 
 export const withItems = Template.bind({});
 withItems.args = {
-  todoTasks: [
-    {
-      id: "1",
-      title: "TASK",
-      isCompleted: false,
-    },
-    {
-      id: "2",
-      title: "TASK 2",
-      isCompleted: true,
-    }
-  ]
 };

@@ -34,9 +34,8 @@ function App() {
   return (
     <div className="App">
       <Todo
-        todoTasks={todoTasks}
-        filter={filter}
         todoTaskController={todoTaskController}
+        filter={filter}
         handleFilter={handleFilter}
       />
     </div>

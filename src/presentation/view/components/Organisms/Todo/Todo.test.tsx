@@ -1,10 +1,14 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Todo from './Todo';
+import { TodoTasks } from '../../../../../domain/entities/TodoTask';
 
 describe("::Components ::Organisms ::Todo", () => {
   test('renders Todo', () => {
     render(<Todo todoTaskController={{
+      getTodoTasks(): TodoTasks {
+        return [];
+      },
       handleAddTodoTask: function (title: string): void {
         throw new Error('Function not implemented.');
       },

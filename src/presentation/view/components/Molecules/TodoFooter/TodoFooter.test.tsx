@@ -1,12 +1,16 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import TodoFooter from './TodoFooter';
+import { TodoTasks } from '../../../../../domain/entities/TodoTask';
 
 describe("::Components ::Molecules ::TodoFooter", () => {
   test('renders TodoFooter', () => {
       render(<TodoFooter isThereAnyTodoTaskCompleted={false} activeTodoTasksQuantity={0} handleFilter={function (isCompleted?: boolean | undefined): void {
         throw new Error('Function not implemented.');
       } } todoTaskController={{
+        getTodoTasks(): TodoTasks {
+          return [];
+        },
         handleAddTodoTask: function (title: string): void {
           throw new Error('Function not implemented.');
         },

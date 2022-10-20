@@ -9,19 +9,19 @@ import { HandleFilter } from '../../../../../App';
 import { todoTaskViewModel } from '../../../../models/TodoTaskViewModel';
 
 interface TodoProps {
-  todoTasks?: TodoTasks;
   filter?: boolean;
   todoTaskController: TodoTaskControllerReturnType;
   handleFilter: HandleFilter;
 }
 
 function Todo({
-  todoTasks = [],
   filter = undefined,
   todoTaskController,
   handleFilter
 }: TodoProps) {
   const { isTodoTasksNotEmpty, returnOnlyActiveTodoTasks, isThereAnyTodoTaskCompleted } = todoTaskViewModel;
+  const { getTodoTasks } = todoTaskController;
+  const todoTasks = getTodoTasks();
 
   return (
     <div data-testid="todo" role="group" className={"todo-panel"}>
@@ -32,7 +32,6 @@ function Todo({
       {isTodoTasksNotEmpty(todoTasks) &&
         <>
           <TodoList
-            todoTasks={todoTasks}
             filter={filter}
             todoTaskController={todoTaskController}
           />

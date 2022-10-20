@@ -11,6 +11,7 @@ export type TodoTaskControllerType = {
 }
 
 export type TodoTaskControllerReturnType = {
+    getTodoTasks(): TodoTasks;
     handleAddTodoTask(title: string): void;
     handleDeleteTodoTask(id: string): void;
     handleUpdateTodoTaskTitle(id: string, newTitle: string): void;
@@ -22,6 +23,9 @@ export type TodoTaskControllerReturnType = {
 
 export function makeTodoTaskController({ todoTasks, updateTodoTasks, localStorage }: TodoTaskControllerType): TodoTaskControllerReturnType {
     return {
+        getTodoTasks() : TodoTasks {
+            return todoTasks;
+        },
         handleAddTodoTask: (title: string): void => {
             const newTodoTasks = addTodoTask({ todoTasks, title });
             localStorage.store({ todoTasks: newTodoTasks });

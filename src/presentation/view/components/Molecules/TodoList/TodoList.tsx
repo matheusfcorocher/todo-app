@@ -6,12 +6,13 @@ import './todolist.css';
 
 
 interface TodoListProps {
-  todoTasks?: TodoTasks;
   filter?: boolean;
   todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoList({ todoTasks = [], filter = undefined, todoTaskController }: TodoListProps) {
+function TodoList({ filter = undefined, todoTaskController }: TodoListProps) {
+  const { getTodoTasks } = todoTaskController;
+  const todoTasks = getTodoTasks();
   const listToDoItems = filterTodoTasksByIsCompleted({ todoTasks, isCompleted: filter }).map((todo) => {
     return (
       <TodoItem
