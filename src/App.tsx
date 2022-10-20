@@ -7,6 +7,7 @@ import { todoTasksViewModel } from "./presentation/models/TodoTaskViewModel";
 import { makeTodoTaskController } from './presentation/controllers/TodoTaskController';
 import { filterViewModel } from './presentation/models/FilterViewModel';
 import { useUrlHash } from 'use-url-hash';
+import { makeIsCompletedFilterController } from './presentation/controllers/IsCompletedFilterController';
 
 export type HandleFilter = (isCompleted?: boolean) => void;
 
@@ -32,6 +33,14 @@ function App() {
   function handleFilter(isCompleted?: boolean): void {
     setFilter(isCompleted);
   }
+
+  const isCompletedFilterController = makeIsCompletedFilterController(
+    {
+      isCompletedfilter: filter,
+      updateIsCompletedFilter: setFilter,
+      isCompletedFilterViewModel: filterViewModel
+    }
+  );
 
   return (
     <div className="App">
