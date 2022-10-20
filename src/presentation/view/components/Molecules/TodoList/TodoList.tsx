@@ -3,18 +3,22 @@ import {
   filterTodoTasksByIsCompleted,
   TodoTasks,
 } from "../../../../../domain/entities/TodoTask";
+import { IsCompletedFilterControllerReturnType } from "../../../../controllers/IsCompletedFilterController";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";
 import { TodoItem } from "../TodoItem/TodoItem";
 import "./todolist.css";
 
 interface TodoListProps {
-  filter?: boolean;
+  isCompletedFilterController: IsCompletedFilterControllerReturnType;
   todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoList({ filter = undefined, todoTaskController }: TodoListProps) {
+function TodoList({ isCompletedFilterController, todoTaskController }: TodoListProps) {
   const { getTodoTasks } = todoTaskController;
   const todoTasks = getTodoTasks();
+  const { getIsCompletedFilter } = isCompletedFilterController;
+  const filter = getIsCompletedFilter();
+  
   const listToDoItems = filterTodoTasksByIsCompleted({
     todoTasks,
     isCompleted: filter,

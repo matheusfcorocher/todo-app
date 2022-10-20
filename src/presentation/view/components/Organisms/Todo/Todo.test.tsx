@@ -9,7 +9,7 @@ describe("::Components ::Organisms ::Todo", () => {
       getTodoTasks(): TodoTasks {
         return [];
       },
-      getIsThereAnyTodoTaskCompleted(): boolean{
+      getIsThereAnyTodoTaskCompleted(): boolean {
         return true;
       },
       getIsTodoTasksNotEmpty(): boolean {
@@ -39,9 +39,17 @@ describe("::Components ::Organisms ::Todo", () => {
       handleDeleteAllCompletedTodoTasks: function (): void {
         throw new Error('Function not implemented.');
       }
-    }} handleFilter={function (isCompleted?: boolean | undefined): void {
-      throw new Error('Function not implemented.');
-    } }/>);
+    }} isCompletedFilterController={{
+      getIsCompletedFilter: function (): boolean | undefined {
+        return true;
+      },
+      getFilterByUrlHash: function (hash: string): boolean | undefined {
+        return true;
+      },
+      handleChangeFilter: function (isCompleted?: boolean | undefined): void {
+        throw new Error('Function not implemented.');
+      }
+    }}/>);
     const todo = screen.getByTestId("todo");
     expect(todo).toMatchSnapshot();
   })

@@ -4,18 +4,16 @@ import TodoMenu from '../../Molecules/TodoMenu/TodoMenu';
 import TodoList from '../../Molecules/TodoList/TodoList';
 import TodoFooter from '../../Molecules/TodoFooter/TodoFooter';
 import { TodoTaskControllerReturnType } from '../../../../controllers/TodoTaskController';
-import { HandleFilter } from '../../../../../App';
+import { IsCompletedFilterControllerReturnType } from '../../../../controllers/IsCompletedFilterController';
 
 interface TodoProps {
-  filter?: boolean;
+  isCompletedFilterController: IsCompletedFilterControllerReturnType;
   todoTaskController: TodoTaskControllerReturnType;
-  handleFilter: HandleFilter;
 }
 
 function Todo({
-  filter = undefined,
+  isCompletedFilterController,
   todoTaskController,
-  handleFilter
 }: TodoProps) {
   const { getIsTodoTasksNotEmpty } = todoTaskController;
 
@@ -27,13 +25,12 @@ function Todo({
       {getIsTodoTasksNotEmpty() &&
         <>
           <TodoList
-            filter={filter}
+            isCompletedFilterController={isCompletedFilterController}
             todoTaskController={todoTaskController}
           />
           <TodoFooter
+            isCompletedFilterController={isCompletedFilterController}
             todoTaskController={todoTaskController}
-            handleFilter={handleFilter}
-            filter={filter}
             />
         </>
       }

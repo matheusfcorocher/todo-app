@@ -19,7 +19,7 @@ exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
   >
     <li>
       <a
-        class="todo-filter active"
+        class="todo-filter "
         href="#/"
         title="Filter all todo tasks"
       >
@@ -37,7 +37,7 @@ exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
     </li>
     <li>
       <a
-        class="todo-filter "
+        class="todo-filter active"
         href="#/completed"
         title="Filter completed todo tasks"
       >

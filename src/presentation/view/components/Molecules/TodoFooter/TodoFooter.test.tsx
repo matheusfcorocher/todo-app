@@ -5,13 +5,11 @@ import { TodoTasks } from '../../../../../domain/entities/TodoTask';
 
 describe("::Components ::Molecules ::TodoFooter", () => {
   test('renders TodoFooter', () => {
-      render(<TodoFooter handleFilter={function (isCompleted?: boolean | undefined): void {
-        throw new Error('Function not implemented.');
-      } } todoTaskController={{
+      render(<TodoFooter todoTaskController={{
         getTodoTasks(): TodoTasks {
           return [];
         },
-        getIsThereAnyTodoTaskCompleted(): boolean{
+        getIsThereAnyTodoTaskCompleted(): boolean {
           return true;
         },
         getIsTodoTasksNotEmpty(): boolean {
@@ -39,6 +37,16 @@ describe("::Components ::Molecules ::TodoFooter", () => {
           throw new Error('Function not implemented.');
         },
         handleDeleteAllCompletedTodoTasks: function (): void {
+          throw new Error('Function not implemented.');
+        }
+      }} isCompletedFilterController={{
+        getIsCompletedFilter: function (): boolean | undefined {
+          return true;
+        },
+        getFilterByUrlHash: function (hash: string): boolean | undefined {
+          return true;
+        },
+        handleChangeFilter: function (isCompleted?: boolean | undefined): void {
           throw new Error('Function not implemented.');
         }
       }}/>);

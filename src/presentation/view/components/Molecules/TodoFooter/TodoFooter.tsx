@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import { HandleFilter } from "../../../../../App";
+import { IsCompletedFilterControllerReturnType } from "../../../../controllers/IsCompletedFilterController";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";
 import Button from "../../Atoms/Button/Button";
 import "./todo-footer.css";
 
 interface TodoFooter {
-  filter?: boolean;
-  handleFilter: HandleFilter;
+  isCompletedFilterController: IsCompletedFilterControllerReturnType;
   todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoFooter({ handleFilter, todoTaskController, filter }: TodoFooter) {
+function TodoFooter({ todoTaskController, isCompletedFilterController }: TodoFooter) {
   const {
     handleDeleteAllCompletedTodoTasks,
     getOnlyActiveTodoTasks,
     getIsThereAnyTodoTaskCompleted,
   } = todoTaskController;
 
+  const {handleChangeFilter, getIsCompletedFilter} = isCompletedFilterController;
+  const filter = getIsCompletedFilter();
   const handleClick = (filter?: boolean): void => {
-    handleFilter(filter);
+    handleChangeFilter(filter);
   };
 
   return (

@@ -9,7 +9,7 @@ describe("::Components ::Molecules ::TodoList", () => {
         getTodoTasks(): TodoTasks {
           return [];
         },
-        getIsThereAnyTodoTaskCompleted(): boolean{
+        getIsThereAnyTodoTaskCompleted(): boolean {
           return true;
         },
         getIsTodoTasksNotEmpty(): boolean {
@@ -37,6 +37,16 @@ describe("::Components ::Molecules ::TodoList", () => {
           throw new Error('Function not implemented.');
         },
         handleDeleteAllCompletedTodoTasks: function (): void {
+          throw new Error('Function not implemented.');
+        }
+      }} isCompletedFilterController={{
+        getIsCompletedFilter: function (): boolean | undefined {
+          return true;
+        },
+        getFilterByUrlHash: function (hash: string): boolean | undefined {
+          return true;
+        },
+        handleChangeFilter: function (isCompleted?: boolean | undefined): void {
           throw new Error('Function not implemented.');
         }
       }}/>);

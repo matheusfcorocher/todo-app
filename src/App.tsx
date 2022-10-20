@@ -30,10 +30,6 @@ function App() {
     setFilter(filterViewModel.getFilterByUrlHash(hash));
   }, [hash]);
 
-  function handleFilter(isCompleted?: boolean): void {
-    setFilter(isCompleted);
-  }
-
   const isCompletedFilterController = makeIsCompletedFilterController(
     {
       isCompletedfilter: filter,
@@ -46,8 +42,7 @@ function App() {
     <div className="App">
       <Todo
         todoTaskController={todoTaskController}
-        filter={filter}
-        handleFilter={handleFilter}
+        isCompletedFilterController={isCompletedFilterController}
       />
     </div>
   );
