@@ -3,8 +3,6 @@ import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskCo
 import IconButton from "../../Atoms/IconButton/IconButton";
 import ArrowDownIcon from "../../Atoms/icons/ArrowDownIcon/ArrowDownIcon";
 import ArrowUpIcon from "../../Atoms/icons/ArrowUpIcon/ArrowUpIcon";
-import CheckListIcon from "../../Atoms/icons/CheckListIcon/CheckListIcon";
-import ListIcon from "../../Atoms/icons/ListIcon/ListIcon";
 import "./todo-menu.css";
 
 interface TodoMenuProps {
@@ -18,6 +16,7 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
     handleIncompleteAllTodoTasks,
     handleCompleteAllTodoTasks,
     getIsThereAnyTodoTaskCompleted,
+    getIsTodoTasksNotEmpty
   } = todoTaskController;
   function handlePress(event: React.KeyboardEvent<HTMLInputElement>) {
     if (event.key == "Enter") {
@@ -28,23 +27,27 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
 
   return (
     <div role="group" className={`todo-menu`}>
-      {getIsThereAnyTodoTaskCompleted() ? (
-        <IconButton
-          title="Uncheck all todos"
-          className="complete-button"
-          handleFunction={() => handleIncompleteAllTodoTasks()}
-        >
-          <ArrowUpIcon className="list-icon" />
-        </IconButton>
-      ) : (
-        <IconButton
-          title="Check all todos"
-          className="complete-button"
-          handleFunction={() => handleCompleteAllTodoTasks()}
-        >
-          <ArrowDownIcon className="checklist-icon" />
-        </IconButton>
-      )}
+      {getIsTodoTasksNotEmpty() &&
+        <>
+        {getIsThereAnyTodoTaskCompleted() ? (
+          <IconButton
+            title="Uncheck all todos"
+            className="complete-button"
+            handleFunction={() => handleIncompleteAllTodoTasks()}
+          >
+            <ArrowUpIcon className="list-icon" />
+          </IconButton>
+        ) : (
+          <IconButton
+            title="Check all todos"
+            className="complete-button"
+            handleFunction={() => handleCompleteAllTodoTasks()}
+          >
+            <ArrowDownIcon className="checklist-icon" />
+          </IconButton>
+        )}
+        </>
+      }
       <input
         type="text"
         role="textbox"
