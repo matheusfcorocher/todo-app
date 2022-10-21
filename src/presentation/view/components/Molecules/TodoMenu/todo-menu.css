@@ -21,8 +21,6 @@
   justify-content: center;
   margin: 0 auto;
   fill: var(--dark-color);
-  stroke: var(--dark-color) !important;
-  stroke-width: 0.1;
   background: transparent;
 }
 
@@ -31,8 +29,6 @@
   justify-content: center;
   margin: 0 auto;
   fill: var(--dark-color);
-  stroke: var(--dark-color) !important;
-  stroke-width: 0.1;
   background: transparent;
 }
 
@@ -44,7 +40,7 @@
   display: flex;
   align-items: center;
   margin-right: var(--spacing-md);
-  background-color: var(--primary-color);
+  background-color: transparent;
 }
 
 .title-input {
