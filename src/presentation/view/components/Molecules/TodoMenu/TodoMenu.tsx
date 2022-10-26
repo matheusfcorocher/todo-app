@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IsShowingTodoBodyControllerReturnType } from "../../../../controllers/IsShowingTodoBodyController";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";
 import IconButton from "../../Atoms/IconButton/IconButton";
 import ArrowDownIcon from "../../Atoms/icons/ArrowDownIcon/ArrowDownIcon";
@@ -7,9 +8,10 @@ import "./todo-menu.css";
 
 interface TodoMenuProps {
   todoTaskController: TodoTaskControllerReturnType;
+  isShowingTodoBodyController: IsShowingTodoBodyControllerReturnType;
 }
 
-function TodoMenu({ todoTaskController }: TodoMenuProps) {
+function TodoMenu({ todoTaskController, isShowingTodoBodyController }: TodoMenuProps) {
   const [title, setTitle] = useState<string>("");
   const {
     handleAddTodoTask,

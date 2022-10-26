@@ -49,6 +49,13 @@ describe("::Components ::Organisms ::Todo", () => {
       handleChangeFilter: function (isCompleted?: boolean | undefined): void {
         throw new Error('Function not implemented.');
       }
+    }} isShowingTodoBodyController={{
+      getIsShowingTodoBody: function (): boolean {
+        return true;
+      },
+      handleChangeIsShowingTodoBody: function (isShowingTodoBody: boolean): void {
+        throw new Error('Function not implemented.');
+      }
     }}/>);
     const todo = screen.getByTestId("todo");
     expect(todo).toMatchSnapshot();
