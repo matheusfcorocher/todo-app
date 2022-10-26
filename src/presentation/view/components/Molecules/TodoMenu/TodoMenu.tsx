@@ -35,7 +35,7 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
             className="complete-button"
             handleFunction={() => handleIncompleteAllTodoTasks()}
           >
-            <ArrowUpIcon className="list-icon" />
+            <ArrowDownIcon className="list-icon" />
           </IconButton>
         ) : (
           <IconButton
@@ -43,7 +43,7 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
             className="complete-button"
             handleFunction={() => handleCompleteAllTodoTasks()}
           >
-            <ArrowDownIcon className="checklist-icon" />
+            <ArrowDownIcon className="checklist-icon"/>
           </IconButton>
         )}
         </>
