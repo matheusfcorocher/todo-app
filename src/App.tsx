@@ -9,7 +9,6 @@ import { filterViewModel } from './presentation/models/FilterViewModel';
 import { useUrlHash } from 'use-url-hash';
 import { makeIsCompletedFilterController } from './presentation/controllers/IsCompletedFilterController';
 import { useIsCompletedFilter } from './presentation/hooks/useIsCompletedFilter';
-import { makeIsShowingTodoBodyController } from './presentation/controllers/IsShowingTodoBodyController';
 
 function App() {
   const [todoTasks, setTodoTasks] = useState<TodoTasks>(todoTaskCache.getAllTodoTasks());
@@ -33,18 +32,11 @@ function App() {
     }
   );
 
-  const [isShowingTodoBody, setIsShowingTodoBody] = useState<boolean>(true);
-  const isShowingTodoBodyController = makeIsShowingTodoBodyController({
-    isShowingTodoBody,
-    updateIsShowingTodoBody: setIsShowingTodoBody
-  });
-
   return (
     <div className="App">
       <Todo
         todoTaskController={todoTaskController}
         isCompletedFilterController={isCompletedFilterController}
-        isShowingTodoBodyController={isShowingTodoBodyController}
       />
     </div>
   );
