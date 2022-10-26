@@ -274,7 +274,7 @@ describe("::App", () => {
         const checkbox = within(oldTodoItems[0]).getByRole("checkbox");
         userEvent.click(checkbox);
 
-        const clearCompletedButton = screen.getByTitle("Clear Completed todo tasks")
+        const clearCompletedButton = screen.getByTitle("Clear Completed")
         userEvent.click(clearCompletedButton);
 
         const newTodoItems = screen.getAllByTestId(/todoItem-/i);
@@ -284,7 +284,7 @@ describe("::App", () => {
     });
     describe("and doesn't have any completed todo tasks", () => {
       test("screen doesn't show Clear Completed button", () => {
-        const clearCompletedButton = screen.queryByTitle("Clear Completed todo tasks");
+        const clearCompletedButton = screen.queryByTitle("Clear Completed");
         expect(clearCompletedButton).toBeNull();
       })
     });

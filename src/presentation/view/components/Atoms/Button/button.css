@@ -12,14 +12,17 @@
 
 .large {
     padding: var(--spacing-md);
+    height: var(----spacing-xl);
 }
 
 .medium {
     padding: var(--spacing-sm);
+    height: var(----spacing-xl);
 }
 
 .small {
     padding: var(--spacing-xs);
+    height: var(----spacing-lg);
 }
 
 .primary {

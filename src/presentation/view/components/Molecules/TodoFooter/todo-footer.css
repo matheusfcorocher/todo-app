@@ -13,13 +13,14 @@
 .todo-count {
   text-align: left;
   float: left;
+  color: var(--gray-color)
 }
 
 .todo-filters {
   display: flex;
   list-style: none;
   padding: 0rem;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-sm);
 }
 
 .todo-filter {
@@ -35,4 +36,16 @@
 .active {
   background-color: var(--tertiary-color);
   color: var(--white-color);
+}
+
+
+@media (max-width: 30rem) {
+  .todo-footer {
+    flex-direction: column;
+  }
+  
+  .todo-count {
+    text-align: center;
+    float: none;
+  }
 }

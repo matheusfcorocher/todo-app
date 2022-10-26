@@ -46,11 +46,11 @@ exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
     </li>
   </ul>
   <button
-    class="icon-button medium primary gray"
+    class="icon-button small primary gray"
     role="button"
-    title="Clear Completed todo tasks"
+    title="Clear Completed"
   >
-    Clear Completed todo tasks
+    Clear Completed
   </button>
 </div>
 `;
