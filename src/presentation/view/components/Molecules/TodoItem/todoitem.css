@@ -8,6 +8,7 @@
     width: auto;
     max-height: 3rem;
     padding: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
     box-shadow: var(--box-shadow-sm);
     background: var(--secondary-color);
 }

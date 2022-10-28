@@ -38,8 +38,8 @@
 .todo-list {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
   margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
   padding: 0;
   width: auto;
 }
