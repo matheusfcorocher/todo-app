@@ -33,8 +33,8 @@
 }
 
 .complete-button {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   padding: var(--spacing-xs);
   border-radius: var(--spacing-xs);
   display: flex;

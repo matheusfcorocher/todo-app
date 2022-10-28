@@ -5,30 +5,34 @@ exports[`::Components ::Molecules ::TodoMenu renders TodoMenu 1`] = `
   class="todo-menu"
   role="group"
 >
-  <button
-    class="icon-button complete-button"
-    role="button"
-    title="Uncheck all todos"
+  <div
+    style="opacity: 0; width: 0px;"
   >
-    <svg
-      class="list-icon"
-      preserveAspectRatio="none"
-      role="image"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
+    <button
+      class="icon-button complete-button"
+      role="button"
+      title="Uncheck all todos"
     >
-      <path
-        d="M0 0h24v24H0V0z"
-        fill="none"
-      />
-      <path
-        d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
-        fill=""
-      />
-    </svg>
-  </button>
+      <svg
+        class="list-icon"
+        preserveAspectRatio="none"
+        role="image"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 0h24v24H0V0z"
+          fill="none"
+        />
+        <path
+          d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+          fill=""
+        />
+      </svg>
+    </button>
+  </div>
   <input
-    class="title-input"
+    class="title-input hidden"
     name="title"
     placeholder="What needs to be done?"
     role="textbox"

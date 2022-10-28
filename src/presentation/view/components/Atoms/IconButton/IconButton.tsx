@@ -12,7 +12,7 @@ function IconButton({
     handleFunction,
     children,
     className,
-    title
+    title,
 }: IconButtonProps) {
     return (
         <button
