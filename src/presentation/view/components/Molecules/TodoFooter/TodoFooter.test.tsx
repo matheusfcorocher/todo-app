@@ -9,6 +9,9 @@ describe("::Components ::Molecules ::TodoFooter", () => {
         getTodoTasks(): TodoTasks {
           return [];
         },
+        getIsAllTodoTaskCompleted(): boolean {
+          return true;
+        },
         getIsThereAnyTodoTaskCompleted(): boolean {
           return true;
         },

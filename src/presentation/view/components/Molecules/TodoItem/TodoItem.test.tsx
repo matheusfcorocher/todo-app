@@ -21,6 +21,9 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
+          getIsAllTodoTaskCompleted(): boolean {
+            return true;
+          },
           getIsThereAnyTodoTaskCompleted(): boolean{
             return true;
           },
@@ -80,6 +83,9 @@ describe("::Components ::TodoItem", () => {
         }} todoTaskController={{
           getTodoTasks(): TodoTasks {
             return [];
+          },
+          getIsAllTodoTaskCompleted(): boolean {
+            return true;
           },
           getIsThereAnyTodoTaskCompleted(): boolean{
             return true;
@@ -141,6 +147,9 @@ describe("::Components ::TodoItem", () => {
           getTodoTasks(): TodoTasks {
             return [];
           },
+          getIsAllTodoTaskCompleted(): boolean {
+            return true;
+          },
           getIsThereAnyTodoTaskCompleted(): boolean{
             return true;
           },
@@ -190,6 +199,9 @@ describe("::Components ::TodoItem", () => {
         }} todoTaskController={{
           getTodoTasks(): TodoTasks {
             return [];
+          },
+          getIsAllTodoTaskCompleted(): boolean {
+            return true;
           },
           getIsThereAnyTodoTaskCompleted(): boolean{
             return true;

@@ -313,7 +313,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
           todoTasks,
           updateTodoTasks: setTodoTasks,
           localStorage: todoTaskCache,
-          todoTasksViewModel
+          todoTasksViewModel,
         });
         todoTaskController.handleIncompleteAllTodoTasks();
 
@@ -356,7 +356,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
           todoTasks,
           updateTodoTasks: setTodoTasks,
           localStorage: todoTaskCache,
-          todoTasksViewModel
+          todoTasksViewModel,
         });
         todoTaskController.handleIncompleteAllTodoTasks();
 
@@ -384,7 +384,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
           todoTasks,
           updateTodoTasks: setTodoTasks,
           localStorage: todoTaskCache,
-          todoTasksViewModel
+          todoTasksViewModel,
         });
         todoTaskController.handleUpdateTodoTaskState("blabla", true);
 
@@ -409,7 +409,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
           todoTasks,
           updateTodoTasks: setTodoTasks,
           localStorage: todoTaskCache,
-          todoTasksViewModel
+          todoTasksViewModel,
         });
         todoTaskController.handleUpdateTodoTaskState("blabla", true);
 
@@ -435,7 +435,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
         todoTasks,
         updateTodoTasks: setTodoTasks,
         localStorage: todoTaskCache,
-        todoTasksViewModel
+        todoTasksViewModel,
       });
       todoTaskController.handleUpdateTodoTaskState("blabla", true);
 
@@ -462,7 +462,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
           todoTasks,
           updateTodoTasks: setTodoTasks,
           localStorage: todoTaskCache,
-          todoTasksViewModel
+          todoTasksViewModel,
         });
         todoTaskController.handleUpdateTodoTaskTitle("blabla", "yes");
 
@@ -488,12 +488,76 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
         todoTasks,
         updateTodoTasks: setTodoTasks,
         localStorage: todoTaskCache,
-        todoTasksViewModel
+        todoTasksViewModel,
       });
       todoTaskController.handleUpdateTodoTaskTitle("blabla", "yes");
 
       expect(storageSpy).toHaveBeenCalled();
       expect(todoTaskCache.getAllTodoTasks()).toEqual(result);
+    });
+  });
+  describe("#isAllTodoTaskCompleted", () => {
+    describe("When pass todoTasks with", () => {
+      describe("at least one is IsCompleted", () => {
+        it("returns false", () => {
+          const todoTasks: TodoTasks = [
+            {
+              id: "blabla",
+              title: "test",
+              isCompleted: true,
+            },
+            {
+              id: "blabl2",
+              title: "test2",
+              isCompleted: false,
+            },
+          ];
+          function setTodoTasks(newTodoTasks: TodoTasks) {}
+
+          const todoTaskController = makeTodoTaskController({
+            todoTasks,
+            updateTodoTasks: setTodoTasks,
+            localStorage: todoTaskCache,
+            todoTasksViewModel,
+          });
+          const { getIsAllTodoTaskCompleted } = todoTaskController;
+          const newTodoTasks = getIsAllTodoTaskCompleted();
+          
+          const expected: boolean = false;
+
+          expect(newTodoTasks).toEqual(expected);
+        });
+      });
+      describe("all todo tasks completed", () => {
+        it("returns true", () => {
+          const todoTasks: TodoTasks = [
+            {
+              id: "blabla",
+              title: "test",
+              isCompleted: true,
+            },
+            {
+              id: "blabl2",
+              title: "test2",
+              isCompleted: true,
+            },
+          ];
+          function setTodoTasks(newTodoTasks: TodoTasks) {}
+
+          const todoTaskController = makeTodoTaskController({
+            todoTasks,
+            updateTodoTasks: setTodoTasks,
+            localStorage: todoTaskCache,
+            todoTasksViewModel,
+          });
+          const { getIsAllTodoTaskCompleted } = todoTaskController;
+          const newTodoTasks = getIsAllTodoTaskCompleted();
+
+          const expected: boolean = true;
+
+          expect(newTodoTasks).toEqual(expected);
+        });
+      });
     });
   });
   describe("#getIsThereAnyTodoTaskCompleted", () => {
@@ -519,7 +583,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
             todoTasks,
             updateTodoTasks: setTodoTasks,
             localStorage: todoTaskCache,
-            todoTasksViewModel
+            todoTasksViewModel,
           });
           const { getIsThereAnyTodoTaskCompleted } = todoTaskController;
           const newTodoTasks = getIsThereAnyTodoTaskCompleted();
@@ -550,7 +614,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
             todoTasks,
             updateTodoTasks: setTodoTasks,
             localStorage: todoTaskCache,
-            todoTasksViewModel
+            todoTasksViewModel,
           });
           const { getIsThereAnyTodoTaskCompleted } = todoTaskController;
           const newTodoTasks = getIsThereAnyTodoTaskCompleted();
@@ -574,7 +638,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
             todoTasks,
             updateTodoTasks: setTodoTasks,
             localStorage: todoTaskCache,
-            todoTasksViewModel
+            todoTasksViewModel,
           });
           const { getIsTodoTasksNotEmpty } = todoTaskController;
 
@@ -606,7 +670,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
             todoTasks,
             updateTodoTasks: setTodoTasks,
             localStorage: todoTaskCache,
-            todoTasksViewModel
+            todoTasksViewModel,
           });
           const { getIsTodoTasksNotEmpty } = todoTaskController;
 
@@ -642,7 +706,7 @@ describe("Presentation :: Controllers :: TodoTaskController", () => {
             todoTasks,
             updateTodoTasks: setTodoTasks,
             localStorage: todoTaskCache,
-            todoTasksViewModel
+            todoTasksViewModel,
           });
           const { getOnlyActiveTodoTasks } = todoTaskController;
 

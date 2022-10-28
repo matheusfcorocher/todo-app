@@ -15,7 +15,7 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
     handleAddTodoTask,
     handleIncompleteAllTodoTasks,
     handleCompleteAllTodoTasks,
-    getIsThereAnyTodoTaskCompleted,
+    getIsAllTodoTaskCompleted,
     getIsTodoTasksNotEmpty,
   } = todoTaskController;
   function handlePress(event: React.KeyboardEvent<HTMLInputElement>) {
@@ -43,7 +43,7 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
       {iconButtonTransition((style, item) =>
         item ? (
           <animated.div style={style}>
-            {getIsThereAnyTodoTaskCompleted() ? (
+            {getIsAllTodoTaskCompleted() ? (
               <IconButton
                 title="Uncheck all todos"
                 className="complete-button"

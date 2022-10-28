@@ -24,6 +24,7 @@ export type TodoTaskControllerType = {
 
 export type TodoTaskControllerReturnType = {
   getTodoTasks(): TodoTasks;
+  getIsAllTodoTaskCompleted(): boolean;
   getIsThereAnyTodoTaskCompleted(): boolean;
   getIsTodoTasksNotEmpty(): boolean;
   getOnlyActiveTodoTasks(): TodoTasks;
@@ -45,6 +46,9 @@ export function makeTodoTaskController({
   return {
     getTodoTasks(): TodoTasks {
       return todoTasks;
+    },
+    getIsAllTodoTaskCompleted: (): boolean => {
+      return todoTasksViewModel.isAllTodoTaskCompleted(todoTasks);
     },
     getIsThereAnyTodoTaskCompleted: (): boolean => {
       return todoTasksViewModel.isThereAnyTodoTaskCompleted(todoTasks);
