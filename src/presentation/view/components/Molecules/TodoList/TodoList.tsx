@@ -1,5 +1,8 @@
-import { animated, useTransition } from "@react-spring/web";
 import React, { useState } from "react";
+import { animated, useSpring, useTransition } from "@react-spring/web";
+import useMeasure from "react-use-measure";
+import { ResizeObserver } from "@juggle/resize-observer";
+
 import { filterTodoTasksByIsCompleted, TodoTask } from "../../../../../domain/entities/TodoTask";
 import { IsCompletedFilterControllerReturnType } from "../../../../controllers/IsCompletedFilterController";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";
@@ -36,9 +39,15 @@ function TodoList({
       enter: { opacity: 1 }, 
     }
   );
+
+  //TodoList Animation
+  const [ref, { height }] = useMeasure({ polyfill: ResizeObserver });
+  const todoListTransition = useSpring({
+    height: {height},
+  });
   
   return (
-    <ul role="list" className={"todo-list"}>
+    <animated.ul ref={ref} style={todoListTransition} role="list" className={"todo-list"}>
       {transitions((style, item) => (
         <animated.div style={style}>
           <TodoItem
@@ -52,7 +61,7 @@ function TodoList({
           />
         </animated.div>
       ))}
-    </ul>
+    </animated.ul>
   );
 }
 

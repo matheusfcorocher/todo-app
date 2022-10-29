@@ -45,61 +45,65 @@ exports[`::Components ::Organisms ::Todo renders Todo 1`] = `
       value=""
     />
   </div>
-  <ul
-    class="todo-list"
-    role="list"
-  />
   <div
-    class="todo-footer"
-    role="group"
+    style="height: 0%;"
   >
-    <span
-      class="todo-count"
-    >
-      <strong>
-        0
-         
-      </strong>
-      item left
-    </span>
     <ul
-      class="todo-filters"
+      class="todo-list"
+      role="list"
+    />
+    <div
+      class="todo-footer"
+      role="group"
     >
-      <li>
-        <a
-          class="todo-filter "
-          href="#/"
-          title="Filter all todo tasks"
-        >
-          All
-        </a>
-      </li>
-      <li>
-        <a
-          class="todo-filter "
-          href="#/active"
-          title="Filter active todo tasks"
-        >
-          Active
-        </a>
-      </li>
-      <li>
-        <a
-          class="todo-filter active"
-          href="#/completed"
-          title="Filter completed todo tasks"
-        >
-          Completed
-        </a>
-      </li>
-    </ul>
-    <button
-      class="icon-button small primary gray"
-      role="button"
-      title="Clear Completed"
-    >
-      Clear Completed
-    </button>
+      <span
+        class="todo-count"
+      >
+        <strong>
+          0
+           
+        </strong>
+        item left
+      </span>
+      <ul
+        class="todo-filters"
+      >
+        <li>
+          <a
+            class="todo-filter "
+            href="#/"
+            title="Filter all todo tasks"
+          >
+            All
+          </a>
+        </li>
+        <li>
+          <a
+            class="todo-filter "
+            href="#/active"
+            title="Filter active todo tasks"
+          >
+            Active
+          </a>
+        </li>
+        <li>
+          <a
+            class="todo-filter active"
+            href="#/completed"
+            title="Filter completed todo tasks"
+          >
+            Completed
+          </a>
+        </li>
+      </ul>
+      <button
+        class="icon-button small primary gray"
+        role="button"
+        title="Clear Completed"
+      >
+        Clear Completed
+      </button>
+    </div>
   </div>
 </div>
 `;

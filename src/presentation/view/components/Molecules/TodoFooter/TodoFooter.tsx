@@ -60,7 +60,7 @@ function TodoFooter({ todoTaskController, isCompletedFilterController }: TodoFoo
           </a>
         </li>
       </ul>
-      {getIsThereAnyTodoTaskCompleted() === true && (
+      {getIsThereAnyTodoTaskCompleted() && (
         <Button
           handleFunction={handleDeleteAllCompletedTodoTasks}
           title={"Clear Completed"}
