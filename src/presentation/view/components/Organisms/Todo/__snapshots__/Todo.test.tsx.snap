@@ -11,7 +11,7 @@ exports[`::Components ::Organisms ::Todo renders Todo 1`] = `
     role="group"
   >
     <div
-      style="opacity: 0; width: 0px;"
+      style="width: 0rem;"
     >
       <button
         class="icon-button complete-button"

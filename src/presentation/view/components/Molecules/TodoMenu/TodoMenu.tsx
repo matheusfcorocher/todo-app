@@ -27,15 +27,11 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
 
   //Animations
 
-  function convertRemToPixels(rem: number) {    
-    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-  }
-
   //Icon Button Animation
   const iconButtonTransition = useTransition(getIsTodoTasksNotEmpty(), {
-    from: { opacity: 0, width: 0 },
-    enter: { opacity: 1, width: convertRemToPixels(2)},
-    leave: { opacity: 0, width: 0 },
+    from: { width: "0rem" },
+    enter: { width: "2rem"},
+    leave: { width: "0rem" },
   });
 
   return (

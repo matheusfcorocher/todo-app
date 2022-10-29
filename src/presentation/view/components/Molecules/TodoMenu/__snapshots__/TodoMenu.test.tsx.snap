@@ -6,7 +6,7 @@ exports[`::Components ::Molecules ::TodoMenu renders TodoMenu 1`] = `
   role="group"
 >
   <div
-    style="opacity: 0; width: 0px;"
+    style="width: 0rem;"
   >
     <button
       class="icon-button complete-button"
