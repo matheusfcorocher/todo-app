@@ -34,11 +34,16 @@ This repository is frontend application that must follow this requirements:
     Use the technique dependency injection for code not be coupled and make easy to mock dependencies during the tests.
   </dd>
 
-<dt>Web Framework</dt>
+ <dt>Web Framework</dt>
   <dd>
     Use <a href="https://reactjs.org/">ReactJs</a> for building user interfaces. 
   </dd>
- 
+  
+ <dt>Animation</dt>
+  <dd>
+    Use <a href="https://react-spring.dev/">React-Spring</a> for animation. 
+  </dd>
+  
  <dt>React Component has docs</dt>
   <dd>
     Use <a href="https://storybook.js.org/">Storybook</a> for documenting react components.
@@ -59,7 +64,6 @@ This repository is frontend application that must follow this requirements:
   <dd>
     This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.
   </dd>
-
 </dl>
 
 ## Quick start
