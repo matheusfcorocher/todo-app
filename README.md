@@ -7,14 +7,6 @@ This repository is frontend application that must follow this requirements:
 * width >= 480px, width = 480
 * if width < 480 => shrink
 
-## References
-
-- https://todomvc.com/examples/backbone_require/#/
-- https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality
-- https://create-react-app.dev/docs/getting-started
-- https://www.youtube.com/watch?v=lRaL-8qZ0mM&ab_channel=freeCodeCamp.org
-- https://style.monday.com/?path=/docs/welcome--page
-
 ## Features
 
 <dl>
@@ -94,3 +86,10 @@ This api comes with a collection of npm scripts to make your life easier, you'll
 - `start`: Start the development server with Node.js
 - `storybook`: Run storybook server.
 - `test`: Run all tests suite with option --runInBand and NODE_ENV=test
+
+## References
+- https://todomvc.com/examples/backbone_require/#/
+- https://github.com/tastejs/todomvc/blob/master/app-spec.md#functionality
+- https://create-react-app.dev/docs/getting-started
+- https://www.youtube.com/watch?v=lRaL-8qZ0mM&ab_channel=freeCodeCamp.org
+- https://style.monday.com/?path=/docs/welcome--page
