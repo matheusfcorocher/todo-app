@@ -81,7 +81,6 @@ You may also see any lint errors in the console.
 
 This api comes with a collection of npm scripts to make your life easier, you'll run them with `npm run <script name>`:
 
-- `knex`: Run commands with knex.
 - `build`: Transpile the ts files to js in builder folder.
 - `start`: Start the development server with Node.js
 - `storybook`: Run storybook server.
