@@ -3,26 +3,29 @@
 @import '../../../styles/typography/typography.css';
 @import '../../../styles/round-corners/round-corners.css';
 
-.icon-button {
+.base-button {
     border: 0;
     font-size: var(--fs-300);
     font-family: var(--ff-serif);
     border-radius: var(--round-corner-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .large {
-    padding: var(--spacing-md);
-    height: var(----spacing-xl);
+    padding-inline: var(--spacing-md);
+    height: var(--spacing-xl);
 }
 
 .medium {
-    padding: var(--spacing-sm);
-    height: var(----spacing-xl);
+    padding-inline: var(--spacing-sm);
+    height: var(--spacing-xl);
 }
 
 .small {
-    padding: var(--spacing-xs);
-    height: var(----spacing-lg);
+    padding-inline: var(--spacing-xs);
+    height: var(--spacing-lg);
 }
 
 .primary {

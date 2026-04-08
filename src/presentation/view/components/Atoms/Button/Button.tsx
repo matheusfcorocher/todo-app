@@ -18,7 +18,7 @@ function Button({
     return (
         <button
             title={title}
-            className={`icon-button ${size} ${variant} ${fontColor}`}
+            className={`base-button ${size} ${variant} ${fontColor}`}
             onClick={() => handleFunction()}
             role="button"
         >
