@@ -97,7 +97,7 @@ exports[`::Components ::Organisms ::Todo renders Todo 1`] = `
         </li>
       </ul>
       <button
-        class="icon-button small primary gray"
+        class="base-button small primary gray"
         role="button"
         title="Clear Completed"
       >
