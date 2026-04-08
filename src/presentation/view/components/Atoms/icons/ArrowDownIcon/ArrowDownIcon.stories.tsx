@@ -1,20 +1,20 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ListIcon from './ArrowDownIcon';
+import { StoryFn, Meta } from '@storybook/react';
+import ArrowDownIcon from './ArrowDownIcon';
 
 export default {
-  title: 'Atoms/ListIcon',
-  component: ListIcon,
+  title: 'Atoms/ArrowDownIcon',
+  component: ArrowDownIcon,
   decorators: [
-    (Story) => (
+    (Story: any) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
         <Story />
       </ul>
     ),
   ]
-} as ComponentMeta<typeof ListIcon>;
+} as Meta<typeof ArrowDownIcon>;
 
-const Template: ComponentStory<typeof ListIcon> = (args) => <ListIcon />;
+const Template: StoryFn<typeof ArrowDownIcon> = (args: any) => <ArrowDownIcon />;
 
 export const Default = Template.bind({});
 Default.args = {};

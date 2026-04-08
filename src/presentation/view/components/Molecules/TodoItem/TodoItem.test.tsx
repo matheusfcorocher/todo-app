@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { render, screen, cleanup } from '@testing-library/react';
+import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { TodoItem } from './TodoItem';
 import userEvent from '@testing-library/user-event';
 import { TodoTasks } from '../../../../../domain/entities/TodoTask';
@@ -182,11 +182,11 @@ describe("::Components ::TodoItem", () => {
           }
         }}        />);
     })
-    test('delete button isnt showing', () => {
+    test('delete button isnt showing', async () => {
       const deleteButton = screen.getByRole("button", { name: "delete" });
       const input = screen.getByRole("textbox");
       userEvent.click(input);
-      expect(deleteButton).not.toBeVisible();
+      await waitFor(() => expect(deleteButton).not.toBeVisible());
     });
   });
   describe('When title of TodoItem is too long', () => {

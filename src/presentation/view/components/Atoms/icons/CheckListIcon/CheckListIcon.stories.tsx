@@ -1,20 +1,20 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import CheckListIcon from './CheckListIcon';
 
 export default {
   title: 'Atoms/CheckListIcon',
   component: CheckListIcon,
   decorators: [
-    (Story) => (
+    (Story: any) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
         <Story />
       </ul>
     ),
   ]
-} as ComponentMeta<typeof CheckListIcon>;
+} as Meta<typeof CheckListIcon>;
 
-const Template: ComponentStory<typeof CheckListIcon> = (args) => <CheckListIcon />;
+const Template: StoryFn<typeof CheckListIcon> = (args: any) => <CheckListIcon />;
 
 export const Default = Template.bind({});
 Default.args = {};

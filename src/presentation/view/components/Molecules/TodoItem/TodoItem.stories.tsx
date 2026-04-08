@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 
 import { TodoItem } from './TodoItem';
 
@@ -7,15 +7,15 @@ export default {
   title: 'Molecules/TodoItem',
   component: TodoItem,
   decorators: [
-    (Story) => (
+    (Story: any) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0}}>
         <Story />
       </ul>
     ),
   ]
-} as ComponentMeta<typeof TodoItem>;
+} as Meta<typeof TodoItem>;
 
-const Template: ComponentStory<typeof TodoItem> = (args) => <TodoItem {...args} />;
+const Template: StoryFn<typeof TodoItem> = (args: any) => <TodoItem {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

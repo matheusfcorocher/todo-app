@@ -1,20 +1,20 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import ArrowUpIcon from './ArrowUpIcon';
 
 export default {
   title: 'Atoms/ArrowUpIcon',
   component: ArrowUpIcon,
   decorators: [
-    (Story) => (
+    (Story: any) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
         <Story />
       </ul>
     ),
   ]
-} as ComponentMeta<typeof ArrowUpIcon>;
+} as Meta<typeof ArrowUpIcon>;
 
-const Template: ComponentStory<typeof ArrowUpIcon> = (args) => <ArrowUpIcon />;
+const Template: StoryFn<typeof ArrowUpIcon> = (args: any) => <ArrowUpIcon />;
 
 export const Default = Template.bind({});
 Default.args = {};
