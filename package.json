@@ -11,7 +11,9 @@
     "underscore": "^1.13.7",
     "serialize-javascript": "^7.0.5",
     "nth-check": "^2.0.1",
-    "css-select": "^4.1.3"
+    "css-select": "^4.1.3",
+    "http-proxy-agent": "^7.0.0",
+    "webpack-dev-server": "^5.2.3"
   },
   "dependencies": {
     "@juggle/resize-observer": "^3.4.0",
