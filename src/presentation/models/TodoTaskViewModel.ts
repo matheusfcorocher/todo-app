@@ -14,7 +14,7 @@ export type TodoTasksViewModelType = {
 const todoTasksViewModel = {
   isAllTodoTaskCompleted: (todoTasks: TodoTasks): boolean => {
     const isAllTodosCompleted = todoTasks.filter(
-      (todo) => todo.isCompleted == true
+      (todo) => todo.isCompleted === true
     );
     if (isAllTodosCompleted.length === todoTasks.length) {
       return true;
@@ -24,7 +24,7 @@ const todoTasksViewModel = {
   },
   isThereAnyTodoTaskCompleted: (todoTasks: TodoTasks): boolean => {
     const isAllTodosCompleted = todoTasks.find(
-      (todo) => todo.isCompleted == true
+      (todo) => todo.isCompleted === true
     );
     if (isAllTodosCompleted) {
       return true;

@@ -2,7 +2,6 @@
 
 exports[`::Components ::Atoms ::Button renders Button 1`] = `
 <button
-  class="icon-button large primary dark"
-  role="button"
+  class="base-button large primary dark"
 />
 `;

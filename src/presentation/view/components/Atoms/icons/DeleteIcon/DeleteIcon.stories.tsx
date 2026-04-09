@@ -1,20 +1,20 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import DeleteIcon from './DeleteIcon';
 
 export default {
   title: 'Atoms/DeleteIcon',
   component: DeleteIcon,
   decorators: [
-    (Story) => (
+    (Story: any) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
         <Story />
       </ul>
     ),
   ]
-} as ComponentMeta<typeof DeleteIcon>;
+} as Meta<typeof DeleteIcon>;
 
-const Template: ComponentStory<typeof DeleteIcon> = (args) => <DeleteIcon />;
+const Template: StoryFn<typeof DeleteIcon> = (args: any) => <DeleteIcon />;
 
 export const Default = Template.bind({});
 Default.args = {};

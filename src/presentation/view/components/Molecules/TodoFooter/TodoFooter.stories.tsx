@@ -1,20 +1,20 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import TodoFooter from './TodoFooter';
 
 export default {
   title: 'Molecules/TodoFooter',
   component: TodoFooter,
   decorators: [
-    (Story) => (
+    (Story: any) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
         <Story />
       </ul>
     ),
   ]
-} as ComponentMeta<typeof TodoFooter>;
+} as Meta<typeof TodoFooter>;
 
-const Template: ComponentStory<typeof TodoFooter> = (args) => <TodoFooter {...args} />;
+const Template: StoryFn<typeof TodoFooter> = (args: any) => <TodoFooter {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

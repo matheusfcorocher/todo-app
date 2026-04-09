@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './icon-button.css';
 
 interface IconButtonProps {    
@@ -19,7 +19,7 @@ function IconButton({
             title={title}
             className={`icon-button ${className}`}
             onClick={() => handleFunction()}
-            role="button"
+            
         >
             {children}
         </button>

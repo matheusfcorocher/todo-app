@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTransition, animated, useSpring } from "@react-spring/web";
 import { ResizeObserver } from "@juggle/resize-observer";
 import "./todo.css";

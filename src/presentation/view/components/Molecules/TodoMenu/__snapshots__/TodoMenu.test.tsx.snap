@@ -10,13 +10,12 @@ exports[`::Components ::Molecules ::TodoMenu renders TodoMenu 1`] = `
   >
     <button
       class="icon-button complete-button"
-      role="button"
       title="Uncheck all todos"
     >
       <svg
         class="list-icon"
         preserveAspectRatio="none"
-        role="image"
+        role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -35,7 +34,6 @@ exports[`::Components ::Molecules ::TodoMenu renders TodoMenu 1`] = `
     class="title-input hidden"
     name="title"
     placeholder="What needs to be done?"
-    role="textbox"
     type="text"
     value=""
   />

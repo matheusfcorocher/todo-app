@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { animated, useSpring, useTransition } from "@react-spring/web";
 import useMeasure from "react-use-measure";
 import { ResizeObserver } from "@juggle/resize-observer";

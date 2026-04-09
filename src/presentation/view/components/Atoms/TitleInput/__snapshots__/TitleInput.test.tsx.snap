@@ -3,7 +3,6 @@
 exports[`::Components ::Atoms ::TitleInput renders TitleInput 1`] = `
 <input
   class="title-input"
-  role="textbox"
   type="text"
   value=""
 />

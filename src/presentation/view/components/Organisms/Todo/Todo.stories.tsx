@@ -1,20 +1,20 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryFn, Meta } from '@storybook/react';
 import Todo from './Todo';
 
 export default {
   title: 'Organisms/Todo',
   component: Todo,
   decorators: [
-    (Story) => (
+    (Story: any) => (
       <ul style={{ listStyleType: 'none', margin: 0, padding: 0 }}>
         <Story />
       </ul>
     ),
   ]
-} as ComponentMeta<typeof Todo>;
+} as Meta<typeof Todo>;
 
-const Template: ComponentStory<typeof Todo> = (args) => <Todo {...args} />;
+const Template: StoryFn<typeof Todo> = (args: any) => <Todo {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
