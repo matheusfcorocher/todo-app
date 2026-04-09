@@ -3,6 +3,5 @@
 exports[`::Components ::Atoms ::Button renders Button 1`] = `
 <button
   class="base-button large primary dark"
-  role="button"
 />
 `;

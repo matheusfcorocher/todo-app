@@ -1,5 +1,4 @@
 import { TodoTasks, updateTodoTaskTitle, UpdateTodoTaskTitleParameters } from "../../../domain/entities/TodoTask";
-import { TodoTaskCacheType } from "../../../domain/repositories/TodoTaskCacheType";
 
 export function makeUpdateTodoTaskTitle(): typeof updateTodoTaskTitle {
 

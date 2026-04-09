@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { IsCompletedFilterControllerReturnType } from "../../../../controllers/IsCompletedFilterController";
 import { TodoTaskControllerReturnType } from "../../../../controllers/TodoTaskController";
 import Button from "../../Atoms/Button/Button";
 import "./todo-footer.css";
 
-interface TodoFooter {
+interface TodoFooterProps {
   isCompletedFilterController: IsCompletedFilterControllerReturnType;
   todoTaskController: TodoTaskControllerReturnType;
 }
 
-function TodoFooter({ todoTaskController, isCompletedFilterController }: TodoFooter) {
+function TodoFooter({ todoTaskController, isCompletedFilterController }: TodoFooterProps) {
   const {
     handleDeleteAllCompletedTodoTasks,
     getOnlyActiveTodoTasks,
@@ -32,7 +32,7 @@ function TodoFooter({ todoTaskController, isCompletedFilterController }: TodoFoo
         <li>
           <a
             title={"Filter all todo tasks"}
-            className={`todo-filter ${filter == undefined ? "active" : ""}`}
+            className={`todo-filter ${filter === undefined ? "active" : ""}`}
             onClick={(e) => handleClick(undefined)}
             href="#/"
           >
@@ -42,7 +42,7 @@ function TodoFooter({ todoTaskController, isCompletedFilterController }: TodoFoo
         <li>
           <a
             title={"Filter active todo tasks"}
-            className={`todo-filter ${filter == false ? "active" : ""}`}
+            className={`todo-filter ${filter === false ? "active" : ""}`}
             onClick={(e) => handleClick(false)}
             href="#/active"
           >
@@ -52,7 +52,7 @@ function TodoFooter({ todoTaskController, isCompletedFilterController }: TodoFoo
         <li>
           <a
             title={"Filter completed todo tasks"}
-            className={`todo-filter ${filter == true ? "active" : ""}`}
+            className={`todo-filter ${filter === true ? "active" : ""}`}
             onClick={(e) => handleClick(true)}
             href="#/completed"
           >

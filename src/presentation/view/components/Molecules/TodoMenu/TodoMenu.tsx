@@ -19,7 +19,7 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
     getIsTodoTasksNotEmpty,
   } = todoTaskController;
   function handlePress(event: React.KeyboardEvent<HTMLInputElement>) {
-    if (event.key == "Enter" && title !== "") {
+    if (event.key === "Enter" && title !== "") {
       handleAddTodoTask(title);
       setTitle("");
     }
@@ -63,7 +63,7 @@ function TodoMenu({ todoTaskController }: TodoMenuProps) {
       )}
       <input
         type="text"
-        role="textbox"
+        
         placeholder="What needs to be done?"
         value={title}
         name="title"

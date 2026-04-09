@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Todo from './presentation/view/components/Organisms/Todo/Todo';
 import { TodoTasks } from './domain/entities/TodoTask';

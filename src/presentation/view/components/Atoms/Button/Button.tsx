@@ -20,7 +20,7 @@ function Button({
             title={title}
             className={`base-button ${size} ${variant} ${fontColor}`}
             onClick={() => handleFunction()}
-            role="button"
+            
         >
             {title}
         </button>

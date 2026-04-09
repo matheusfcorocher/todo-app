@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface ArrowDownIconProps {
   className?: string;
@@ -7,7 +7,7 @@ interface ArrowDownIconProps {
 function ArrowDownIcon({ className }: ArrowDownIconProps) {
   return (
     <svg
-      role="image"
+      role="img"
       className={`${className}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"

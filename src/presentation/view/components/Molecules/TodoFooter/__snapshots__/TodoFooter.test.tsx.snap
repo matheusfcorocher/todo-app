@@ -47,7 +47,6 @@ exports[`::Components ::Molecules ::TodoFooter renders TodoFooter 1`] = `
   </ul>
   <button
     class="base-button small primary gray"
-    role="button"
     title="Clear Completed"
   >
     Clear Completed

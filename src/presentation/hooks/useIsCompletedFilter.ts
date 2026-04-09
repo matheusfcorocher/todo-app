@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IsCompletedFilterViewModelType } from "../models/FilterViewModel";
 
 type useIsCompletedFilterType = {
@@ -13,7 +13,7 @@ export function useIsCompletedFilter({hash, isCompletedFilterViewModel}: useIsCo
   
   useEffect(() => {
     setFilter(isCompletedFilterViewModel.getFilterByUrlHash(hash));
-  }, [hash]);
+  }, [hash, isCompletedFilterViewModel]);
 
   return {filter, setFilter};
 }

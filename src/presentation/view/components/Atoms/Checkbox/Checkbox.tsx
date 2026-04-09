@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './checkbox.css';
 
 interface CheckboxProps {
@@ -19,7 +19,7 @@ function Checkbox({
         >
             <input
                 type="checkbox"
-                role="checkbox"
+                
                 name="checked"
                 className="checkbox-input"
                 checked={checked}

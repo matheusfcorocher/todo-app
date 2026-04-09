@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { render, screen, cleanup, waitFor } from '@testing-library/react';
 import { TodoItem } from './TodoItem';
 import userEvent from '@testing-library/user-event';

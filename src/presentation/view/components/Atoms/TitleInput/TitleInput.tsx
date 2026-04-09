@@ -15,7 +15,7 @@ interface TitleInputProps {
 const TitleInput = forwardRef<HTMLInputElement, TitleInputProps>(
     (props, ref) => {
         function handlePress(event : React.KeyboardEvent<HTMLInputElement>) {
-            if(event.key == "Enter") {
+            if(event.key === "Enter") {
                 event.currentTarget.blur();
             }
         }
@@ -28,7 +28,7 @@ const TitleInput = forwardRef<HTMLInputElement, TitleInputProps>(
             >
                 <input
                     type="text"
-                    role="textbox"
+                    
                     value={props.title}
                     className={`title-input`}
                     ref={ref}
